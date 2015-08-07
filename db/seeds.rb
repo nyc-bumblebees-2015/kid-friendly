@@ -76,7 +76,47 @@ locations = [
 
 ]
 
+users = [ 
+
+  { first_name: "Vic",
+    last_name: "Zhu",
+    email: "duanereade@don.com",
+    username: "dondoodie",
+    password: "123456"
+  }
+]
+
+reviews = [
+
+  { location_id: 3,
+    user_id: 1,
+    overall_rating: 4,
+    cleanliness_rating: 4,
+    spaciousness_rating: 3,
+    body: "This place is crowded on weekdays, but the wait isn't too long. I would bring my kid here because he likes Mike's hot honey."
+  }
+]
+
+likes = [
+  { user_id: 1,
+    review_id: 1
+  }
+]
+
+
 locations.each do |location|
    Location.create(location)
+end
+
+users.each do |user|
+   User.create(user)
+end
+
+reviews.each do |review|
+   Review.create(review)
+end
+
+likes.each do |like|
+   Like.create(like)
 end
 
