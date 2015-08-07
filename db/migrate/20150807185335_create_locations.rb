@@ -5,11 +5,8 @@ class CreateLocations < ActiveRecord::Migration
       t.string :place_id, null: false
       t.float :lng, null: false
       t.float :lat, null: false
-      t.string :street_num, null: false
-      t.string :route, null: false
-      t.string :city, null: false
-      t.string :state, null: false
-      t.string :postal_code, null: false
+      t.string :formatted_address, null: false
+      t.string :formatted_phone_number    
       t.boolean :cribs
       t.boolean :changing_stations
       t.boolean :high_chairs
