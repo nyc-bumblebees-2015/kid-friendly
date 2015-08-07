@@ -1,0 +1,4 @@
+language: ruby
+script: 'true'
+rvm:
+  - 2.1.0
