@@ -22,17 +22,6 @@ LocationSearch.Models = (function(){
     return deferred;
   };
 
-  Location.amenitySearch = function(amenity) {
-    url = '/find_amenities/' + amenity
-    var deferred = $.ajax({url: url})
-    .then(function(response){
-      return response.map(function(ele){
-        return new Location(ele);
-      });
-    });
-    return deferred;
-  };
-
   var retval = { Location: Location };
   return retval;
 
@@ -68,17 +57,6 @@ LocationSearch.Controller = function(){
       alert(searchText + ': ' + text);
     });
   };
-
-  LocationSearch.Controller.prototype.performNameSearch = function(searchText, distance) {
-    LocationSearch.Models.Location.nameSearch(searchText, distance)
-    .then(function(results){
-      this.view.renderSeachResults(results)
-    }.bind(this))
-    .fail(function(req, stat, text){
-      alert(searchText + ': ' + text);
-    });
-  };
-
 
 };
 
