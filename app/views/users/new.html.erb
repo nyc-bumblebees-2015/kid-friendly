@@ -1,0 +1,32 @@
+<h2>New User Registration</h2>
+<div class="new_user_form form">
+  <%= form_for @user do |f| %>
+    <div class="form_fields">
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+    </div>
+    <div class="form_fields">    
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+    </div>  
+    <div class="form_fields">    
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </div>
+    <div class="form_fields">    
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+    <div class="form_fields">    
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>  
+    <div class="form_fields">    
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+    </div>      
+    <div class="form_fields">     
+      <%= f.submit "Sign up" %>
+    </div>
+  <% end %>
+</div>
