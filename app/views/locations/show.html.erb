@@ -13,6 +13,7 @@
     <h3><%= pluralize(@location.reviews.count, "review") %></h3>
     <% @location.reviews.each do |review| %>
       <%= render partial: 'reviews/review', locals: {review: review} %>
+      <%= render partial: 'likes/form', locals: {review: review, likes: @likes} %>
     <% end %>
   </div>
 <% end %>  

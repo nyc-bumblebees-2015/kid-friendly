@@ -4,7 +4,7 @@
   <div class="location_reviews">
     <h3><%= pluralize(@user.reviews.count, "review") %></h3>
     <% @user.reviews.each do |review| %>
-      <h4><%= review.location.name %></h4>
+      <h4><%= link_to review.location.name, review.location %></h4>
       <%= render partial: 'reviews/review', locals: {review: review} %>
     <% end %>
   </div>  
