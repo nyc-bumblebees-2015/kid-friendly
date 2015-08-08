@@ -34,7 +34,7 @@ function setup() {
 
 function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
-    for (var i = 0; i < results.length; i++) {
+    for (var i = 1 ; i < results.length - 1; i++) {
       // createMarker(results[i]);
       $('#locals_list').append("<li>" + results[i].name + " " + results[i].vicinity + "</li>")
     }
