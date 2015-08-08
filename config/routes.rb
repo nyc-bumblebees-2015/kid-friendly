@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#logout'  
 
-  get 'locations/search/:name', to: 'locations#search'
-  get 'find_amenities/:amenity' => 'locations#find_amenities'
+  get 'locations/search/:name' => 'locations#search', as: 'locations_search'
+  get 'find_amenities/:amenity' => 'locations#find_amenities', as: 'find_amenities'
   get 'report_amenities' => 'locations#report_amenities'
 end
