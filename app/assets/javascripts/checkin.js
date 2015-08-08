@@ -33,13 +33,23 @@ function setup() {
 }
 
 function callback(results, status) {
+  var ary = [];
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 1 ; i < results.length - 1; i++) {
+      ary.push({name: results[i].name, vicinity: results[i].vicinity});
       // createMarker(results[i]);
-      $('#locals_list').append("<li>" + results[i].name + " " + results[i].vicinity + "</li>")
+      // $('#locals_list').append("<li>" + results[i].name + " " + results[i].vicinity + "</li>")
     }
+      var context = {locations:ary};//{name: results[i].name, vicinity: results[i].vicinity};
+      var source = $("#google-location-template").html();
+      var template = Handlebars.compile(source);
+      // var html = template(context);
+      $('#locals_list').append(template(context))
+  console.log(results)
   console.log(results[1])
-  console.log(results[0].name)
+  console.log(results[1].name)
+  console.log(results[1].vicinity)
+
   }
 }
 
