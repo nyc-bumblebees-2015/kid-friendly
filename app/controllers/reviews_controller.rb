@@ -10,8 +10,7 @@ class ReviewsController < ApplicationController
   def create
     review = Review.new(review_params)
     review.location = Location.find_by(id: params[:location_id])
-    review.user = User.find_by(id: 1)
-    review.save
+    review.user = current_user
     if review.save
       redirect_to location_path(review.location), notice: "Review created successfully!"
     else
