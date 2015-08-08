@@ -1,0 +1,11 @@
+<h2><%= @user.username %></h2>
+
+<% if @user.reviews? %>
+  <div class="location_reviews">
+    <h3><%= pluralize(@user.reviews.count, "review") %></h3>
+    <% @user.reviews.each do |review| %>
+      <h4><%= review.location.name %></h4>
+      <%= render partial: 'reviews/review', locals: {review: review} %>
+    <% end %>
+  </div>  
+<% end %>
