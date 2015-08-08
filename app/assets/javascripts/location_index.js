@@ -11,7 +11,7 @@ LocationSearch.Models = (function(){
     this.updated_at = new Date(data.updated_at);
   };
 
-  Location.search = function(name, prox) {
+  Location.nameSearch = function(name, prox) {
     url = '/locations/search/' + encodeURIComponent(name) + '?prox=' + prox + '\&lat=' + window.lat + '\&lng=' + window.lng;
     var deferred = $.ajax({url: url})
     .then(function(response){
@@ -49,7 +49,7 @@ LocationSearch.BrowserLocation = (function(){
 LocationSearch.Controller = function(){
 
   LocationSearch.Controller.prototype.performSearch = function(searchText, distance) {
-    LocationSearch.Models.Location.search(searchText, distance)
+    LocationSearch.Models.Location.nameSearch(searchText, distance)
     .then(function(results){
       this.view.renderSeachResults(results)
     }.bind(this))
