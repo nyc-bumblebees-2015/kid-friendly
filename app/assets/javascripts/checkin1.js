@@ -15,15 +15,15 @@ function initialize(){
 function setup() {
 
 
-  var pyrmont = new google.maps.LatLng(lat, lng);
+  var pointOfInterest = new google.maps.LatLng(lat, lng);
 
   map = new google.maps.Map(document.getElementById('map-canvas'), {
-    center: pyrmont,
+    center: pointOfInterest,
     zoom: 15
   });
 
   var request = {
-    location: pyrmont,
+    location: pointOfInterest,
     radius: 500,
     types: ['store']
   };
