@@ -22,7 +22,7 @@ class LocationsController < ApplicationController
   end
 
   def report_amenities
-    new_location = Location.new
+    @location = Location.new
   end
 
   private
