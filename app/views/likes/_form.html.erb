@@ -1,0 +1,7 @@
+<div class="helpful">
+  <% if current_user %>
+    <%= form_for [review, @like] do |f| %>
+      <%= f.submit "^" %>
+    <% end %>
+  <% end %>
+</div>
