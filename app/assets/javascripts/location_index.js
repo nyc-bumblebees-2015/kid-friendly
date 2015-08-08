@@ -30,7 +30,6 @@ LocationSearch.Models = (function(){
 LocationSearch.BrowserLocation = (function(){
 
   Location.get = function() {
-    // debugger;
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position){
           window.lat = position.coords.latitude;
@@ -52,7 +51,6 @@ LocationSearch.Controller = function(){
   LocationSearch.Controller.prototype.performSearch = function(searchText, distance) {
     LocationSearch.Models.Location.search(searchText, distance)
     .then(function(results){
-      console.log('yay', results);
       this.view.renderSeachResults(results)
     }.bind(this))
     .fail(function(req, stat, text){
@@ -75,7 +73,7 @@ LocationSearch.View = function(controller){
   LocationSearch.View.prototype.renderLocation = function(location) {
     var html = '';
     html += '<div>';
-    html += location.name + '<br>';
+    html +=  '<a href=/locations/' + location.id + '>' + location.name + '</a><br>';
     html += location.formatted_address;
     html += '</div>';
     return html
