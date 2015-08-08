@@ -1,8 +1,8 @@
-
 var map;
 var infowindow;
 var lat;
 var lng;
+
 
 function initialize(){
   navigator.geolocation.getCurrentPosition(function(position) {

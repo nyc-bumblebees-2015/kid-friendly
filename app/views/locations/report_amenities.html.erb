@@ -1,8 +1,35 @@
-<h1>SOooooo....</h1>
-
-
-
+<h1>Check In Amenity</h1>
 
 <div id="map-canvas"></div>
 
 <div id="locals_list"></div>
+
+<script id="google-location-template">
+  <div>
+    <span>{{name}}</span>
+    <span>{{vicinity}}</span>
+  </div>
+</script>
+
+
+
+
+
+
+
+<div class="new-location-form">
+
+  <%= form_for @location do |f| %>
+    <%= f.label 'Changing Stations' %>
+    <%= f.check_box :changing_stations%>
+    <%= f.label 'Nursing Stations' %>
+    <%= f.check_box :nursing_stations%>
+    <%= f.text_field :lng, hidden: 10 %>
+    <%= f.text_field :lat, hidden: 10 %>
+    <%= f.text_field :formatted_address, hidden: "filler"%>
+    <%=f.text_field :formatted_phone_number, hidden: "filler"%>
+    <%=f.text_field :changing_stations, hidden: "filler"%>
+    <%=f.text_field :nursing_stations, hidden: "filler"%>
+  <% end %>
+
+</div>
