@@ -25,7 +25,7 @@ class LocationsController < ApplicationController
   end
 
   def search
-    results = Location.near_places({name: params[:name], lat: params[:lat], lng: params[:lng], prox: '.5'})
+    results = locations_search(params[:prox])
 
     if results
       render json: results
@@ -39,4 +39,13 @@ class LocationsController < ApplicationController
   def location_params
     params.require(:location).permit(:name, :lng, :lat, :place_id, :formatted_address, :formatted_phone_number, :cribs, :changing_stations, :high_chairs, :family_restrooms, :restrooms, :nursing_stations, :water_fountains)
   end
+
+  def locations_search(proximity)
+    if proximity == 'anywhere'
+      Location.name_places(params[:name])
+    else
+      Location.near_places({name: params[:name], lat: params[:lat], lng: params[:lng], prox: params[:prox]})
+    end
+  end
+
 end

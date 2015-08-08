@@ -11,8 +11,8 @@ LocationSearch.Models = (function(){
     this.updated_at = new Date(data.updated_at);
   };
 
-  Location.search = function(name) {
-    url = '/locations/search/' + encodeURIComponent(name) + '?lat=' + window.lat + '\&lng=' + window.lng;
+  Location.search = function(name, prox) {
+    url = '/locations/search/' + encodeURIComponent(name) + '?prox=' + prox + '\&lat=' + window.lat + '\&lng=' + window.lng;
     var deferred = $.ajax({url: url})
     .then(function(response){
       return response.map(function(ele){
@@ -49,9 +49,8 @@ LocationSearch.BrowserLocation = (function(){
 // Controller
 LocationSearch.Controller = function(){
 
-  LocationSearch.Controller.prototype.performSearch = function(searchText) {
-
-    LocationSearch.Models.Location.search(searchText)
+  LocationSearch.Controller.prototype.performSearch = function(searchText, distance) {
+    LocationSearch.Models.Location.search(searchText, distance)
     .then(function(results){
       console.log('yay', results);
       this.view.renderSeachResults(results)
@@ -85,7 +84,8 @@ LocationSearch.View = function(controller){
   $('#search-form').on('submit', function(event){
     event.preventDefault();
     var searchName = $('#search').val();
-    this.controller.performSearch(searchName);
+    var prox = $('select').val();
+    this.controller.performSearch(searchName, prox);
   }.bind(this));
 
 };
