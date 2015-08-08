@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
-  resources :likes, only: [:create]
+  resources :reviews, only: [:show] do
+    resources :likes, only: [:create]
+  end
 
   resources :users
 
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
+  get 'logout' => 'sessions#logout'  
 
   get 'locations/search/:name', to: 'locations#search'
   get 'find_amenities' => 'locations#find_amenities'
