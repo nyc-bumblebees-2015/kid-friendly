@@ -1,0 +1,9 @@
+<div class="review">
+  <div class="review_body">
+    <%= simple_format(review.body) %>
+  </div>
+  <div class="review_details">
+    <%= review.user.username %> - 
+    <%= time_ago_in_words(review.created_at) %> ago
+  </div>
+</div>  
