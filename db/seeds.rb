@@ -58,6 +58,20 @@ locations = [
    nursing_stations: nil,
    water_fountains: nil
  },
+{ name: "Yosemite National park",
+   place_id: "ChIJxeyK9Z3wloAR_gOA7SycJC0",
+   lng:-119.538329,
+   lat:37.865101,
+   formatted_address:"California, United States",
+   formatted_phone_number:"(209) 372-0200",
+   cribs: nil,
+   changing_stations: nil,
+   high_chairs: nil,
+   family_restrooms: nil,
+   restrooms: nil,
+   nursing_stations: nil,
+   water_fountains: nil
+ },
 
  { name: "Empire State Bldg",
    place_id: "ChIJtcaxrqlZwokRfwmmibzPsTU",
@@ -76,7 +90,7 @@ locations = [
 
 ]
 
-users = [ 
+users = [
 
   { first_name: "Vic",
     last_name: "Zhu",

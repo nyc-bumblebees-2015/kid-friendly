@@ -1,1 +1,31 @@
-report_amenities.html.erb
+<h1>Check In Amenity</h1>
+
+<script id="google-location-template" type="text/x-handlebars-template">
+ <div id="api-search-locations-checkin">
+  {{#locations}}
+  <img class='checkin-icon' src='{{icon}}' />
+  <div class="result-row" data-place_id="{{placeID}}">
+    {{name}}
+    <br>
+    {{vicinity}}
+  </div>
+
+  {{/locations}}
+
+</script>
+</div>
+<div id="map-canvas"></div>
+
+<div id="locals_list"></div>
+
+<div class="new-location-form">
+
+  <%= form_for @location do |f| %>
+    <%= f.label 'Changing Stations' %>
+    <%= f.check_box :changing_stations, options = {}, checked_value = true, unchecked_value = false %>
+    <%= f.label 'Nursing Stations' %>
+    <%= f.check_box :nursing_stations, options = {}, checked_value = true, unchecked_value = false %>
+    <%= f.submit 'Submit' , id: 'checkin-submit-btn' %>
+  <% end %>
+
+</div>
