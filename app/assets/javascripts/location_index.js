@@ -22,6 +22,17 @@ LocationSearch.Models = (function(){
     return deferred;
   };
 
+  Location.amenitySearch = function(amenity) {
+    url = '/find_amenities/' + amenity
+    var deferred = $.ajax({url: url})
+    .then(function(response){
+      return response.map(function(ele){
+        return new Location(ele);
+      });
+    });
+    return deferred;
+  };
+
   var retval = { Location: Location };
   return retval;
 
@@ -48,7 +59,7 @@ LocationSearch.BrowserLocation = (function(){
 // Controller
 LocationSearch.Controller = function(){
 
-  LocationSearch.Controller.prototype.performSearch = function(searchText, distance) {
+  LocationSearch.Controller.prototype.performNameSearch = function(searchText, distance) {
     LocationSearch.Models.Location.nameSearch(searchText, distance)
     .then(function(results){
       this.view.renderSeachResults(results)
@@ -57,6 +68,17 @@ LocationSearch.Controller = function(){
       alert(searchText + ': ' + text);
     });
   };
+
+  LocationSearch.Controller.prototype.performNameSearch = function(searchText, distance) {
+    LocationSearch.Models.Location.nameSearch(searchText, distance)
+    .then(function(results){
+      this.view.renderSeachResults(results)
+    }.bind(this))
+    .fail(function(req, stat, text){
+      alert(searchText + ': ' + text);
+    });
+  };
+
 
 };
 
@@ -83,7 +105,7 @@ LocationSearch.View = function(controller){
     event.preventDefault();
     var searchName = $('#search').val();
     var prox = $('select').val();
-    this.controller.performSearch(searchName, prox);
+    this.controller.performNameSearch(searchName, prox);
   }.bind(this));
 
 };
