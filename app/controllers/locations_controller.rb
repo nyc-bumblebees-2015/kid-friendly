@@ -66,7 +66,7 @@ class LocationsController < ApplicationController
     if proximity == 'anywhere'
       Location.name_places(params[:name])
     else
-      Location.near_places({name: params[:name], lat: params[:lat], lng: params[:lng], prox: params[:prox]})
+      Location.nearby_places({name: params[:name], lat: params[:lat], lng: params[:lng], prox: params[:prox]})
     end
   end
 
