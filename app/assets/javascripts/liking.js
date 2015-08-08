@@ -8,7 +8,14 @@ $(document).ready(function(){
       dataType: 'json'
     }).done(function(response){
       console.log("successful");
-      var points = $(event.target).find('.helpful_points');
+      var likes = $(event.target).parent().parent().find('.helpful_points');
+      var people = $(event.target).parent().parent().find('.helped');
+      likes.html(response.likes);
+      if (response.likes == 1){
+        people.html("person");
+      } else {
+        people.html("people");
+      }
     }).fail(function(error){
       console.log('failed');
     });
