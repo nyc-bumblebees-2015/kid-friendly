@@ -1,14 +1,13 @@
 <h1>Check In Amenity</h1>
 
 <script id="google-location-template" type="text/x-handlebars-template">
- <div id="locations">
+ <div id="api-search-locations-checkin">
   {{#locations}}
-  <div class="location">
-    <span>Name: {{name}}</span>
-    <div class="address">
-      <span>Vicinity: {{vicinity}}</span>
-    </div>
+  <div class="result-row" data-place_id="{{placeID}}">
+    Name: {{name}}
+    Vicinity: {{vicinity}}
   </div>
+
   {{/locations}}
  </div>
 </script>

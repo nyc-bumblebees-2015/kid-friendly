@@ -24,8 +24,8 @@ function setup() {
 
   var request = {
     location: pointOfInterest,
-    radius: 500,
-    // types: ['store']
+    radius: 100,
+    types: ['amusement_park','aquarium','art_gallery','bicycle_store','book_store','bowling_alley','cafe','campground','casino','food','gym','library','lodging','movie_theater','museum','park','restaurant','rv_park','shopping_mall','spa','stadium','zoo','store','gas_station','grocery_or_supermarket','laundry','parking','subway_station','train_station']
   };
   infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
@@ -35,8 +35,8 @@ function setup() {
 function callback(results, status) {
   var ary = [];
   if (status == google.maps.places.PlacesServiceStatus.OK) {
-    for (var i = 1 ; i < results.length - 1; i++) {
-      ary.push({name: results[i].name, vicinity: results[i].vicinity});
+    for (var i = 0; i < results.length; i++) {
+      ary.push({name: results[i].name, vicinity: results[i].vicinity, placeID: results[i].place_id});
       // createMarker(results[i]);
       // $('#locals_list').append("<li>" + results[i].name + " " + results[i].vicinity + "</li>")
     }
@@ -68,4 +68,26 @@ function callback(results, status) {
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
+
+$(document).ready(function(){
+  $('body').on('click','.result-row', function(){
+    $('.result-row').removeClass('selected-row');
+    $(event.target).addClass('selected-row');
+    console.log('shit', event.target);
+      var placeID = event.target.dataset.place_id
+      var request = {
+      placeId: placeID
+      };
+
+      service = new google.maps.places.PlacesService(map);
+      service.getDetails(request, callback);
+
+      function callback(place, status) {
+        console.log(place);
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+          // createMarker(place);
+        }
+      }
+  });
+});
 
