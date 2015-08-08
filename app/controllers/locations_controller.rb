@@ -25,7 +25,7 @@ class LocationsController < ApplicationController
   end
 
   def search
-    results = Location.near_places({name: params[:name], lat: '40.7048872', lng: '-74.0123737', prox: '.5'})
+    results = Location.near_places({name: params[:name], lat: params[:lat], lng: params[:lng], prox: '.5'})
 
     if results
       render json: results

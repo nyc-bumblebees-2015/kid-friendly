@@ -12,7 +12,7 @@ LocationSearch.Models = (function(){
   };
 
   Location.search = function(name) {
-    url = '/locations/search/' + encodeURIComponent(name);
+    url = '/locations/search/' + encodeURIComponent(name) + '?lat=' + window.lat + '\&lng=' + window.lng;
     var deferred = $.ajax({url: url})
     .then(function(response){
       return response.map(function(ele){
@@ -29,16 +29,13 @@ LocationSearch.Models = (function(){
 
 LocationSearch.BrowserLocation = (function(){
 
-  function showPosition(position) {
-    // debugger;
-    console.log(position.coords.latitude)
-    return { lat: position.coords.latitude, lng: position.coords.longitude};
-  };
-
   Location.get = function() {
+    // debugger;
     if (navigator.geolocation) {
-        // debugger;
-        navigator.geolocation.getCurrentPosition(showPosition)
+        navigator.geolocation.getCurrentPosition(function(position){
+          window.lat = position.coords.latitude;
+          window.lng = position.coords.longitude;
+        });
     } else {
         alert("Geolocation is not supported by this browser. Please turn it on to ensure better search results");
     }
@@ -53,8 +50,7 @@ LocationSearch.BrowserLocation = (function(){
 LocationSearch.Controller = function(){
 
   LocationSearch.Controller.prototype.performSearch = function(searchText) {
-    // debugger;
-    // LocationSearch.BrowserLocation.Location.get()
+
     LocationSearch.Models.Location.search(searchText)
     .then(function(results){
       console.log('yay', results);
@@ -99,4 +95,5 @@ $(document).ready(function(){
   var controller = new LocationSearch.Controller();
   var view = new LocationSearch.View(controller);
   controller.view = view;
+  LocationSearch.BrowserLocation.Location.get();
 });
