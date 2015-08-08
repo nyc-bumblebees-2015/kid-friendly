@@ -1,5 +1,5 @@
 <%= form_for [location,review] do |f| %>
-  <div class="form_fields">
+  <div class="form_ratings">
     <fieldset class="rating">
         <legend><%= f.label :overall_rating %></legend>
         <%= f.radio_button(:overall_rating, 5, :id => "overall5", :name => "review[overall_rating]" ) %>
@@ -13,8 +13,6 @@
         <%= f.radio_button(:overall_rating, 1, :id => "overall1", :name => "review[overall_rating]" ) %>
         <label for="overall1" title="overall: 1">1</label>    
     </fieldset>     
-  </div>
-  <div class="form_fields">
     <fieldset class="rating">
         <legend><%= f.label "Cleanliness" %></legend>
         <%= f.radio_button(:cleanliness_rating, 5, :id => "cleanliness5", :name => "review[cleanliness_rating]" ) %>
@@ -28,8 +26,6 @@
         <%= f.radio_button(:cleanliness_rating, 1, :id => "cleanliness1", :name => "review[cleanliness_rating]" ) %>
         <label for="cleanliness1" title="cleanliness: 1">1</label>    
     </fieldset>    
-  </div>
-  <div class="form_fields">
     <fieldset class="rating">
         <legend><%= f.label "Spaciousness" %></legend>
         <%= f.radio_button(:spaciousness_rating, 5, :id => "spaciousness5", :name => "review[spaciousness_rating]" ) %>

@@ -1,7 +1,14 @@
-.rating {
-    float:left;
+.form_fields {
+  display: clear;
 }
 
+.rating {
+    width: 300px;
+}
+
+.form_ratings {
+  display: block;
+}
 /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
    follow these rules. Every browser that supports :checked also supports :not(), so
    it doesn’t make the test unnecessarily selective */
