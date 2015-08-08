@@ -1,0 +1,5 @@
+<div class="page_heading">
+<h2><%= @location.name %></h2>
+<%= @location.formatted_address %>
+</div>
+<%= pluralize(@location.reviews.count, "review") %>
