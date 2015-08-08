@@ -24,6 +24,16 @@ class LocationsController < ApplicationController
   def report_amenities
   end
 
+  def search
+    results = Location.near_places({name: params[:name], lat: '40.7048872', lng: '-74.0123737', prox: '.5'})
+
+    if results
+      render json: results
+    else
+      render nothing: true, status: 404
+    end
+  end
+
   private
 
   def location_params
