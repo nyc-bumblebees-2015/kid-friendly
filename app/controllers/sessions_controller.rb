@@ -6,12 +6,12 @@ class SessionsController < ApplicationController
       redirect_to root_path, notice: "Welcome back #{user.username}!"
     else
       flas[:errors] = ["Invalid Login"]
-      redirect_to login_path
+      redirect_to root_path
     end
   end
 
   def logout
-    session.delete_all
+    session.clear
     redirect_to root_path
   end
 end
