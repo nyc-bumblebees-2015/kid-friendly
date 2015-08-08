@@ -71,7 +71,7 @@ function callback(results, status) {
 }
 
 function createMarker(place) {
- 
+
   var icons = {
     lodging: {
       icon: 'http://maps.google.com/mapfiles/ms/micons/lodging.png'
@@ -124,8 +124,8 @@ function createMarker(place) {
     park: {
       icon: 'http://maps.google.com/mapfiles/kml/pal2/icon4.png'
     },
-    rv_park: { 
-      icon: 'http://maps.google.com/mapfiles/ms/micons/truck.png' 
+    rv_park: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/truck.png'
     },
     shopping_mall: {
       icon: 'http://maps.google.com/mapfiles/ms/micons/shopping.png'
@@ -299,7 +299,7 @@ function createMarker(place) {
       icon: 'http://maps.google.com/mapfiles/ms/micons/movies.png'
     },
     moving_company: {
-      icon: 'http://maps.google.com/mapfiles/ms/micons/truck.png' 
+      icon: 'http://maps.google.com/mapfiles/ms/micons/truck.png'
     },
     night_club: {
       icon: 'http://maps.google.com/mapfiles/ms/micons/bar.png'
@@ -377,7 +377,7 @@ function createMarker(place) {
 google.maps.event.addDomListener(window, 'load', initialize);
 
 $(document).ready(function(){
-  $('.new_location').hide();
+  $('.new-checkin').hide();
   $('#checkin-submit-btn').toggle(false);
   $('#location_changing_stations, #location_nursing_stations').on('click', function(){
     if($('#location_changing_stations').is(':checked') || $('#location_nursing_stations').is(':checked')) {
@@ -387,8 +387,7 @@ $(document).ready(function(){
     };
   });
   $('body').on('click','.result-row', function(){
-    $('.new_location').show()
-    
+    $('.new-checkin').show()
     $('.result-row').removeClass('selected-row');
     $(event.target).addClass('selected-row');
       var placeID = event.target.dataset.place_id
@@ -401,12 +400,12 @@ $(document).ready(function(){
         data = {name: place.name, place_id: place.place_id, lng: place.geometry.location.K, lat: place.geometry.location.G, formatted_address: place.formatted_address, formatted_phone_number: place.formatted_phone_number}
       };
   });
-  $(".new_location").on('submit', function(event){
+  $(".new-checkin").on('submit', function(event){
       for(var key in data){
         $('<input />').attr('type', 'hidden')
         .attr('name', "location[" + key + "]")
         .attr('value', data[key])
-        .prependTo('.new_location');
+        .prependTo('.new-checkin');
       };
   });
 });
