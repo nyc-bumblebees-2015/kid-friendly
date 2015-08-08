@@ -18,6 +18,6 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#logout'  
 
   get 'locations/search/:name', to: 'locations#search'
-  get 'find_amenities' => 'locations#find_amenities'
+  get 'find_amenities/:amenity' => 'locations#find_amenities'
   get 'report_amenities' => 'locations#report_amenities'
 end
