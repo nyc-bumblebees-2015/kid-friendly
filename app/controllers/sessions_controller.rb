@@ -12,6 +12,6 @@ class SessionsController < ApplicationController
 
   def logout
     session.clear
-    redirect_to root_path
+    redirect_to root_path, notice: "Logged out successfully."
   end
 end
