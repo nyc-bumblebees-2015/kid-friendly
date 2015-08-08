@@ -17,11 +17,23 @@ class Location < ActiveRecord::Base
   end
 
   def star_rating(attr)
-    "★" * (self.reviews.sum("#{attr}") / self.reviews.count("#{attr} > 0"))
+    if rating?(attr)
+      "★" * (self.reviews.sum("#{attr}") / self.reviews.count("#{attr} > 0"))
+    else
+      "no ratings provided"
+    end
+  end
+
+  def rating?(attr)
+    self.reviews.count("#{attr} > 0") >=1
   end
 
   def escaped_address
     self.name.gsub(" ","+") + "+" + self.formatted_address.gsub(" ","+")
+  end
+
+  def reviews?
+    self.reviews.count > 0
   end
 
   def amenities?
