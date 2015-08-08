@@ -1,0 +1,8 @@
+<div class="page_heading">
+<h2>New Review for <%= @location.name %></h2>
+<%= @location.formatted_address %>
+</div>
+
+<div class="form new_review">
+  <%= render partial: "form", locals: {location: @location, review: @review} %>
+</div>
