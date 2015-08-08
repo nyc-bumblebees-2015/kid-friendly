@@ -1,5 +1,16 @@
-<div class="page_heading">
-<h2><%= @location.name %></h2>
-<%= @location.formatted_address %>
+<%= render partial: 'heading', locals: {location: @location} %>
+
+<%= render partial: 'ratings', locals: {location: @location} %>
+
+<%= render partial: 'map', locals: {location: @location} %>
+
+<% if @location.amenities? %>
+    <%= render partial: 'amenities', locals: {location: @location} %>
+<% end %>
+
+<div class="location_reviews">
+  <h3><%= pluralize(@location.reviews.count, "review") %></h3>
+  <% @location.reviews.each do |review| %>
+    <%= render partial: 'reviews/review', locals: {review: review} %>
+  <% end %>
 </div>
-<%= pluralize(@location.reviews.count, "review") %>
