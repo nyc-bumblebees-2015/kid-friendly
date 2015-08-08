@@ -16,4 +16,7 @@
       <%= render partial: 'likes/form', locals: {review: review, likes: @likes} %>
     <% end %>
   </div>
-<% end %>  
+<% end %> 
+<div class="new_review_link">
+  <%= link_to "Add your review", new_location_review_path(@location) %> 
+</div>
