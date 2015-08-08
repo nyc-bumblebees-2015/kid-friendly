@@ -10,9 +10,16 @@ class ApplicationController < ActionController::Base
     user && session[:user_id] == user_id
   end
 
+  def require_logged_in_user
+    unless current_user
+      flash[:error] = ["This area is only for logged in users."]
+      redirect_to root_path
+    end
+  end
+
   def require_authenticated_user(user)
     unless current_user?(user)
-      flash[:error] = "You don't have access to this page"
+      flash[:error] = ["You don't have access to this page"]
       redirect_to root_path
     end
   end

@@ -13,6 +13,10 @@
     <h3><%= pluralize(@location.reviews.count, "review") %></h3>
     <% @location.reviews.each do |review| %>
       <%= render partial: 'reviews/review', locals: {review: review} %>
+      <%= render partial: 'likes/form', locals: {review: review, likes: @likes} %>
     <% end %>
   </div>
-<% end %>  
+<% end %> 
+<div class="new_review_link">
+  <%= link_to "Add your review", new_location_review_path(@location) %> 
+</div>
