@@ -1,9 +1,21 @@
 
 var map;
 var infowindow;
+var lat;
+var lng;
 
-function initialize() {
-  var pyrmont = new google.maps.LatLng(-33.8665433, 151.1956316);
+function initialize(){
+  navigator.geolocation.getCurrentPosition(function(position) {
+    lat = position.coords.latitude;
+    lng = position.coords.longitude;
+    setup()
+  });
+}
+
+function setup() {
+
+
+  var pyrmont = new google.maps.LatLng(lat, lng);
 
   map = new google.maps.Map(document.getElementById('map-canvas'), {
     center: pyrmont,
@@ -24,8 +36,8 @@ function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       createMarker(results[i]);
-      console.log(results)
     }
+  console.log(results)
   }
 }
 
