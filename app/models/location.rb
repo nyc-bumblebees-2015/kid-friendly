@@ -11,4 +11,8 @@ class Location < ActiveRecord::Base
 
     self.within(prox, origin: [lat, lng]).where('LOWER(name) LIKE ?', "%#{name.downcase}%").to_json
   end
+
+  def self.name_places(name)
+    self.where('LOWER(name) LIKE ?', "%#{name.downcase}%").to_json
+  end
 end
