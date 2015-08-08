@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
-  def login
+  def new
+  end
+
+  def create
     user = User.find_by(username: params[:username])
     if user.try(:authenticate, params[:password])
       session[:user_id] = user.id
@@ -10,7 +13,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def logout
+  def destroy
     session.clear
     redirect_to root_path, notice: "Logged out successfully."
   end
