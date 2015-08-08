@@ -1,0 +1,54 @@
+<%= form_for [location,review] do |f| %>
+  <div class="form_fields">
+    <fieldset class="rating">
+        <legend><%= f.label :overall_rating %></legend>
+        <%= f.radio_button(:overall_rating, 5, :id => "overall5", :name => "review[overall_rating]" ) %>
+        <label for="overall5" title="overall: 5">5</label>
+        <%= f.radio_button(:overall_rating, 4, :id => "overall4", :name => "review[overall_rating]" ) %>
+        <label for="overall4" title="overall: 4">4</label>
+        <%= f.radio_button(:overall_rating, 3, :id => "overall3", :name => "review[overall_rating]" ) %>
+        <label for="overall3" title="overall: 3">3</label>        
+        <%= f.radio_button(:overall_rating, 2, :id => "overall2", :name => "review[overall_rating]" ) %>
+        <label for="overall2" title="overall: 2">2</label>
+        <%= f.radio_button(:overall_rating, 1, :id => "overall1", :name => "review[overall_rating]" ) %>
+        <label for="overall1" title="overall: 1">1</label>    
+    </fieldset>     
+  </div>
+  <div class="form_fields">
+    <fieldset class="rating">
+        <legend><%= f.label "Cleanliness" %></legend>
+        <%= f.radio_button(:cleanliness_rating, 5, :id => "cleanliness5", :name => "review[cleanliness_rating]" ) %>
+        <label for="cleanliness5" title="cleanliness: 5">5</label>
+        <%= f.radio_button(:cleanliness_rating, 4, :id => "cleanliness4", :name => "review[cleanliness_rating]" ) %>
+        <label for="cleanliness4" title="cleanliness: 4">4</label>
+        <%= f.radio_button(:cleanliness_rating, 3, :id => "cleanliness3", :name => "review[cleanliness_rating]" ) %>
+        <label for="cleanliness3" title="cleanliness: 3">3</label>        
+        <%= f.radio_button(:cleanliness_rating, 2, :id => "cleanliness2", :name => "review[cleanliness_rating]" ) %>
+        <label for="cleanliness2" title="cleanliness: 2">2</label>
+        <%= f.radio_button(:cleanliness_rating, 1, :id => "cleanliness1", :name => "review[cleanliness_rating]" ) %>
+        <label for="cleanliness1" title="cleanliness: 1">1</label>    
+    </fieldset>    
+  </div>
+  <div class="form_fields">
+    <fieldset class="rating">
+        <legend><%= f.label "Spaciousness" %></legend>
+        <%= f.radio_button(:spaciousness_rating, 5, :id => "spaciousness5", :name => "review[spaciousness_rating]" ) %>
+        <label for="spaciousness5" title="spaciousness: 5">5</label>
+        <%= f.radio_button(:spaciousness_rating, 4, :id => "spaciousness4", :name => "review[spaciousness_rating]" ) %>
+        <label for="spaciousness4" title="spaciousness: 4">4</label>
+        <%= f.radio_button(:spaciousness_rating, 3, :id => "spaciousness3", :name => "review[spaciousness_rating]" ) %>
+        <label for="spaciousness3" title="spaciousness: 3">3</label>        
+        <%= f.radio_button(:spaciousness_rating, 2, :id => "spaciousness2", :name => "review[spaciousness_rating]" ) %>
+        <label for="spaciousness2" title="spaciousness: 2">2</label>
+        <%= f.radio_button(:spaciousness_rating, 1, :id => "spaciousness1", :name => "review[spaciousness_rating]" ) %>
+        <label for="spaciousness1" title="spaciousness: 1">1</label>    
+    </fieldset>    
+  </div>
+  <div class="form_fields">
+    <%= f.label "review" %>
+    <%= f.cktext_area :body, :class => "form_text_area" %>
+  </div>
+  <div class="form_fields">
+    <%= f.submit "Submit review" %>
+  </div>  
+<% end %>
