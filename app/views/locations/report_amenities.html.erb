@@ -24,12 +24,11 @@
     <%= f.check_box :changing_stations%>
     <%= f.label 'Nursing Stations' %>
     <%= f.check_box :nursing_stations%>
-    <%= f.text_field :lng, hidden: 10 %>
-    <%= f.text_field :lat, hidden: 10 %>
+    <%= f.number_field :lng, class: 'text_field', step: 'any', hidden: "filler" %>
+    <%= f.number_field :lat, class: 'text_field', step: 'any', hidden: "filler" %>
     <%= f.text_field :formatted_address, hidden: "filler"%>
-    <%=f.text_field :formatted_phone_number, hidden: "filler"%>
-    <%=f.text_field :changing_stations, hidden: "filler"%>
-    <%=f.text_field :nursing_stations, hidden: "filler"%>
+    <%= f.text_field :formatted_phone_number, hidden: "filler"%>
+    <%= f.submit 'Submit' %>
   <% end %>
 
 </div>
