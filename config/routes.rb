@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#delete'
+  get 'logout' => 'sessions#logout'
 
   get 'locations/search/:name', to: 'locations#search'
   get 'find_amenities' => 'locations#find_amenities'
