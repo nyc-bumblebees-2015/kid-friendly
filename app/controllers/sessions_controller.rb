@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
     if user.try(:authenticate, params[:password])
       session[:user_id] = user.id
       redirect_to user, notice: "Welcome back #{user.username}!"
-      redirect_to root_path, notice: "Welcome back #{user.username}!"
     else
       flash[:errors] = ["Invalid Login"]
       redirect_to root_path
