@@ -13,6 +13,7 @@ gem 'geokit-rails', '~> 2.1.0'
 gem 'ckeditor'
 gem 'responders', '~> 2.0'
 gem 'yelp'
+gem 'responders', '~> 2.0'
 
 group :development, :test do
   gem 'rspec-rails'
