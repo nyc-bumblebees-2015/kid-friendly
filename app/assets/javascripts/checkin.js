@@ -58,11 +58,9 @@ function setup() {
 
 function callback(results, status) {
   var ary = [];
-  console.log(results);
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       ary.push({name: results[i].name, vicinity: results[i].vicinity, placeID: results[i].place_id, icon: results[i].icon});
-      console.log(results[i].types[0])
       createMarker(results[i]);
     }
       var context = {locations:ary};
@@ -404,7 +402,6 @@ $(document).ready(function(){
       };
   });
   $(".new_location").on('submit', function(event){
-      console.log(data);
       for(var key in data){
         $('<input />').attr('type', 'hidden')
         .attr('name', "location[" + key + "]")
