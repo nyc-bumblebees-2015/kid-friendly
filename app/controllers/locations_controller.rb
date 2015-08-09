@@ -2,14 +2,18 @@ class LocationsController < ApplicationController
   def index
   end
 
+  def new
+    @location = Location.new
+  end
+
   def show
     @location = Location.find_by(id: params[:id])
     @like = Like.new
   end
 
   def create
-    if Location.find_by(name: location_params[:name])
-      @location = Location.find_by(name: location_params[:name])
+    @location = Location.find_by(name: location_params[:name])
+    if @location
       @location.assign_attributes(location_params)
       if @location.save
         redirect_to root_path
