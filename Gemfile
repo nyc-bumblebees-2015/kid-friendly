@@ -12,6 +12,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'geokit-rails', '~> 2.1.0'
 gem 'ckeditor'
 gem 'responders', '~> 2.0'
+gem 'yelp'
 
 group :development, :test do
   gem 'rspec-rails'
