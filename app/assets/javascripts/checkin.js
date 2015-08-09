@@ -377,6 +377,7 @@ function createMarker(place) {
 google.maps.event.addDomListener(window, 'load', initialize);
 
 $(document).ready(function(){
+  $('#create-submit-btn').toggle(false);
   $('.new-checkin').hide();
   $('#checkin-submit-btn').toggle(false);
   $('#location_changing_stations, #location_nursing_stations').on('click', function(){
