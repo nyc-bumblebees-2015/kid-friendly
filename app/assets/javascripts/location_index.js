@@ -88,8 +88,22 @@ LocationSearch.View = function(controller){
 
   $('#changing_station').on('click', function(event){
     event.preventDefault();
-    window.location.href += 'find_amenities/' + 'changing_stations' + '?lat=' + window.lat + '\&lng=' + window.lng;
+    var route = getBaseUrl() + '/find_amenities/' + 'changing_stations' + '?lat=' + window.lat + '\&lng=' + window.lng;
+    window.location.href = route;
   });
+
+  $('#nursing_stations').on('click', function(event){
+    event.preventDefault();
+    var route = getBaseUrl() + '/find_amenities/' + 'nursing_stations' + '?lat=' + window.lat + '\&lng=' + window.lng;
+    window.location.href = route;
+  });
+
+  function getBaseUrl() {
+    var host = window.location.host
+    var protocol = location.protocol
+    var baseUrl = protocol + "//" + host
+    return baseUrl;
+  };
 
 };
 
