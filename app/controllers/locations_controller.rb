@@ -2,6 +2,10 @@ class LocationsController < ApplicationController
   def index
   end
 
+  def new
+    @location = Location.new
+  end
+
   def show
     @location = Location.find_by(id: params[:id])
     @like = Like.new
