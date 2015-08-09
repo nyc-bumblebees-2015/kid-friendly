@@ -16,11 +16,11 @@ function setup() {
   var pointOfInterest = new google.maps.LatLng(lat, lng);
   map = new google.maps.Map(document.getElementById('map-canvas'), {
     center: pointOfInterest,
-    zoom: 17
+    zoom: 15
   });
   var request = {
     location: pointOfInterest,
-    radius: 100,
+    radius: 500,
     types: ['amusement_park','aquarium','art_gallery','bicycle_store','book_store','bowling_alley','cafe','campground','casino','food','gym','library','lodging','movie_theater','museum','park','restaurant','rv_park','shopping_mall','spa','stadium','zoo','store','gas_station','grocery_or_supermarket','laundry','parking','subway_station','train_station']
   };
   infowindow = new google.maps.InfoWindow();
@@ -47,7 +47,7 @@ function createMarker(place) {
   var placeLoc = place.geometry.location;
   var marker = new google.maps.Marker({
     map: map,
-    position: place.geometry.location
+    position: place.geometry.location,
   });
 
   google.maps.event.addListener(marker, 'click', function() {
@@ -70,7 +70,7 @@ $(document).ready(function(){
   });
   $('body').on('click','.result-row', function(){
     $('.new_location').show()
-
+    
     $('.result-row').removeClass('selected-row');
     $(event.target).addClass('selected-row');
       var placeID = event.target.dataset.place_id
