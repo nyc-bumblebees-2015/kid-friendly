@@ -76,11 +76,11 @@ class Location < ActiveRecord::Base
       Yelp.business(yelp_id)
     end
 
-    def yelp_id
-      yelp_phone_lookup.id
+    def set_yelp_id
+      self.yelp_id = yelp_phone_lookup.id
     end
 
-    def yelp_url
-      yelp_phone_lookup.url
+    def set_yelp_url
+      self.yel_url = yelp_phone_lookup.url
     end
 end
