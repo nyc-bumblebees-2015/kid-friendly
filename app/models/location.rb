@@ -28,8 +28,20 @@ class Location < ActiveRecord::Base
     self.reviews.count("#{attr} > 0") >=1
   end
 
+  def escaped_name
+    self.name.gsub(" ","+")
+  end
+
   def escaped_address
-    self.name.gsub(" ","+") + "+" + self.formatted_address.gsub(" ","+")
+    self.formatted_address.gsub(" ","+").gsub(",+United+States","")
+  end
+
+  def query_string
+    self.escaped_name + "+" + self.escaped_address
+  end
+
+  def directions_url
+    "https://www.google.com/maps/dir/Current+Location/" + self.query_string
   end
 
   def reviews?
