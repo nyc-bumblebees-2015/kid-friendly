@@ -1,5 +1,8 @@
 <div class="page_heading">
   <h2><%= location.name %></h2>
-  <div="location_address"><%= link_to location.formatted_address, location.directions_url %></div>
-  <div="location_name"><%= location.formatted_phone_number %></div>
+  <div class="location_address"><%= link_to location.formatted_address, location.directions_url %></div>
+  <div class="location_name"><%= location.formatted_phone_number %></div>
+  <% if location.yelp_url %>
+    <div class="yelp_url"><%= link_to "More about this location on Yelp", location.yelp_url %></div>
+  <% end %>
 </div>
