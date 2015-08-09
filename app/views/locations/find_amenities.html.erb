@@ -4,7 +4,7 @@
   <% @locations.each do |location| %>
     <div>
       <%= link_to location.name, location_path(location) %> <br>
-      <%= location.formatted_address %>
+      <%= link_to location.formatted_address, location.directions_url %>
     </div>
   <% end %>
 </div>
