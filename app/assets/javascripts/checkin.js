@@ -16,11 +16,11 @@ function setup() {
   var pointOfInterest = new google.maps.LatLng(lat, lng);
   map = new google.maps.Map(document.getElementById('map-canvas'), {
     center: pointOfInterest,
-    zoom: 15
+    zoom: 18
   });
   var request = {
     location: pointOfInterest,
-    radius: 500,
+    radius: 100,
     types: ['amusement_park',
             'aquarium',
             'art_gallery',
@@ -380,14 +380,14 @@ $(document).ready(function(){
   $('#create-submit-btn').toggle(false);
   $('.new-checkin').hide();
   $('#checkin-submit-btn').toggle(false);
-  $('#location_changing_stations, #location_nursing_stations').on('click', function(){
+  $('#location_changing_stations, #location_nursing_stations').on('touchstart click', function(){
     if($('#location_changing_stations').is(':checked') || $('#location_nursing_stations').is(':checked')) {
       $('#checkin-submit-btn').toggle(true);
     } else {
       $('#checkin-submit-btn').toggle(false);
     };
   });
-  $('body').on('click','.result-row', function(){
+  $('body').on('touchstart click','.result-row', function(){
     $('.new-checkin').show()
     $('.result-row').removeClass('selected-row');
     $(event.target).addClass('selected-row');
