@@ -86,6 +86,11 @@ LocationSearch.View = function(controller){
     this.controller.performNameSearch(searchName, prox);
   }.bind(this));
 
+  $('#changing_station').on('click', function(event){
+    event.preventDefault();
+    window.location.href += 'find_amenities/' + 'changing_stations' + '?lat=' + window.lat + '\&lng=' + window.lng;
+  });
+
 };
 
 
