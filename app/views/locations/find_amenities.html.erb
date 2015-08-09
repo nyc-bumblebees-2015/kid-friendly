@@ -3,7 +3,7 @@
 <div>
   <% @locations.each do |location| %>
     <div>
-      <%= location.name %> <br>
+      <%= link_to location.name, location_path(location) %> <br>
       <%= location.formatted_address %>
     </div>
   <% end %>
