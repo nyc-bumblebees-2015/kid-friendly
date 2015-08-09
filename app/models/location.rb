@@ -10,14 +10,13 @@ class Location < ActiveRecord::Base
     prox = args.fetch(:prox, nil)
 
     within(prox, origin: [lat, lng]).where('LOWER(name) LIKE ?', "%#{name.downcase}%").by_distance(origin: [lat, lng]).to_json
-    # within(prox, origin: [lat, lng]).where('LOWER(name) LIKE ?', "%#{name.downcase}%").to_json
   end
 
   def self.name_places(name)
     where('LOWER(name) LIKE ?', "%#{name.downcase}%").to_json
   end
 
-  def self.find_specific_nearby_amenities(args = {})
+  def self.nearby_amenities(args = {})
     amenity = args.fetch(:amenity, nil)
     lat = args.fetch(:lat, nil)
     lng = args.fetch(:lng, nil)
