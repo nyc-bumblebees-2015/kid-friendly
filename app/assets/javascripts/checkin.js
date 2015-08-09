@@ -35,7 +35,8 @@ function setup() {
             'library',
             'lodging',
             'movie_theater',
-            'museum','park',
+            'museum',
+            'park',
             'restaurant',
             'rv_park',
             'shopping_mall',
@@ -72,13 +73,13 @@ function callback(results, status) {
 }
 
 function createMarker(place) {
-  var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+ 
   var icons = {
     lodging: {
       icon: 'http://maps.google.com/mapfiles/ms/micons/lodging.png'
     },
     amusement_park: {
-      icon: iconBase + 'amusement_park_maps.png'
+      icon: 'http://maps.google.com/mapfiles/kml/pal4/icon47.png'
     },
     art_gallery: {
       icon: 'http://maps.google.com/mapfiles/ms/micons/arts.png'
@@ -169,7 +170,107 @@ function createMarker(place) {
     },
     hardware_store: {
       icon: 'http://maps.google.com/mapfiles/ms/micons/convienancestore.png'
-    }
+    },
+    accounting: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/dollar.png'
+    },
+    airport: {
+      icon: 'http://maps.google.com/mapfiles/kml/pal2/icon56.png'
+    },
+    aquarium: {
+      icon: 'http://maps.google.com/mapfiles/kml/pal4/icon47.png'
+    },
+    atm: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/dollar.png'
+    },
+    bakery: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/snack_bar.png'
+    },
+    bank: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/dollar.png'
+    },
+    beauty_salon: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/salon.png'
+    },
+    bus_station: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/bus.png'
+    },
+    car_dealer: {
+      icon: 'http://maps.google.com/mapfiles/kml/pal4/icon62.png'
+    },
+    car_rental: {
+      icon: 'http://maps.google.com/mapfiles/kml/pal4/icon62.png'
+    },
+    car_repair: {
+      icon: 'http://maps.google.com/mapfiles/kml/pal4/icon62.png'
+    },
+    car_wash: {
+      icon: 'http://maps.google.com/mapfiles/kml/pal4/icon62.png'
+    },
+    cemetery: {
+      icon: 'http://google-maps-icons.googlecode.com/files/cemetary.png'
+    },
+    church: {
+      icon: 'http://maps.google.com/mapfiles/kml/pal2/icon11.png'
+    },
+    city_hall: {
+      icon: 'http://maps.google.com/mapfiles/kml/pal2/icon10.png'
+    },
+    embassy: {
+      icon: 'http://maps.google.com/mapfiles/kml/pal2/icon10.png'
+    },
+    establishment: {
+      icon: 'http://maps.google.com/mapfiles/kml/pal2/icon10.png'
+    },
+    clothing_store: {
+      icon:'http://maps.google.com/mapfiles/ms/micons/shopping.png'
+    },
+    court_house: {
+      icon: 'https://upload.wikimedia.org/wikipedia/commons/8/87/MapMarkerMuseum.png'
+    },
+    dentist: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/hospitals.png'
+    },
+    department_store: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/shopping.png'
+    },
+    doctor: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/hospitals.png'
+    },
+    electrician: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/electronics.png'
+    },
+    electronics_store: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/electronics.png'
+    },
+    finance: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/dollar.png'
+    },
+    fire_station: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/firedept.png'
+    },
+    florist: {
+      icon: 'https://upload.wikimedia.org/wikipedia/commons/7/70/Map_marker_icon_%E2%80%93_Nicolas_Mollet_%E2%80%93_Flowers_%E2%80%93_Nature_%E2%80%93_simple.png'
+    },
+    funeral_home: {
+      icon: 'http://google-maps-icons.googlecode.com/files/cemetary.png'
+    },
+    furniture_store: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/shopping.png'
+    },
+    general_contractor: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/man.png'
+    },
+    hair_care: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/salon.png'
+    },
+    health: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/hospitals.png'
+    },
+    hindu_temple: {
+      icon: 'http://maps.google.com/mapfiles/kml/pal2/icon11.png'
+    },
+    
 
   }
   var locationType = place.types[0]
