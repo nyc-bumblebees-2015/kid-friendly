@@ -40,6 +40,7 @@ class LocationsController < ApplicationController
   end
 
   def find_amenities
+    @locations = Location.nearby_amenities(amenity: params[:amenity], lat: params[:lat], lng: params[:lng])
   end
 
   def report_amenities
@@ -66,7 +67,7 @@ class LocationsController < ApplicationController
     if proximity == 'anywhere'
       Location.name_places(params[:name])
     else
-      Location.near_places({name: params[:name], lat: params[:lat], lng: params[:lng], prox: params[:prox]})
+      Location.nearby_places({name: params[:name], lat: params[:lat], lng: params[:lng], prox: params[:prox]})
     end
   end
 
