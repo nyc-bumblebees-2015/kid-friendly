@@ -40,7 +40,7 @@ class LocationsController < ApplicationController
   end
 
   def find_amenities
-    @locations = Location.nearby_amenities(amenity: params[:amenity])
+    @locations = Location.nearby_amenities(amenity: params[:amenity], lat: params[:lat], lng: params[:lng])
   end
 
   def report_amenities
