@@ -1,5 +1,5 @@
 <div class="page_heading">
   <h2><%= location.name %></h2>
-  <div="location_address"><%= location.formatted_address %></div>
+  <div="location_address"><%= link_to location.formatted_address, location.directions_url %></div>
   <div="location_name"><%= location.formatted_phone_number %></div>
 </div>
