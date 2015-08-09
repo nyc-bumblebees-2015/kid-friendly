@@ -60,4 +60,27 @@ class Location < ActiveRecord::Base
     [self.cribs,self.changing_stations,self.high_chairs,self.family_restrooms,self.restrooms,self.nursing_stations,self.water_fountains].any?
   end
 
+  protected
+    def escaped_phone_number
+      "+1" + self.formatted_phone_number.gsub(/(\(| |\) |-)/, "")
+    end
+
+    def yelp_phone_lookup
+      if self.formatted_phone_number
+        results = Yelp.client.phone_search(escaped_phone_number)
+        results.businesses.first
+      end
+    end
+
+    def yelp_id_lookup
+      Yelp.business(yelp_id)
+    end
+
+    def yelp_id
+      yelp_phone_lookup.id
+    end
+
+    def yelp_url
+      yelp_phone_lookup.url
+    end
 end
