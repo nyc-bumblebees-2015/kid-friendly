@@ -1,0 +1,10 @@
+<h2>Find Amenities</h2>
+
+<div>
+  <% @locations.each do |location| %>
+    <div>
+      <%= link_to location.name, location_path(location) %> <br>
+      <%= link_to location.formatted_address, location.directions_url %>
+    </div>
+  <% end %>
+</div>

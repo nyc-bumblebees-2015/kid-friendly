@@ -3,17 +3,25 @@ class Location < ActiveRecord::Base
   has_many :reviews
   validates :name, :lng, :lat, :formatted_address, :place_id, presence: true
 
-  def self.near_places(args = {})
+  def self.nearby_places(args = {})
     name = args.fetch(:name, nil)
     lat = args.fetch(:lat, nil)
     lng = args.fetch(:lng, nil)
     prox = args.fetch(:prox, nil)
 
-    self.within(prox, origin: [lat, lng]).where('LOWER(name) LIKE ?', "%#{name.downcase}%").to_json
+    within(prox, origin: [lat, lng]).where('LOWER(name) LIKE ?', "%#{name.downcase}%").by_distance(origin: [lat, lng]).to_json
   end
 
   def self.name_places(name)
-    self.where('LOWER(name) LIKE ?', "%#{name.downcase}%").to_json
+    where('LOWER(name) LIKE ?', "%#{name.downcase}%").to_json
+  end
+
+  def self.nearby_amenities(args = {})
+    amenity = args.fetch(:amenity, nil)
+    lat = args.fetch(:lat, nil)
+    lng = args.fetch(:lng, nil)
+
+    within('2', origin: [lat, lng]).where("#{amenity} = ?", true).by_distance(origin: [lat, lng])
   end
 
   def star_rating(attr)
@@ -51,4 +59,5 @@ class Location < ActiveRecord::Base
   def amenities?
     [self.cribs,self.changing_stations,self.high_chairs,self.family_restrooms,self.restrooms,self.nursing_stations,self.water_fountains].any?
   end
+
 end

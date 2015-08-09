@@ -6,7 +6,7 @@ locations = [
    formatted_address: "80 Pine Street, New York, NY 10005, United States",
    formatted_phone_number: "(212) 480-3970",
    cribs: nil,
-   changing_stations: nil,
+   changing_stations: true,
    high_chairs: nil,
    family_restrooms: nil,
    restrooms: true,
@@ -25,7 +25,7 @@ locations = [
    high_chairs: nil,
    family_restrooms: nil,
    restrooms: true,
-   nursing_stations: nil,
+   nursing_stations: true,
    water_fountains: nil
  },
 
@@ -88,7 +88,7 @@ locations = [
    water_fountains: nil
  }
 
-]
+].shuffle
 
 users = [
 
