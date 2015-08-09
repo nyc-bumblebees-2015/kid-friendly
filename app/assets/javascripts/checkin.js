@@ -61,7 +61,8 @@ function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       ary.push({name: results[i].name, vicinity: results[i].vicinity, placeID: results[i].place_id, icon: results[i].icon});
-      createMarker(results[i]);
+      console.log(results[i].types[0])
+      // createMarker(results[i]);
     }
       var context = {locations:ary};
       var source = $("#google-location-template").html();
@@ -74,11 +75,104 @@ function createMarker(place) {
   var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
   var icons = {
     lodging: {
-      icon: iconBase + 'lodging_maps.png'
+      icon: 'http://maps.google.com/mapfiles/ms/micons/lodging.png'
+    },
+    amusement_park: {
+      icon: iconBase + 'amusement_park_maps.png'
+    },
+    art_gallery: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/arts.png'
+    },
+    bicycle_store: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/cycling.png'
+    },
+    restaurant:{
+      icon: 'https://maps.google.com/mapfiles/ms/micons/restaurant.png'
+    },
+    bar:{
+      icon: 'http://maps.google.com/mapfiles/ms/micons/bar.png'
+    },
+    book_store:{
+      icon: 'http://maps.google.com/mapfiles/ms/micons/convienancestore.png'
+    },
+    bowling_alley:{
+      icon:  'http://maps.google.com/mapfiles/ms/micons/sportvenue.png'
+    },
+    cafe:{
+      icon: 'http://maps.google.com/mapfiles/ms/micons/coffeehouse.png'
+    },
+    campground: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/campground.png'
+    },
+    casino: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/dollar.png'
+    },
+    food: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/snack_bar.png'
+    },
+    gym: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/sportvenue.png'
+    },
+    library: {
+      icon: 'http://maps.google.com/mapfiles/kml/pal2/icon10.png'
+    },
+    movie_theater: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/movies.png'
+    },
+    museum: {
+      icon: 'https://upload.wikimedia.org/wikipedia/commons/8/87/MapMarkerMuseum.png'
+    },
+    park: {
+      icon: 'http://maps.google.com/mapfiles/kml/pal2/icon4.png'
+    },
+    rv_park: { 
+      icon: 'http://maps.google.com/mapfiles/ms/micons/truck.png' 
+    },
+    shopping_mall: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/shopping.png'
+    },
+    spa: {
+      icon: 'http://www.tips4italiantrips.com/wp-content/uploads/leaflet-maps-marker-icons/lodging_0star.png'
+    },
+    stadium: {
+      icon: 'http://icons.iconarchive.com/icons/icons-land/gis-gps-map/32/Stadium-icon.png'
+    },
+    zoo: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/tree.png'
+    },
+    store: {
+      icon:'http://maps.google.com/mapfiles/ms/micons/convienancestore.png'
+    },
+    gas_station: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/gas.png'
+    },
+    grocery_or_supermarket: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/grocerystore.png'
+    },
+    laundry: {
+      icon: 'http://google-maps-icons.googlecode.com/files/laundromat.png'
+    },
+    parking: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/parkinglot.png'
+    },
+    subway_station: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/subway.png'
+    },
+    train_station:{
+      icon: 'http://maps.google.com/mapfiles/ms/micons/subway.png'
+    },
+    meal_takeaway: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/snack_bar.png'
+    },
+    home_goods_store: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/convienancestore.png'
+    },
+    hardware_store: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/convienancestore.png'
     }
+
   }
   var locationType = place.types[0]
-  console.log(place.types[0])
   var placeLoc = place.geometry.location;
   var marker = new google.maps.Marker({
     map: map,
