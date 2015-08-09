@@ -2,6 +2,7 @@ class Location < ActiveRecord::Base
   acts_as_mappable
   has_many :reviews
   validates :name, :lng, :lat, :formatted_address, :place_id, presence: true
+  before_create :set_yelp_id, if: :formatted_phone_number
 
   def self.nearby_places(args = {})
     name = args.fetch(:name, nil)
@@ -66,10 +67,8 @@ class Location < ActiveRecord::Base
     end
 
     def yelp_phone_lookup
-      if self.formatted_phone_number
-        results = Yelp.client.phone_search(escaped_phone_number)
-        results.businesses.first
-      end
+      results = Yelp.client.phone_search(escaped_phone_number)
+      results.businesses.first
     end
 
     def yelp_id_lookup
