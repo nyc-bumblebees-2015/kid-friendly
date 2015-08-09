@@ -16,11 +16,11 @@ function setup() {
   var pointOfInterest = new google.maps.LatLng(lat, lng);
   map = new google.maps.Map(document.getElementById('map-canvas'), {
     center: pointOfInterest,
-    zoom: 15
+    zoom: 18
   });
   var request = {
     location: pointOfInterest,
-    radius: 500,
+    radius: 100,
     types: ['amusement_park',
             'aquarium',
             'art_gallery',
