@@ -81,6 +81,6 @@ class Location < ActiveRecord::Base
     end
 
     def set_yelp_url
-      self.yel_url = yelp_phone_lookup.url
+      self.yelp_url = yelp_phone_lookup.url
     end
 end
