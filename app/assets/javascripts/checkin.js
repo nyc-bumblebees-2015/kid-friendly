@@ -63,7 +63,7 @@ function callback(results, status) {
     for (var i = 0; i < results.length; i++) {
       ary.push({name: results[i].name, vicinity: results[i].vicinity, placeID: results[i].place_id, icon: results[i].icon});
       console.log(results[i].types[0])
-      // createMarker(results[i]);
+      createMarker(results[i]);
     }
       var context = {locations:ary};
       var source = $("#google-location-template").html();
@@ -270,7 +270,96 @@ function createMarker(place) {
     hindu_temple: {
       icon: 'http://maps.google.com/mapfiles/kml/pal2/icon11.png'
     },
-    
+    hospital: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/hospitals.png'
+    },
+    insurance_agency: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/dollar.png'
+    },
+    jewelry_store: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/shopping.png'
+    },
+    lawyer: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/man.png'
+    },
+    liquor_store: {
+      icon: 'http://liquidity.co.za/wp-content/uploads/leaflet-maps-marker-icons/conveniencestore.png'
+    },
+    local_goverment_office: {
+      icon: 'http://maps.google.com/mapfiles/kml/pal2/icon10.png'
+    },
+    locksmith: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/convienancestore.png'
+    },
+    meal_delivery: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/snack_bar.png'
+    },
+    mosque: {
+      icon: 'http://maps.google.com/mapfiles/kml/pal2/icon11.png'
+    },
+    movie_rental: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/movies.png'
+    },
+    moving_company: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/truck.png' 
+    },
+    night_club: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/bar.png'
+    },
+    painter: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/man.png'
+    },
+    pet_store: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/shopping.png'
+    },
+    pharmacy:{
+      icon: 'http://maps.google.com/mapfiles/ms/micons/hospitals.png'
+    },
+    physiotherapist:{
+      icon: 'http://maps.google.com/mapfiles/ms/micons/man.png'
+    },
+    place_of_worship:{
+      icon: 'http://maps.google.com/mapfiles/kml/pal2/icon11.png'
+    },
+    plumber: {
+      icon: 'http://maps.google.com/mapfiles/kml/pal2/icon11.png'
+    },
+    police: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/police.png'
+    },
+    post_office: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/postoffice-us.png'
+    },
+    real_estate_agency: {
+      icon: 'http://maps.google.com/mapfiles/kml/pal3/icon48.png'
+    },
+    roofing_contractor: {
+      icon: 'http://maps.google.com/mapfiles/kml/pal3/icon48.png'
+    },
+    school: {
+      icon: 'http://maps.google.com/mapfiles/kml/pal2/icon10.png'
+    },
+    shoe_store: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/shopping.png'
+    },
+    storage: {
+      icon: 'http://maps.google.com/mapfiles/kml/pal2/icon2.png'
+    },
+    synagogue: {
+      icon: 'http://maps.google.com/mapfiles/kml/pal2/icon11.png'
+    },
+    taxi_stand: {
+      icon: 'http://maps.google.com/mapfiles/kml/pal4/icon54.png'
+    },
+    travel_agency: {
+      icon: 'http://maps.google.com/mapfiles/ms/micons/plane.png'
+    },
+    university: {
+      icon: 'http://maps.google.com/mapfiles/kml/pal2/icon10.png'
+    },
+    veterinary_care:{
+      icon: 'http://maps.google.com/mapfiles/ms/micons/shopping.png'
+    }
 
   }
   var locationType = place.types[0]
