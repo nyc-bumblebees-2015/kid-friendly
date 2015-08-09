@@ -21,7 +21,34 @@ function setup() {
   var request = {
     location: pointOfInterest,
     radius: 500,
-    types: ['amusement_park','aquarium','art_gallery','bicycle_store','book_store','bowling_alley','cafe','campground','casino','food','gym','library','lodging','movie_theater','museum','park','restaurant','rv_park','shopping_mall','spa','stadium','zoo','store','gas_station','grocery_or_supermarket','laundry','parking','subway_station','train_station']
+    types: ['amusement_park',
+            'aquarium',
+            'art_gallery',
+            'bicycle_store',
+            'book_store',
+            'bowling_alley',
+            'cafe',
+            'campground',
+            'casino',
+            'food',
+            'gym',
+            'library',
+            'lodging',
+            'movie_theater',
+            'museum','park',
+            'restaurant',
+            'rv_park',
+            'shopping_mall',
+            'spa',
+            'stadium',
+            'zoo',
+            'store',
+            'gas_station',
+            'grocery_or_supermarket',
+            'laundry',
+            'parking',
+            'subway_station',
+            'train_station']
   };
   infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
@@ -44,9 +71,18 @@ function callback(results, status) {
 }
 
 function createMarker(place) {
+  var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+  var icons = {
+    lodging: {
+      icon: iconBase + 'lodging_maps.png'
+    }
+  }
+  var locationType = place.types[0]
+  console.log(place.types[0])
   var placeLoc = place.geometry.location;
   var marker = new google.maps.Marker({
     map: map,
+    icon: icons[locationType].icon,
     position: place.geometry.location,
   });
 
