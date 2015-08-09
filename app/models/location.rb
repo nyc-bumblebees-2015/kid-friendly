@@ -2,7 +2,8 @@ class Location < ActiveRecord::Base
   acts_as_mappable
   has_many :reviews
   validates :name, :lng, :lat, :formatted_address, :place_id, presence: true
-  before_create :set_yelp_id, if: :formatted_phone_number
+  before_save :set_yelp_id, if: :formatted_phone_number
+  before_save :set_yelp_url, if: :formatted_phone_number
 
   def self.nearby_places(args = {})
     name = args.fetch(:name, nil)
