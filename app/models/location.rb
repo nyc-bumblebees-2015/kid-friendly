@@ -21,8 +21,7 @@ class Location < ActiveRecord::Base
     lat = args.fetch(:lat, nil)
     lng = args.fetch(:lng, nil)
 
-    within('5', origin: [40.706301499999995, -74.00928259999999]).where("#{amenity} = ?", true).by_distance(origin: [40.706301499999995, -74.00928259999999])
-    # within('5', origin: [lat, lng]).where("#{amenity} = ?", true).by_distance(origin: [lat, lng])
+    within('5', origin: [lat, lng]).where("#{amenity} = ?", true).by_distance(origin: [lat, lng])
   end
 
   def star_rating(attr)
