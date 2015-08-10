@@ -1,3 +1,5 @@
+<% provide(:title, @location.name) %>
+
 <%= render partial: 'map', locals: {location: @location} %>
 
 <div class="mdl-grid">
