@@ -3,12 +3,21 @@ body {
 }
 
 .layout-transparent  {
-  background: url('/shutteroo.com-sunset-beach-family.jpg') center / cover;
+  /*background: url('/shutteroo.com-sunset-beach-family.jpg') center / cover;*/
 }
 
-.layout-transparent .mdl-layout__header-row,
-.layout-transparent .mdl-layout__drawer-button .material-icons {
+.mdl-layout__header-row,
+.mdl-layout__drawer-button .material-icons {
   color: #FFF;
+}
+
+.mdl-layout__header-row .mdl-layout-title a {
+  color: #FFF;
+}
+
+.mdl-layout-title a {
+  text-decoration: none;
+  color: #424242;
 }
 
 #brown-alert {
@@ -30,4 +39,8 @@ body {
   width: 100%;
   z-index: 0;
   overflow: hidden;
+}
+
+.search-icon {
+  max-width: 20px;
 }
