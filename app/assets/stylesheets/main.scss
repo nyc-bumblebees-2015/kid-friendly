@@ -2,17 +2,16 @@ body {
   width: 100%;
 }
 
+.mdl-layout__header-row .mdl-navigation__link {
+  color: #FFF;
+}
+
 .alert {
   margin: 5px auto;
 }
 
 .layout-transparent  {
   /*background: url('/shutteroo.com-sunset-beach-family.jpg') center / cover;*/
-}
-
-.mdl-layout__header-row,
-.mdl-layout__drawer-button .material-icons {
-  color: #FFF;
 }
 
 .mdl-layout__header-row .mdl-layout-title a {
@@ -24,15 +23,7 @@ body {
   color: #424242;
 }
 
-#brown-alert {
-  position: fixed;
-  display: block;
-  right: 0;
-  bottom: 0;
-  margin-right: 40px;
-  margin-bottom: 40px;
-  z-index: 900;
-}
+
 
 .mdl-button__ripple-container {
   display: block;
@@ -43,6 +34,16 @@ body {
   width: 100%;
   z-index: 0;
   overflow: hidden;
+}
+
+.drawer-separator {
+  height: 1px;
+  background-color: #dcdcdc;
+  margin: 8px 0;
+}
+
+.mdl-navigation__link.drawer_heading {
+  color: $bold-accent-color!important;
 }
 
 .search-icon {
