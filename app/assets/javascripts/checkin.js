@@ -76,8 +76,8 @@ $(document).ready(function(){
   $('#create-submit-btn').toggle(false);
   $('.new-checkin').hide();
   $('#checkin-submit-btn').toggle(false);
-  $('#location_changing_stations, #location_nursing_stations').on('touchstart click', function(){
-    if($('#location_changing_stations').is(':checked') || $('#location_nursing_stations').is(':checked')) {
+  $('.new-checkin input:checkbox').on('touchstart click', function(){
+    if ($(".new-checkin input:checkbox:checked").length > 0) {
       $('#checkin-submit-btn').toggle(true);
     } else {
       $('#checkin-submit-btn').toggle(false);
