@@ -1,5 +1,5 @@
-var newPlace
-var locationData
+var newPlace;
+var locationData;
 
 function auto() {
   var input = document.getElementById('searchTextField');
