@@ -71,7 +71,7 @@ function callback(results, status) {
 
 google.maps.event.addDomListener(window, 'page:change', initialize);
 
-$(document).on('page:change',function(){
+$(document).on('ready',function(){
   $('#map-canvas').hide();
   $('#create-submit-btn').toggle(false);
   $('.new-checkin').hide();
