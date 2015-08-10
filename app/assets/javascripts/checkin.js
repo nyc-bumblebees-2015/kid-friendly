@@ -69,7 +69,7 @@ function callback(results, status) {
   }
 }
 
-google.maps.event.addDomListener(window, 'page:change', initialize);
+google.maps.event.addDomListener(window, 'load', initialize);
 
 $(document).on('ready',function(){
   $('#map-canvas').hide();
