@@ -16,5 +16,6 @@ FactoryGirl.define do
     play_areas nil
     yelp_id nil
     yelp_url nil
+
   end
 end
