@@ -2,6 +2,6 @@ class Like < ActiveRecord::Base
   belongs_to :user
   belongs_to :review
 
-  validates :user_id, :review_id, presence: true
-  validates :user_id, uniqueness: {scope: [:review_id]}
+  validates :user, :review, presence: true
+  validates :user, uniqueness: {scope: [:review], message: "already liked this review."}
 end
