@@ -20,8 +20,8 @@ function auto() {
         .attr('name', "location[" + key + "]")
         .attr('value', locationData[key])
         .prependTo('#new_location');
-      };
-    });
-  };
-google.maps.event.addDomListener(window, 'load', auto)
+    };
+  });
+};
+
 
