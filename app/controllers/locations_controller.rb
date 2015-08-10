@@ -1,9 +1,5 @@
 class LocationsController < ApplicationController
 
-  def new
-    @location = Location.new
-  end
-
   def index
     @home_page = true
   end
@@ -22,14 +18,14 @@ class LocationsController < ApplicationController
     if @location
       @location.assign_attributes(location_params)
       if @location.save
-        redirect_to locations_submission_path
+        redirect_to submission_path(location: location_params)
       else
         render :new
       end
     else
       @location = Location.new(location_params)
         if @location.save
-          redirect_to locations_submission_path
+          redirect_to submission_path(location: location_params)
         else
           render :new
         end
@@ -37,6 +33,7 @@ class LocationsController < ApplicationController
   end
 
   def submission
+    @location = Location.new(location_params)
   end
 
   def edit
