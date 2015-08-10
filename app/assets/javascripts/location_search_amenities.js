@@ -1,4 +1,4 @@
-$(document).on('page:change', function(){
+$(document).on('ready', function(){
 
   $('#cribs').on('click', function(event){
     event.preventDefault();
