@@ -86,13 +86,13 @@ LocationSearch.View = function(controller){
     this.controller.performNameSearch(searchName, prox);
   }.bind(this));
 
-  $('#changing_station').on('click', function(event){
+  $('#changing').on('click', function(event){
     event.preventDefault();
     var route = getBaseUrl() + '/find_amenities/' + 'changing_stations' + '?lat=' + window.lat + '\&lng=' + window.lng;
     window.location.href = route;
   });
 
-  $('#nursing_stations').on('click', function(event){
+  $('#nursing').on('click', function(event){
     event.preventDefault();
     var route = getBaseUrl() + '/find_amenities/' + 'nursing_stations' + '?lat=' + window.lat + '\&lng=' + window.lng;
     window.location.href = route;
@@ -108,7 +108,7 @@ LocationSearch.View = function(controller){
 };
 
 
-$(document).ready(function(){
+$(document).on('page:change', function(){
   var controller = new LocationSearch.Controller();
   var view = new LocationSearch.View(controller);
   controller.view = view;
