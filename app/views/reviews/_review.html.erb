@@ -1,18 +1,3 @@
-<div class="review">
-  <div class="review_body">
-    <%= simple_format(review.body) %>
-  </div>
-  <div class="review_details">
-    <%= link_to review.user.username, review.user %> - 
-    <%= time_ago_in_words(review.created_at) %> ago
-    <div class="helped_statement">
-      <span class="helpful_points"><%= review.helpful_count %></span>
-      <% if review.helpful_count == 1 %>
-        <span class="helped">person</span> 
-      <% else %>
-        <span class="helped">people</span> 
-      <% end %>
-      found this review helpful.
-    </div>
-  </div>
-</div>  
+<div class="review_body">
+  <%= simple_format(review.body) %>
+</div>
