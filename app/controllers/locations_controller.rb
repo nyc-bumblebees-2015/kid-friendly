@@ -39,6 +39,9 @@ class LocationsController < ApplicationController
   def destroy
   end
 
+  def search_amenities
+  end
+
   def find_amenities
     @locations = Location.nearby_amenities(amenity: params[:amenity], lat: params[:lat], lng: params[:lng])
   end

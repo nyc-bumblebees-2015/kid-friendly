@@ -1,10 +1,14 @@
 <div>
   <div>
-    <a id="changing_station" href="<%= find_amenities_path('changing_stations')%>">Brown Alert</a>
+    <a id="changing" href="<%= find_amenities_path('changing_stations')%>">Brown Alert</a>
   </div>
 
   <div>
-    <a id="nursing_stations" href="<%= find_amenities_path('nursing_stations')%>">Milk Alert</a>
+    <a id="nursing" href="<%= find_amenities_path('nursing_stations')%>">Milk Alert</a>
+  </div>
+
+  <div>
+    <%= link_to 'Search by Amenities', search_amenities_path %>
   </div>
 
 </div>
