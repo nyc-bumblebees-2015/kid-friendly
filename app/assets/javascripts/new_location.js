@@ -24,8 +24,11 @@ function setupAutoComplete() {
   });
 };
 
-if (document.getElementById('map-canvas')) {
-  setupAutoComplete();
-}
+$(document).ready(function(){
+  var target = $('#searchTextField');
+  if (target.length > 0) {
+    setupAutoComplete();
+  }
+});
 
 

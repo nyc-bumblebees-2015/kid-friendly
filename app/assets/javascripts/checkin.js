@@ -84,7 +84,7 @@ $(document).on('ready',function(){
 
   if (document.getElementById('map-canvas')) {
     initialize()
-  }
+  };
 
   $('body').on('touchstart click','.result-row', function(){
     $('.new-checkin').show()
