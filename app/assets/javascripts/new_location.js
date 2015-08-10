@@ -12,8 +12,8 @@ function auto() {
         console.log(locationData);
         $('#search-data-name').text('Name:' + newPlace.name)
         $('#search-data-address').text('Address:' + newPlace.formatted_address)
-        $('#search-data-lng').text('Longitude:' + newPlace.geometry.location.K)
         $('#search-data-lat').text('Latitude:' + newPlace.geometry.location.G)
+        $('#search-data-lng').text('Longitude:' + newPlace.geometry.location.K)
 
         });
       $("#new_location").on('submit', function(event){
