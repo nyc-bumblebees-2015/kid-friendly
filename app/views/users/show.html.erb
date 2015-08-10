@@ -1,11 +1,29 @@
-<h2><%= @user.username %></h2>
+<h2>
+  <div class="user_gravatar"><%= gravatar_for @user %></div>
+  <%= @user.username %>
+</h2>
 
 <% if @user.reviews? %>
   <div class="location_reviews">
     <h3><%= pluralize(@user.reviews.count, "review") %></h3>
     <% @user.reviews.each do |review| %>
-      <h4><%= link_to review.location.name, review.location %></h4>
-      <%= render partial: 'reviews/review', locals: {review: review} %>
+      <div class="review">
+        <div class="review_details">
+        <h4><%= link_to review.location.name, review.location %></h4>
+        <%= time_ago_in_words(review.created_at) %> ago
+          <div class="reviewer_gravatar icon_image"><%= image_for review.location %></div>
+          <%= render partial: 'reviews/review', locals: {review: review} %>
+          <div class="helped_statement">
+            <span class="helpful_points"><%= review.helpful_count %></span>
+            <% if review.helpful_count == 1 %>
+              <span class="helped">person</span>
+            <% else %>
+              <span class="helped">people</span>
+            <% end %>
+            found this review helpful.
+          </div>
+        </div>
+      </div>
     <% end %>
-  </div>  
+  </div>
 <% end %>
