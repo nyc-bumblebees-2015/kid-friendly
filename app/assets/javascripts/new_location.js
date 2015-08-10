@@ -23,5 +23,6 @@ function auto() {
     };
   });
 };
+google.maps.event.addDomListener(window, 'load', auto)
 
 
