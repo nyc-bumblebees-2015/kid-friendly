@@ -69,9 +69,7 @@ function callback(results, status) {
   }
 }
 
-google.maps.event.addDomListener(window, 'page:change', initialize);
-
-$(document).on('page:change',function(){
+$(document).on('ready',function(){
   $('#map-canvas').hide();
   $('#create-submit-btn').toggle(false);
   $('.new-checkin').hide();
@@ -83,6 +81,11 @@ $(document).on('page:change',function(){
       $('#checkin-submit-btn').toggle(false);
     };
   });
+
+  if (document.getElementById('map-canvas')) {
+    initialize()
+  }
+
   $('body').on('touchstart click','.result-row', function(){
     $('.new-checkin').show()
     $('.result-row').removeClass('selected-row');

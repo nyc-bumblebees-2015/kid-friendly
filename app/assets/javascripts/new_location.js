@@ -1,7 +1,7 @@
 var newPlace;
 var locationData;
 
-function auto() {
+function setupAutoComplete() {
   var input = document.getElementById('searchTextField');
   var autocomplete = new google.maps.places.Autocomplete(input);
   google.maps.event.addListener(autocomplete, 'place_changed', function () {
@@ -23,6 +23,9 @@ function auto() {
     };
   });
 };
-google.maps.event.addDomListener(window, 'page:change', auto)
+
+if (document.getElementById('map-canvas')) {
+  setupAutoComplete();
+}
 
 

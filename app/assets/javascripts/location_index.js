@@ -108,7 +108,7 @@ LocationSearch.View = function(controller){
 };
 
 
-$(document).on('page:change', function(){
+$(document).on('ready', function(){
   var controller = new LocationSearch.Controller();
   var view = new LocationSearch.View(controller);
   controller.view = view;
