@@ -13,8 +13,8 @@
 
   {{/locations}}
 
-</script>
 </div>
+</script>
 
 <div id="map-canvas"></div>
 
@@ -29,7 +29,6 @@
     <%= f.check_box :nursing_stations, options = {}, checked_value = true, unchecked_value = false %>
     <%= f.label 'Family Restrooms' %>
     <%= f.check_box :family_restrooms, options = {}, checked_value = true, unchecked_value = false %>
-    <%= f.submit 'Submit' , id: 'checkin-submit-btn' %>
     <%= f.label 'Restrooms' %>
     <%= f.check_box :restrooms, options = {}, checked_value = true, unchecked_value = false %>
     <%= f.label 'Play Areas' %>
@@ -40,6 +39,7 @@
     <%= f.check_box :high_chairs, options = {}, checked_value = true, unchecked_value = false %>
     <%= f.label 'Cribs' %>
     <%= f.check_box :cribs, options = {}, checked_value = true, unchecked_value = false %>
+    <%= f.submit 'Submit' , id: 'checkin-submit-btn' %>
   <% end %>
   <div>
     Not what you're looking for? <%= link_to "Add a new location.", new_location_path %>
