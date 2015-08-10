@@ -8,10 +8,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <%= render partial: 'shared/global_nav' %>
+  </header>
 
-<%= render partial: 'shared/global_nav' %>
+  <%= render partial: 'shared/flash_messages' %>
 
-<%= yield %>
-
+  <%= yield %>
 </body>
+
+<footer>
+  <%= render partial: 'shared/find_specific_amenities' %>
+</footer>
 </html>

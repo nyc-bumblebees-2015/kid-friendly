@@ -2,14 +2,18 @@ class LocationsController < ApplicationController
   def index
   end
 
+  def new
+    @location = Location.new
+  end
+
   def show
     @location = Location.find_by(id: params[:id])
     @like = Like.new
   end
 
   def create
-    if Location.find_by(name: location_params[:name])
-      @location = Location.find_by(name: location_params[:name])
+    @location = Location.find_by(name: location_params[:name])
+    if @location
       @location.assign_attributes(location_params)
       if @location.save
         redirect_to root_path
@@ -36,6 +40,7 @@ class LocationsController < ApplicationController
   end
 
   def find_amenities
+    @locations = Location.nearby_amenities(amenity: params[:amenity], lat: params[:lat], lng: params[:lng])
   end
 
   def report_amenities
@@ -62,7 +67,7 @@ class LocationsController < ApplicationController
     if proximity == 'anywhere'
       Location.name_places(params[:name])
     else
-      Location.near_places({name: params[:name], lat: params[:lat], lng: params[:lng], prox: params[:prox]})
+      Location.nearby_places({name: params[:name], lat: params[:lat], lng: params[:lng], prox: params[:prox]})
     end
   end
 

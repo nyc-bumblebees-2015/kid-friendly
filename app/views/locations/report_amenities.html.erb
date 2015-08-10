@@ -14,13 +14,14 @@
 
 </script>
 </div>
+
 <div id="map-canvas"></div>
 
 <div id="locals_list"></div>
 
 <div class="new-location-form">
 
-  <%= form_for @location do |f| %>
+  <%= form_for @location, :html => {:class => "new-checkin"} do |f| %>
     <%= f.label 'Changing Stations' %>
     <%= f.check_box :changing_stations, options = {}, checked_value = true, unchecked_value = false %>
     <%= f.label 'Nursing Stations' %>
