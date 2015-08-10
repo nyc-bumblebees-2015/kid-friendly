@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('ready', function(){
   $('.helpful').on('submit',function(event){
     event.preventDefault();
     $.ajax({
