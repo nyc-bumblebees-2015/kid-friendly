@@ -15,7 +15,6 @@ function auto() {
     });
 
     $("#new_location").on('submit', function(event){
-      event.preventDefault();
       for(var key in locationData){
         $('<input />').attr('type', 'hidden')
         .attr('name', "location[" + key + "]")
