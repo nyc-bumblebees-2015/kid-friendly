@@ -77,10 +77,10 @@ class Location < ActiveRecord::Base
     end
 
     def set_yelp_id
-      self.yelp_id = yelp_phone_lookup.id
+      self.yelp_id = (yelp_phone_lookup == nil ? nil : yelp_phone_lookup.id)
     end
 
     def set_yelp_url
-      self.yelp_url = yelp_phone_lookup.url
+      self.yelp_url = (yelp_phone_lookup == nil ? nil : yelp_phone_lookup.url)
     end
 end
