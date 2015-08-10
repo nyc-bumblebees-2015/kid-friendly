@@ -23,6 +23,12 @@ function auto() {
     };
   });
 };
-google.maps.event.addDomListener(window, 'page:change', auto)
+
+$(document).ready(function(){
+  var target = $('#searchTextField');
+  if (target.length > 0) {
+    auto();  
+  }
+});
 
 
