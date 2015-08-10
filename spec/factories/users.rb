@@ -1,12 +1,22 @@
 FactoryGirl.define do
   factory :user do
-    first_name "Jane"
-    last_name "Dog"
-    email "janedog@example.com"
+    username 'WhoAmI'
+    first_name "John"
+    last_name "Doe"
+    email "mysteryman@example.com"
     password "123456"
-    
-    factory :invalid_user do
-      email nil
-    end    
+
+    factory :dup_username_user do
+      first_name "Jose"
+      last_name "Sue"
+      email "josesue@example.com"
+    end
+
+    factory :dup_email_user do
+      username 'AppsAllDay'
+      first_name "Johnny"
+      last_name "Apple"
+    end
+
   end
 end
