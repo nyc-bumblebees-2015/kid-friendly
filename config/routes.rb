@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   get 'search_amenities' => 'locations#search_amenities'
   get 'find_amenities/:amenity' => 'locations#find_amenities', as: 'find_amenities'
   get 'report_amenities' => 'locations#report_amenities'
+  get 'submission' => 'locations#submission'
+
 end
