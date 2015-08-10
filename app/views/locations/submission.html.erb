@@ -1,17 +1,18 @@
-<h3>Thank you for your submission!</h3>
-
-<h4>Your submission is currently under review! It will be updated after we have validated the information!</h4>
+<!-- <meta HTTP-EQUIV="REFRESH" content="10; url=http://kid-friendly.herokuapp.com/"> -->
+<div class='submission-msg'>
+  <h4>Thank you for your submission!</h4>
+  <h6>Your submission is currently under review! It will be updated after we have validated the information!</h6>
+</div>
 <div class="submission-info">
     <%= render partial: 'heading', locals: {location: @location} %>
-<div>
-  <% if @location.amenities? %>
-      <%= render partial: 'amenities', locals: {location: @location} %>
+  <div>
+    <% if @location.amenities? %>
+        <%= render partial: 'amenities', locals: {location: @location} %>
     <% end %>
+  </div>
 </div>
+<p id='timer'> <script type="text/javascript">countDown();</script> </p>
 
-</div>
-<h5>You will be automatically redirected in 10 seconds... or </h5>
+<p>or click here to return home now...</p>
+<%= button_to 'RETURN HOME', root_path, method: :get %>
 
-<%= button_to 'RETURN HOME', root_path %>
-
-<!-- <meta HTTP-EQUIV="REFRESH" content="10; url=http://kid-friendly.herokuapp.com/"> -->
