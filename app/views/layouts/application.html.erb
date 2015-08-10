@@ -1,22 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>KidFriendly</title>
+  <title>kidpanion</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.green-indigo.min.css" />
+  <script src="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header>
-    <%= render partial: 'shared/global_nav' %>
-  </header>
-
-  <%= render partial: 'shared/flash_messages' %>
-
-  <%= yield %>
+  <div class="layout-transparent mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header mdl-layout__header--transparent">
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">kidpanion</span>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <%= render partial: 'shared/global_nav' %>
+        </nav>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+      <span class="mdl-layout-title">kidpanion</span>
+      <nav class="mdl-navigation">
+        <%= render partial: 'shared/global_nav' %>
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+      <%= render partial: 'shared/flash_messages' %>
+      <%= yield %>
+    </main>
+  </div>
 </body>
-
 <footer>
   <%= render partial: 'shared/find_specific_amenities' %>
 </footer>
