@@ -23,7 +23,7 @@
       <div class="review">
         <%= render partial: 'reviews/review', locals: {review: review} %>
         <div class="review_details">
-          <div class="location_image icon_image"><%= gravatar_for review.user %></div>
+          <%= gravatar_for review.user %>
           <%= link_to review.user.username, review.user %> -
           <%= time_ago_in_words(review.created_at) %> ago
           <div class="helped_statement">
