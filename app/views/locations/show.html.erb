@@ -1,13 +1,21 @@
-<%= render partial: 'heading', locals: {location: @location} %>
-
-<%= render partial: 'ratings', locals: {location: @location} %>
-
 <%= render partial: 'map', locals: {location: @location} %>
 
-<% if @location.amenities? %>
-    <%= render partial: 'amenities', locals: {location: @location} %>
-<% end %>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--6-col">
+    <%= render partial: 'heading', locals: {location: @location} %>
+    <%= render partial: 'ratings', locals: {location: @location} %>
+  </div>
+  <div class="mdl-cell mdl-cell--4-col">
+  </div>
+  <div class="mdl-cell mdl-cell--2-col">
+    <% if @location.amenities? %>
+      <%= render partial: 'amenities', locals: {location: @location} %>
+    <% end %>
+  </div>
+</div>
 
+<div class="demo-grid-2 mdl-grid">
+  <div class="mdl-cell mdl-cell--6-col">
 <% if @location.reviews? %>
   <div class="location_reviews">
     <h3><%= pluralize(@location.reviews.count, "review") %></h3>
@@ -35,4 +43,8 @@
 <% end %>
 <div class="new_review_link">
   <%= link_to "Add your review", new_location_review_path(@location) %>
+</div>
+  </div>
+  <div class="mdl-cell mdl-cell--4-col"></div>
+  <div class="mdl-cell mdl-cell--2-col"></div>
 </div>

@@ -1,15 +1,8 @@
-<div>
-  <div>
-    <a id="changing" href="<%= find_amenities_path('changing_stations')%>">Brown Alert</a>
-  </div>
+<div id="brown-alert">
+  <%= link_to "Brown Alert", find_amenities_path('changing_stations'), class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast", id: "changing" %>
 
-  <div>
-    <a id="nursing" href="<%= find_amenities_path('nursing_stations')%>">Milk Alert</a>
-  </div>
+  <%= link_to "Milk Alert", find_amenities_path('changing_stations'), class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast", id: "nursing" %>
 
-  <div>
-    <%= link_to 'Search by Amenities', search_amenities_path %>
-  </div>
-
+  <%= link_to "Search by Amenities", search_amenities_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast" %>
 </div>
 
