@@ -1,0 +1,12 @@
+body {
+  width: 100%;
+}
+
+.layout-transparent  {
+  background: url('/shutteroo.com-sunset-beach-family.jpg') center / cover;
+}
+
+.layout-transparent .mdl-layout__header-row,
+.layout-transparent .mdl-layout__drawer-button .material-icons {
+  color: #FFF;
+}
