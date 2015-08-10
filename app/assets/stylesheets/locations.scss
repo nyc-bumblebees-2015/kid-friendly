@@ -1,13 +1,10 @@
-// Place all the styles related to the Locations controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 .selected-row {
   background-color: #66CCFF;
 }
 
-html, body{ 
+html, body{
   height: 100%;
-  width: 100%; 
+  width: 100%;
 }
 
 div#map-canvas{
