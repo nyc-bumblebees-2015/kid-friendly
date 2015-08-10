@@ -1,0 +1,47 @@
+<% provide(:title, "Check in Amenity") %>
+<h2><%= yield(:title) %></h2>
+
+<script id="google-location-template" type="text/x-handlebars-template">
+ <div id="api-search-locations-checkin">
+  {{#locations}}
+  <img class='checkin-icon' src='{{icon}}' />
+  <div class="result-row" data-place_id="{{placeID}}">
+    {{name}}
+    <br>
+    {{vicinity}}
+  </div>
+
+  {{/locations}}
+
+</div>
+</script>
+
+<div id="map-canvas"></div>
+
+<div id="locals_list"></div>
+
+<div class="new-location-form">
+
+  <%= form_for @location, :html => {:class => "new-checkin"} do |f| %>
+    <%= f.label 'Changing Stations' %>
+    <%= f.check_box :changing_stations, options = {}, checked_value = true, unchecked_value = false %>
+    <%= f.label 'Nursing Stations' %>
+    <%= f.check_box :nursing_stations, options = {}, checked_value = true, unchecked_value = false %>
+    <%= f.label 'Family Restrooms' %>
+    <%= f.check_box :family_restrooms, options = {}, checked_value = true, unchecked_value = false %>
+    <%= f.label 'Restrooms' %>
+    <%= f.check_box :restrooms, options = {}, checked_value = true, unchecked_value = false %>
+    <%= f.label 'Play Areas' %>
+    <%= f.check_box :play_areas, options = {}, checked_value = true, unchecked_value = false %>
+    <%= f.label 'Water Fountains' %>
+    <%= f.check_box :water_fountains, options = {}, checked_value = true, unchecked_value = false %>
+    <%= f.label 'High Chairs' %>
+    <%= f.check_box :high_chairs, options = {}, checked_value = true, unchecked_value = false %>
+    <%= f.label 'Cribs' %>
+    <%= f.check_box :cribs, options = {}, checked_value = true, unchecked_value = false %>
+    <%= f.submit 'Submit' , id: 'checkin-submit-btn' %>
+  <% end %>
+  <div>
+    Not what you're looking for? <%= link_to "Add a new location.", new_location_path %>
+  </div>
+</div>

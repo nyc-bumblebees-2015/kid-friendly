@@ -1,0 +1,8 @@
+<div class="helpful">
+  <% if current_user %>
+    <!-- <div id="tt1" class="mdl-tooltip" for="<%= review.id %>">You've already liked this review</div> -->
+    <%= form_for [review, @like] do |f| %>
+      <input type="image" src="/ic_thumb_up_black_24dp_2x.png" value="helpful vote" class="search-icon">
+    <% end %>
+  <% end %>
+</div>

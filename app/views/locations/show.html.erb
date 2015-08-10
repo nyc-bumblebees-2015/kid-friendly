@@ -1,0 +1,52 @@
+<% provide(:title, @location.name) %>
+
+<%= render partial: 'map', locals: {location: @location} %>
+
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--6-col">
+    <%= render partial: 'heading', locals: {location: @location} %>
+    <%= render partial: 'ratings', locals: {location: @location} %>
+  </div>
+  <div class="mdl-cell mdl-cell--4-col">
+  </div>
+  <div class="mdl-cell mdl-cell--2-col">
+    <% if @location.amenities? %>
+      <%= render partial: 'amenities', locals: {location: @location} %>
+    <% end %>
+  </div>
+</div>
+
+<div class="demo-grid-2 mdl-grid">
+  <div class="mdl-cell mdl-cell--6-col">
+<% if @location.reviews? %>
+  <div class="location_reviews">
+    <h3><%= pluralize(@location.reviews.count, "review") %></h3>
+    <% @location.reviews.each do |review| %>
+      <div class="review">
+        <%= render partial: 'reviews/review', locals: {review: review} %>
+        <div class="review_details">
+          <%= gravatar_for review.user %>
+          <%= link_to review.user.username, review.user %> -
+          <%= time_ago_in_words(review.created_at) %> ago
+          <div class="helped_statement">
+            <%= render partial: 'likes/form', locals: {review: review, likes: @likes} %>
+            <span class="helpful_points"><%= review.helpful_count %></span>
+            <% if review.helpful_count == 1 %>
+              <span class="helped">person</span>
+            <% else %>
+              <span class="helped">people</span>
+            <% end %>
+            found this review helpful.
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+<div class="new_review_link">
+  <%= link_to "Add your review", new_location_review_path(@location) %>
+</div>
+  </div>
+  <div class="mdl-cell mdl-cell--4-col"></div>
+  <div class="mdl-cell mdl-cell--2-col"></div>
+</div>

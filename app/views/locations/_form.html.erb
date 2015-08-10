@@ -1,0 +1,23 @@
+<%= form_for @location do |f| %>
+<div>
+  <%= f.label 'Changing Stations' %>
+  <%= f.check_box :changing_stations, options = {}, checked_value = true, unchecked_value = false %>
+  <%= f.label 'Nursing Stations' %>
+  <%= f.check_box :nursing_stations, options = {}, checked_value = true, unchecked_value = false %>
+  <%= f.label 'Cribs' %>
+  <%= f.check_box :cribs, options = {}, checked_value = true, unchecked_value = false %>
+  <%= f.label 'High Chairs' %>
+  <%= f.check_box :high_chairs, options = {}, checked_value = true, unchecked_value = false %>
+</div>
+<div>
+  <%= f.label 'Family Restrooms' %>
+  <%= f.check_box :family_restrooms, options = {}, checked_value = true, unchecked_value = false %>
+  <%= f.label 'Restrooms' %>
+  <%= f.check_box :restrooms, options = {}, checked_value = true, unchecked_value = false %>
+  <%= f.label 'Play Area' %>
+  <%= f.check_box :play_areas, options = {}, checked_value = true, unchecked_value = false %>
+  <%= f.label 'Water Fountains' %>
+  <%= f.check_box :water_fountains, options = {}, checked_value = true, unchecked_value = false %>
+</div>
+  <%= f.submit 'Submit' , id: 'create-submit-btn' %>
+<% end %>

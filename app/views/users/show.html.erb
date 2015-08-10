@@ -1,0 +1,42 @@
+<% provide(:title, @user.username) %>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--6-col">
+    <h2 class="user-heading">
+      <%= gravatar_for @user %>
+      <%= @user.username %>
+    </h2>
+  </div>
+  <div class="mdl-cell mdl-cell--4-col"></div>
+  <div class="mdl-cell mdl-cell--2-col"></div>
+</div>
+
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--6-col">
+    <% if @user.reviews? %>
+      <div class="location_reviews">
+        <h3><%= pluralize(@user.reviews.count, "review") %></h3>
+        <% @user.reviews.each do |review| %>
+          <div class="review">
+            <div class="review_details">
+            <h4><%= link_to review.location.name, review.location %></h4>
+            <%= time_ago_in_words(review.created_at) %> ago
+              <div class="reviewer_gravatar icon_image"><%= image_for review.location %></div>
+              <%= render partial: 'reviews/review', locals: {review: review} %>
+              <div class="helped_statement">
+                <span class="helpful_points"><%= review.helpful_count %></span>
+                <% if review.helpful_count == 1 %>
+                  <span class="helped">person</span>
+                <% else %>
+                  <span class="helped">people</span>
+                <% end %>
+                found this review helpful.
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="mdl-cell mdl-cell--4-col"></div>
+  <div class="mdl-cell mdl-cell--2-col"></div>
+</div>
