@@ -37,22 +37,22 @@ describe User do
   end
 
   it "is invalid without a unique username" do
-    dup_username_user = build(:dup_username_user)
+    dup_username_user = build(:user, first_name: 'Jose', last_name: 'Sue', email: 'josesue@example.com')
     expect(dup_username_user).to be_invalid
   end
 
   it "is invalid without a unique email address" do
-    dup_email_user = build(:dup_email_user)
+    dup_email_user = build(:user, username: "AppsAllDay", first_name: 'Johnny', last_name: 'Apple')
     expect(dup_email_user).to be_invalid
   end
 
-  it 'has many reviews' do
+  it 'has a review' do
     location = create(:location)
     review = create(:review, user: @user, location: location)
     expect(@user.reviews.last).to eq(review)
   end
 
-  it 'has many likes' do
+  it 'has a like' do
     location = create(:location)
     review = create(:review, user: @user, location: location)
     like = create(:like, user: @user, review: review)
