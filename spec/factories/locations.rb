@@ -13,5 +13,8 @@ FactoryGirl.define do
     restrooms true
     nursing_stations false
     water_fountains nil
+    play_areas nil
+    yelp_id nil
+    yelp_url nil
   end
 end
