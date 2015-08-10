@@ -69,9 +69,9 @@ function callback(results, status) {
   }
 }
 
-google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, 'page:change', initialize);
 
-$(document).ready(function(){
+$(document).on('page:change',function(){
   $('#map-canvas').hide();
   $('#create-submit-btn').toggle(false);
   $('.new-checkin').hide();

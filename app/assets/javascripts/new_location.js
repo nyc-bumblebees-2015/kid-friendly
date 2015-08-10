@@ -23,6 +23,6 @@ function auto() {
     };
   });
 };
-google.maps.event.addDomListener(window, 'load', auto)
+google.maps.event.addDomListener(window, 'page:change', auto)
 
 
