@@ -15,7 +15,7 @@
   <div class="<%= @home_page ? 'layout-transparent' : ''%> mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header mdl-layout__header--transparent">
       <div class="mdl-layout__header-row">
-        <span class="mdl-layout-title">kidpanion</span>
+        <span class="mdl-layout-title"><%= link_to "kidpanion", root_path %></span>
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation mdl-layout--large-screen-only">
           <%= render partial: 'shared/global_nav' %>
@@ -23,7 +23,7 @@
       </div>
     </header>
     <div class="mdl-layout__drawer mdl-layout--small-screen-only">
-      <span class="mdl-layout-title">kidpanion</span>
+      <span class="mdl-layout-title"><%= link_to "kidpanion", root_path %></span>
       <nav class="mdl-navigation">
         <%= render partial: 'shared/global_nav' %>
       </nav>
@@ -35,6 +35,4 @@
   </div>
     <%= render partial: 'shared/find_specific_amenities' %>
 </body>
-<footer>
-</footer>
 </html>
