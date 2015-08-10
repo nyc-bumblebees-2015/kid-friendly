@@ -45,4 +45,18 @@ describe User do
     dup_email_user = build(:dup_email_user)
     expect(dup_email_user).to be_invalid
   end
+
+  it 'has many reviews' do
+    location = create(:location)
+    review = create(:review, user: @user, location: location)
+    expect(@user.reviews.last).to eq(review)
+  end
+
+  it 'has many likes' do
+    location = create(:location)
+    review = create(:review, user: @user, location: location)
+    like = create(:like, user: @user, review: review)
+    expect(@user.likes.last).to eq(like)
+  end
+
 end
