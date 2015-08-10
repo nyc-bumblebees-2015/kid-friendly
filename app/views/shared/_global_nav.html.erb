@@ -1,5 +1,4 @@
-<% if !current_user %>
-  <%= link_to "Sign up", signup_path, class: "mdl-navigation__link" %>
-  <%= link_to "Login", login_path, class: "mdl-navigation__link" %>
-<% end %>
-<%= link_to "Logout", logout_path, class: "mdl-navigation__link" if current_user %>
+<%= link_to "Brown Alert", find_amenities_path('changing_stations'), class: "mdl-navigation__link" %>
+<%= link_to "Milk Alert", find_amenities_path('changing_stations'), class: "mdl-navigation__link" %>
+<%= link_to "Search by Amenity", search_amenities_path, class: "mdl-navigation__link" %>
+<%= link_to "Report Amenities", report_amenities_path, class: "mdl-navigation__link" %>

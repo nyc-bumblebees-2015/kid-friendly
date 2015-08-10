@@ -1,2 +1,8 @@
 $bold-accent-color: #EF4422;
 $light-accent-color: #F5F6FF;
+
+@media only screen and (min-width: 1027px) {
+  .alert-buttons {
+    display: none;
+  }
+}
