@@ -69,11 +69,10 @@ function callback(results, status) {
   }
 }
 
-}
-
 google.maps.event.addDomListener(window, 'load', initialize);
 
 $(document).ready(function(){
+  $('#map-canvas').hide();
   $('#create-submit-btn').toggle(false);
   $('.new-checkin').hide();
   $('#checkin-submit-btn').toggle(false);
