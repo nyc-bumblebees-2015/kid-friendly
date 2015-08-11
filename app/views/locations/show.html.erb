@@ -19,6 +19,12 @@
   </div>
 </div>
 
+<div>
+  <% if current_user && current_user.is_admin? %>
+    <%= link_to 'Delete', location_path(@location), method: :delete %>
+  <% end %>
+</div>
+
 <div class="demo-grid-2 mdl-grid">
   <div class="mdl-cell mdl-cell--6-col">
 <% if @location.reviews? %>
