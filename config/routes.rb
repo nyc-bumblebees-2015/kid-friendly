@@ -23,4 +23,5 @@ Rails.application.routes.draw do
   get 'report_amenities' => 'locations#report_amenities'
   get 'submission' => 'locations#submission'
 
+  mount Ckeditor::Engine => '/ckeditor'
 end
