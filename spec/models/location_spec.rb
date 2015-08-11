@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Location do
+RSpec.describe Location do
   before(:each) do
     @location = build(:location)
   end

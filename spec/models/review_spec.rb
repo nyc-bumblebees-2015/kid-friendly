@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Review do
+RSpec.describe Review do
   it "is valid with a location, user, and overall_rating" do
     expect(create(:review)).to be_valid
   end
