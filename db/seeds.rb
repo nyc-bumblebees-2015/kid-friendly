@@ -97,7 +97,16 @@ users = [
     email: "duanereade@don.com",
     username: "dondoodie",
     password: "123456"
+  },
+
+  { first_name: "Don",
+    last_name: "Doodie",
+    email: "whatisaduaneread@dondoodie.com",
+    username: "Admin",
+    password: "123456",
+    admin: true
   }
+
 ]
 
 reviews = [
