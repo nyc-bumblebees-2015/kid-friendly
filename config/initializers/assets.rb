@@ -2,13 +2,6 @@
 
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
-<<<<<<< HEAD
-Rails.application.config.assets.precompile += %w( ckeditor/* )
-Ckeditor.setup do |config|
-  config.assets_languages = ['en']
-end
-=======
->>>>>>> remove ckeditor gem and configuration. manually include
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 
