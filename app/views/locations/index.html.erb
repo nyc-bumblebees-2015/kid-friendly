@@ -2,7 +2,7 @@
   <div class="mdl-cell mdl-cell--4-col"></div>
   <div class="mdl-cell mdl-cell--4-col">
     <div>
-      <h4>SLOGAN</h4>
+      <h4 id='slogan'>"ensure a great time for all"</h4>
         <div>
           <form id="search-form">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
@@ -11,12 +11,20 @@
             </div>
             <input type="image" src="/ic_search_black_24dp_2x.png" value="Search" class="search-icon">
           </form>
-          <select name="distance" form="search">
-            <option value=".5">within .5 mile</option>
-            <option value="5">within 5 mile</option>
-            <option value="50">within 50 mile</option>
-            <option value="anywhere">anywhere</option>
-          </select>
+          <div class="distance-menu">
+            <p>Please select a search radius</p>
+          <button id="menu-lower-left"
+            class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
+              for="menu-lower-left">
+            <li value=".5" class="mdl-menu__item">within .5</li>
+            <li value="5" class="mdl-menu__item">within 5 miles</li>
+            <li value="50" class="mdl-menu__item">within 50 miles</li>
+            <li value="anywhere" class="mdl-menu__item">Anywhere</li>
+          </ul>
+          </div>
         </div>
       <div id="search-results-container">
       </div>
