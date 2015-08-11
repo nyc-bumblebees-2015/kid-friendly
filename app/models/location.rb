@@ -62,9 +62,6 @@ class Location < ActiveRecord::Base
     [self.cribs,self.changing_stations,self.high_chairs,self.family_restrooms,self.restrooms,self.nursing_stations,self.water_fountains].any?
   end
 
-  def yelp_deal
-    if yelp_id_lookup && yelp_id_lookup.yelp_deal
-  end
   protected
     def parsable_phone_number?
       self.formatted_phone_number && self.formatted_phone_number.match(/^\(\d{3}\)\s\d{3}(-)\d{4}$/)
