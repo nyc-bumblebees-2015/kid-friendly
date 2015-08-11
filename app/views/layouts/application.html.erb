@@ -17,10 +17,10 @@
     <header class="mdl-layout__header mdl-layout__header--scroll">
       <div class="mdl-layout__header-row">
         <span class="mdl-layout-title"><%= link_to "kidpanion", root_path %></span>
-        <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation mdl-layout--large-screen-only features">
           <%= render partial: 'shared/global_nav' %>
         </nav>
-        <div class="mdl-layout-spacer"></div>
           <nav class="mdl-navigation mdl-layout--large-screen-only">
           <%= render partial: 'shared/accounts' %>
         </nav>
