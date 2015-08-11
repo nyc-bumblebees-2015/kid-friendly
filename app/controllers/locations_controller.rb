@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+  before_action :get_location, only: [:show, :edit, :update, :destroy]
 
   def index
     @home_page = true
@@ -9,7 +10,6 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @location = Location.find_by(id: params[:id])
     @like = Like.new
   end
 
@@ -78,6 +78,10 @@ class LocationsController < ApplicationController
     else
       Location.nearby_places({name: params[:name], lat: params[:lat], lng: params[:lng], prox: params[:prox]})
     end
+  end
+
+  def get_location
+    @location = Location.find_by(id: params[:id])
   end
 
 end
