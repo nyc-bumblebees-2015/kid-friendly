@@ -11,4 +11,9 @@ class User < ActiveRecord::Base
   def reviews?
     self.reviews.count > 0
   end
+
+  def is_admin?
+    self.admin
+  end
+
 end

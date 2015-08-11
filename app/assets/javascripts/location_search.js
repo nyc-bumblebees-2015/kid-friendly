@@ -32,8 +32,10 @@ LocationSearch.BrowserLocation = (function(){
   Location.get = function() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position){
-          window.lat = position.coords.latitude;
-          window.lng = position.coords.longitude;
+          sessionStorage.setItem('lat', position.coords.latitude);
+          sessionStorage.setItem('lng', position.coords.longitude);
+          // window.lat = position.coords.latitude;
+          // window.lng = position.coords.longitude;
         });
     } else {
         alert("Geolocation is not supported by this browser. Please turn it on to ensure better search results");
@@ -86,18 +88,6 @@ LocationSearch.View = function(controller){
     this.controller.performNameSearch(searchName, prox);
   }.bind(this));
 
-  $('#changing').on('click', function(event){
-    event.preventDefault();
-    var route = getBaseUrl() + '/find_amenities/' + 'changing_stations' + '?lat=' + window.lat + '\&lng=' + window.lng;
-    window.location.href = route;
-  });
-
-  $('#nursing').on('click', function(event){
-    event.preventDefault();
-    var route = getBaseUrl() + '/find_amenities/' + 'nursing_stations' + '?lat=' + window.lat + '\&lng=' + window.lng;
-    window.location.href = route;
-  });
-
   function getBaseUrl() {
     var host = window.location.host
     var protocol = location.protocol
@@ -105,12 +95,81 @@ LocationSearch.View = function(controller){
     return baseUrl;
   };
 
-};
+  function getLat() {
+    var lat = sessionStorage.getItem('lat');
+    return lat;
+  };
 
+  function getLng() {
+    var lng = sessionStorage.getItem('lng');
+    return lng;
+  };
+
+  $('#changing').on('click', function(event){
+    event.preventDefault();
+    var route = getBaseUrl() + '/find_amenities/' + 'changing_stations' + '?lat=' + getLat() + '\&lng=' + getLng();
+    window.location.href = route;
+  });
+
+  $('#nursing').on('click', function(event){
+    event.preventDefault();
+    var route = getBaseUrl() + '/find_amenities/' + 'nursing_stations' + '?lat=' + getLat() + '\&lng=' + getLng();
+    window.location.href = route;
+  });
+
+    $('#cribs').on('click', function(event){
+    event.preventDefault();
+    event.stopPropagation();
+    var route = getBaseUrl() + '/find_amenities/' + 'cribs' + '?lat=' + getLat() + '\&lng=' + getLng();
+    window.location.href = route;
+  });
+
+  $('#changing_stations').on('click', function(event){
+    event.preventDefault();
+    var route = getBaseUrl() + '/find_amenities/' + 'changing_stations' + '?lat=' + getLat() + '\&lng=' + getLng();
+    window.location.href = route;
+  });
+
+  $('#high_chairs').on('click', function(event){
+    event.preventDefault();
+    var route = getBaseUrl() + '/find_amenities/' + 'high_chairs' + '?lat=' + getLat() + '\&lng=' + getLng();
+    window.location.href = route;
+  });
+
+  $('#family_restrooms').on('click', function(event){
+    event.preventDefault();
+    var route = getBaseUrl() + '/find_amenities/' + 'family_restrooms' + '?lat=' + getLat() + '\&lng=' + getLng();
+    window.location.href = route;
+  });
+
+  $('#restrooms').on('click', function(event){
+    event.preventDefault();
+    var route = getBaseUrl() + '/find_amenities/' + 'restrooms' + '?lat=' + getLat() + '\&lng=' + getLng();
+    window.location.href = route;
+  });
+
+  $('#nursing_stations').on('click', function(event){
+    event.preventDefault();
+    var route = getBaseUrl() + '/find_amenities/' + 'nursing_stations' + '?lat=' + getLat() + '\&lng=' + getLng();
+    window.location.href = route;
+  });
+
+  $('#water_fountains').on('click', function(event){
+    event.preventDefault();
+    var route = getBaseUrl() + '/find_amenities/' + 'water_fountains' + '?lat=' + getLat() + '\&lng=' + getLng();
+    window.location.href = route;
+  });
+
+};
 
 $(document).on('ready', function(){
   var controller = new LocationSearch.Controller();
   var view = new LocationSearch.View(controller);
   controller.view = view;
-  LocationSearch.BrowserLocation.Location.get();
+  if ( sessionStorage.getItem('lat') && sessionStorage.getItem('lng') ) {
+    console.log('lat and lng set')
+  } else {
+    LocationSearch.BrowserLocation.Location.get();
+  };
+
 });
