@@ -1,4 +1,4 @@
-<%= form_for @location do |f| %>
+<%= form_for Location.new do |f| %>
 <div>
   <%= f.label 'Changing Stations' %>
   <%= f.check_box :changing_stations, options = {}, checked_value = true, unchecked_value = false %>
