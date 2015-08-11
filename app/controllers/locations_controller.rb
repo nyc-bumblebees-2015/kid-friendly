@@ -37,12 +37,22 @@ class LocationsController < ApplicationController
   end
 
   def edit
+    render :show unless current_user && current_user.is_admin?
   end
 
   def update
+    @location.update(location_params)
+
+    if @location.save
+      render :show
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @location.destroy
+    redirect_to root_path
   end
 
   def search_amenities
@@ -69,7 +79,7 @@ class LocationsController < ApplicationController
   private
 
   def location_params
-    params.require(:location).permit(:name, :lng, :lat, :place_id, :formatted_address, :formatted_phone_number, :cribs, :changing_stations, :high_chairs, :family_restrooms, :restrooms, :nursing_stations, :water_fountains)
+    params.require(:location).permit(:name, :lng, :lat, :place_id, :formatted_address, :formatted_phone_number, :cribs, :changing_stations, :high_chairs, :family_restrooms, :restrooms, :nursing_stations, :water_fountains, :play_areas)
   end
 
   def locations_search(proximity)
