@@ -62,6 +62,18 @@ class Location < ActiveRecord::Base
     [self.cribs,self.changing_stations,self.high_chairs,self.family_restrooms,self.restrooms,self.nursing_stations,self.water_fountains].any?
   end
 
+  def has_yelp_deal?
+    if self.yelp_id && yelp_id_lookup.deals
+      return true
+    else
+      return false
+    end
+  end
+
+  def yelp_deal
+    yelp_id_lookup.deals.first
+  end
+
   protected
     def parsable_phone_number?
       self.formatted_phone_number && self.formatted_phone_number.match(/^\(\d{3}\)\s\d{3}(-)\d{4}$/)
@@ -77,7 +89,7 @@ class Location < ActiveRecord::Base
     end
 
     def yelp_id_lookup
-      Yelp.business(yelp_id)
+      Yelp.client.business(yelp_id)
     end
 
     def set_yelp_id
