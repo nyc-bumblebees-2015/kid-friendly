@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe User do
+RSpec.describe User do
   before(:each) do
     @user = create(:user)
   end
@@ -37,12 +37,12 @@ describe User do
   end
 
   it "is invalid without a unique username" do
-    dup_username_user = build(:user, first_name: 'Jose', last_name: 'Sue', email: 'josesue@example.com')
+    dup_username_user = build(:user, username: @user.username)
     expect(dup_username_user).to be_invalid
   end
 
   it "is invalid without a unique email address" do
-    dup_email_user = build(:user, username: "AppsAllDay", first_name: 'Johnny', last_name: 'Apple')
+    dup_email_user = build(:user, email: @user.email)
     expect(dup_email_user).to be_invalid
   end
 
