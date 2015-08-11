@@ -9,6 +9,18 @@ RSpec.describe Location do
     expect(@location).to be_valid
   end
 
+  it "is valid without a phone number" do
+    expect(create(:no_phone_number)).to be_valid
+  end
+
+  it "is valid with a blank phone number" do
+    expect(create(:blank_phone_number)).to be_valid
+  end
+
+  it "is valid with an international phone number" do
+    expect(create(:international)).to be_valid
+  end
+
   it 'is invalid without a name' do
     @location.name = nil
     expect(@location).to be_invalid

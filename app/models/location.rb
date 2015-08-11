@@ -2,8 +2,8 @@ class Location < ActiveRecord::Base
   acts_as_mappable
   has_many :reviews
   validates :name, :lng, :lat, :formatted_address, :place_id, presence: true
-  before_save :set_yelp_id, if: :formatted_phone_number?
-  before_save :set_yelp_url, if: :formatted_phone_number?
+  before_save :set_yelp_id, if: :parsable_phone_number?
+  before_save :set_yelp_url, if: :parsable_phone_number?
 
   def self.nearby_places(args = {})
     name = args.fetch(:name, nil)
@@ -63,6 +63,10 @@ class Location < ActiveRecord::Base
   end
 
   protected
+    def parsable_phone_number?
+      self.formatted_phone_number && self.formatted_phone_number.match(/^\(\d{3}\)\s\d{3}(-)\d{4}$/)
+    end
+
     def escaped_phone_number
       "+1" + self.formatted_phone_number.gsub(/(\(| |\) |-)/, "")
     end
@@ -77,10 +81,10 @@ class Location < ActiveRecord::Base
     end
 
     def set_yelp_id
-      self.yelp_id = (yelp_phone_lookup == nil ? nil : yelp_phone_lookup.id)
+      self.yelp_id = yelp_phone_lookup.id if yelp_phone_lookup
     end
 
     def set_yelp_url
-      self.yelp_url = (yelp_phone_lookup == nil ? nil : yelp_phone_lookup.url)
+      self.yelp_url = yelp_phone_lookup.url if yelp_phone_lookup
     end
 end

@@ -17,5 +17,31 @@ FactoryGirl.define do
     yelp_id nil
     yelp_url nil
 
+    factory :no_phone_number do
+      name "Philadelphia"
+      place_id "ChIJ60u11Ni3xokRwVg-jNgU9Yk"
+      formatted_address "Philadelphia, PA, USA"
+      formatted_phone_number nil
+      lat "39.9525839"
+      lng "-75.16522150000003"
+    end
+
+    factory :blank_phone_number do
+      name "Philadelphia"
+      place_id "ChIJ60u11Ni3xokRwVg-jNgU9Yk"
+      formatted_address "Philadelphia, PA, USA"
+      formatted_phone_number " "
+      lat "39.9525839"
+      lng "-75.16522150000003"
+    end
+
+    factory :international do
+      name "Posudion, Magazin"
+      formatted_phone_number "8 (495) 620-34-83"
+      formatted_address "Red Square, 3, ГУМ, Moskva, Russia, 109012"
+      lat "55.754634"
+      lng "37.62149599999998"
+      place_id "ChIJBZbmYllKtUYRYI-w1SIN_WU"
+    end
   end
 end
