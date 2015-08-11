@@ -1,4 +1,5 @@
 <% if !current_user %>
+  <%= link_to "Add Location", new_location_path, class: "mdl-navigation__link" %>
   <%= link_to "Login", login_path, class: "mdl-navigation__link" %>
   <%= link_to "Sign up", signup_path, class: "mdl-navigation__link" %>
 <% end %>
