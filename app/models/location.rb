@@ -1,6 +1,6 @@
 class Location < ActiveRecord::Base
   acts_as_mappable
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   validates :name, :lng, :lat, :formatted_address, :place_id, presence: true
   before_save :set_yelp_id, if: :parsable_phone_number?
   before_save :set_yelp_url, if: :parsable_phone_number?

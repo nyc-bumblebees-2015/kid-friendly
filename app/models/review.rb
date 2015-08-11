@@ -1,7 +1,7 @@
 class Review < ActiveRecord::Base
   belongs_to :user
   belongs_to :location
-  has_many :likes
+  has_many :likes, dependent: :destroy
   before_save :check_body_content
   validates :location, :user, :overall_rating, presence: true
   validates :overall_rating, numericality: { only_integer: true,
