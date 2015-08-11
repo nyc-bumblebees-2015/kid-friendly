@@ -20,7 +20,7 @@ function setup() {
   });
   var request = {
     location: pointOfInterest,
-    radius: 100,
+    radius: 500,
     types: ['amusement_park',
             'aquarium',
             'art_gallery',
