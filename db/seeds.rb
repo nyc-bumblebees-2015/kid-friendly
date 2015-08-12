@@ -1,7 +1,11 @@
-Like.create!([
-  {user_id: 1, review_id: 1},
-  {user_id: 7, review_id: 4},
-  {user_id: 7, review_id: 6}
+User.create!([
+  {first_name: "Vic", last_name: "Zhu", username: "dondoodie", email: "duanereade@don.com", password: "123456",  admin: false},
+  {first_name: "Don", last_name: "Doodie", username: "Admin", email: "whatisaduaneread@dondoodie.com", password: "123456",  admin: true},
+  {first_name: "Jonathan", last_name: "Chung", username: "hukashi", email: "hukashi@gmail.com", password: "123456", password_confirmation: "123456" , admin: false},
+  {first_name: "Vick", last_name: "Zhu", username: "vick", email: "vicxizhu@gmail.com", password: "123456",  admin: false},
+  {first_name: "Britney", last_name: "Wright", username: "Brit", email: "blw06g@gmail.com", password: "123456",  admin: false},
+  {first_name: "Sihong", last_name: "Huang", username: "superdad", email: "sihongspring2011@gmail.com", password: "123456",  admin: false},
+  {first_name: "Steven", last_name: "Cassidy", username: "superuser", email: "stevecass@devbootcamp.com", password: "123456",  admin: true}
 ])
 Location.create!([
   {name: "Yosemite National park", place_id: "ChIJxeyK9Z3wloAR_gOA7SycJC0", lng: -119.538329, lat: 37.865101, formatted_address: "California, United States", formatted_phone_number: "(209) 372-0200", cribs: nil, changing_stations: nil, high_chairs: nil, family_restrooms: nil, restrooms: nil, nursing_stations: nil, water_fountains: nil, play_areas: nil, yelp_id: "half-dome-yosemite-national-park", yelp_url: "http://www.yelp.com/biz/half-dome-yosemite-national-park"},
@@ -41,12 +45,14 @@ Review.create!([
   {location_id: 7, user_id: 7, overall_rating: 2, cleanliness_rating: 2, spaciousness_rating: 2, body: "This place is definitely not for kids. Not enough space and nothing on the menu for them. Stay away if you have kids."},
   {location_id: 24, user_id: 4, overall_rating: 3, cleanliness_rating: 2, spaciousness_rating: 2, body: "This store has great ice cream but not enough seating and it is very cramped."}
 ])
-User.create!([
-  {first_name: "Vic", last_name: "Zhu", username: "dondoodie", email: "duanereade@don.com", password_digest: "$2a$10$3C13XK6LD990gM5mN8HwMOnomX/ODrvECogF5MzEU4eByWgv2yDH2", admin: false},
-  {first_name: "Don", last_name: "Doodie", username: "Admin", email: "whatisaduaneread@dondoodie.com", password_digest: "$2a$10$VC8vXE/ESxE7vI7ur/xZmOgg60UO.6EGM6MqDX087etntnZI27Jqy", admin: true},
-  {first_name: "Jonathan", last_name: "Chung", username: "hukashi", email: "hukashi@gmail.com", password_digest: "$2a$10$/WudIskL/3qhysQ3qTanjevq94nq.HzlYFPYNftL61r0iEAoQdj6K", admin: false},
-  {first_name: "Vick", last_name: "Zhu", username: "vick", email: "vicxizhu@gmail.com", password_digest: "$2a$10$NNJBaEQnlCUPEULmvXlCluSUOPFPCbCZuqU3dg0Svb/h4M3fBrkji", admin: false},
-  {first_name: "Britney", last_name: "Wright", username: "Brit", email: "blw06g@gmail.com", password_digest: "$2a$10$/WJ/PkiccbTtlZvfa9QOZOETIgKYmE444bhsxWKvKamN4htL.ZuI6", admin: false},
-  {first_name: "Sihong", last_name: "Huang", username: "superdad", email: "sihongspring2011@gmail.com", password_digest: "$2a$10$Y9ZMJDYGuiUeDAxsyiNaXOYHbtddF65jvqc6j9YyqbUJgd1L4rq6S", admin: false},
-  {first_name: "Steven", last_name: "Cassidy", username: "superuser", email: "stevecass@devbootcamp.com", password_digest: "$2a$10$5/DaoDTevYwCYv1xcJuomeB6kPFdjpq2oUphUE0FZlUWCi50GNHJC", admin: true}
+Like.create!([
+  {user_id: 1, review_id: 1},
+  {user_id: 7, review_id: 4},
+  {user_id: 7, review_id: 6}
 ])
+
+["likes", "locations", "reviews", "users"].each do |table_name|
+  statement = "SELECT setval('#{table_name}_id_seq', (SELECT MAX(id) FROM #{table_name}));"
+  puts statement
+  ActiveRecord::Base.connection.execute(statement)
+end
