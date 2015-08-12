@@ -3,35 +3,36 @@
   <div class="mdl-cell mdl-cell--6-col">
     <h2 class="user-heading">
       <%= gravatar_for @user %>
-      <%= @user.username %>
+      <%= @user.username %>s
     </h2>
   </div>
   <div class="mdl-cell mdl-cell--4-col"></div>
   <div class="mdl-cell mdl-cell--2-col"></div>
 </div>
 
-<div>
-  <% if current_user?(@user) || (current_user.is_admin? if current_user) %>
-    <%= link_to 'edit', edit_user_path(@user) %>
-  <% end %>
-</div>
-
-<div>
-  <% if current_user && current_user.is_admin? %>
-    <%= link_to 'delete', user_path(@user), method: :delete %>
-  <% end %>
+<div class="user-edit-delete">
+  <div class="edit-user-div" data-popup-open="popup-4">
+    <% if current_user?(@user) || (current_user.is_admin? if current_user) %>
+      <%= button_to 'edit profile', edit_user_path(@user), method: :get, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast" %>
+    <% end %>
+  </div>
+  <div class="delete-user-div">
+    <% if current_user && current_user.is_admin? %>
+      <%= button_to 'delete profile', user_path(@user), method: :delete, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast" %>
+    <% end %>
+  </div>
 </div>
 
 <div class="mdl-grid">
   <div class="mdl-cell mdl-cell--6-col">
     <% if @user.reviews? %>
       <div class="location_reviews">
-        <h3><%= pluralize(@user.reviews.count, "review") %></h3>
+        <h3 class="review-count-header"><%= pluralize(@user.reviews.count, "review") %></h3>
         <% @user.reviews.each do |review| %>
           <div class="review">
             <div class="review_details">
-            <h4><%= link_to review.location.name, review.location %></h4>
-            <%= time_ago_in_words(review.created_at) %> ago
+            <h4><%= link_to review.location.name, review.location, class: "review-title" %></h4>
+            <span class="time-ago"><%= time_ago_in_words(review.created_at) %> ago</span>
               <div class="reviewer_gravatar icon_image"><%= image_for review.location %></div>
               <%= render partial: 'reviews/review', locals: {review: review} %>
               <div class="helped_statement">
@@ -41,7 +42,7 @@
                 <% else %>
                   <span class="helped">people</span>
                 <% end %>
-                found this review helpful.
+                <span class="helped">found this review helpful.</span>
               </div>
             </div>
           </div>
@@ -52,3 +53,39 @@
   <div class="mdl-cell mdl-cell--4-col"></div>
   <div class="mdl-cell mdl-cell--2-col"></div>
 </div>
+
+
+<div class='popup' data-popup='popup-4'>
+    <div class='popup-inner'>
+   <h2>Edit User</h2>
+    <div>
+      <%= form_for @user do |f| %>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+        <%= f.label :username, class: "mdl-textfield__label" %>
+        <%= f.text_field :username, value: @user.username, class: "mdl-textfield__input" %>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+        <%= f.label :first_name, class: "mdl-textfield__label" %>
+        <%= f.text_field :first_name, value: @user.first_name, class: "mdl-textfield__input" %>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+        <%= f.label :last_name, class: "mdl-textfield__label" %>
+        <%= f.text_field :last_name, value: @user.last_name, class: "mdl-textfield__input" %>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+        <%= f.label :email, class: "mdl-textfield__label" %>
+        <%= f.text_field :email, value: @user.email, class: "mdl-textfield__input" %>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+        <%= f.label :password, class: "mdl-textfield__label" %>
+        <%= f.text_field :password, value: @user.password, class: "mdl-textfield__input" %>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+        <%= f.submit %>
+        </div>
+      <% end %>
+    </div>
+      <p><a data-popup-close="popup-4" href="#">Close</a></p>
+      <a class="popup-close" data-popup-close="popup-4" href="#">x</a>
+    </div>
+  </div>
