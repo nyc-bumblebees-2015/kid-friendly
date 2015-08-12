@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811201334) do
+ActiveRecord::Schema.define(version: 20150812020625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20150811201334) do
     t.boolean  "water_fountains"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.string   "play_areas"
+    t.boolean  "play_areas"
     t.string   "yelp_id"
     t.string   "yelp_url"
   end

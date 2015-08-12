@@ -13,6 +13,9 @@
     <% if @location.amenities? %>
       <%= render partial: 'amenities', locals: {location: @location} %>
     <% end %>
+    <% if @location.has_yelp_deal? %>
+      <%= render partial: 'deal', locals: {location: @location} %>
+    <% end %>
   </div>
 </div>
 
