@@ -10,16 +10,17 @@
   <div class="mdl-cell mdl-cell--2-col"></div>
 </div>
 
-<div data-popup-open="popup-4">
-  <% if current_user?(@user) || (current_user.is_admin? if current_user) %>
-    <%= link_to 'edit', edit_user_path(@user) %>
-  <% end %>
-</div>
-
-<div class="delete-user-div">
-  <% if current_user && current_user.is_admin? %>
-    <%= link_to 'delete', user_path(@user), method: :delete %>
-  <% end %>
+<div class="user-edit-delete">
+  <div class="edit-user-div" data-popup-open="popup-4">
+    <% if current_user?(@user) || (current_user.is_admin? if current_user) %>
+      <%= link_to 'edit profile', edit_user_path(@user) %>
+    <% end %>
+  </div>
+  <div class="delete-user-div">
+    <% if current_user && current_user.is_admin? %>
+      <%= link_to 'delete profile', user_path(@user), method: :delete %>
+    <% end %>
+  </div>
 </div>
 
 <div class="mdl-grid">
