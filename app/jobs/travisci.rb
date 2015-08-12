@@ -4,7 +4,7 @@ def update_builds(repository, config)
   builds = []
   repo = nil
 
-    Travis.access_token = config["auth_token"]
+    Travis.access_token = ENV['TRAVIS_TOKEN']
     repo = Travis::Repository.find(repository)
 
   build = repo.last_build
@@ -24,7 +24,7 @@ Dashing.scheduler.every('2m', first_in: '1s') {
   config.each do |type, type_config|
     unless type_config["repositories"].nil?
       type_config["repositories"].each do |data_id, repo|
-        send_event(data_id, { items: update_builds(repo, type_config) })
+        Dashing.send_event(data_id, { items: update_builds(repo, type_config) })
       end
     else
       puts "No repositories for travis.#{type}"
