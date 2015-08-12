@@ -3,11 +3,11 @@
 <head>
   <title><%= full_title(yield(:title)) %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.green-indigo.min.css" />
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <script src="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.min.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <script src="//cdn.ckeditor.com/4.5.2/standard/ckeditor.js"></script>
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places" %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -59,18 +59,19 @@
     <div class='popup-inner'>
       <div class="login">
         <%= form_tag(login_path, method: 'post') do %>
-          <div class="form_fields">
-            <label>Username</label>
-            <%= text_field_tag :username %>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+            <label class="mdl-textfield__label">Username</label>
+            <input class="mdl-textfield__input" type="text" name="username" />
           </div>
-          <div class="form_fields">
-            <label>Password</label>
-            <%= password_field_tag :password %>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+            <label class="mdl-textfield__label">Password</label>
+            <input class="mdl-textfield__input" type="password" name="password" />
           </div>
           <%= submit_tag "Login" %>
 
         <% end %>
       </div>
+        <p><a data-popup-close="popup-1" href="#">Close</a></p>
         <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
     </div>
   </div>
@@ -79,35 +80,36 @@
       <h2>New User Registration</h2>
         <div class="new_user_form form">
           <%= form_for User.new do |f| %>
-            <div class="form_fields">
-              <%= f.label :username %>
-              <%= f.text_field :username %>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+              <%= f.label :username, class: "mdl-textfield__label" %>
+              <%= f.text_field :username, class: "mdl-textfield__input" %>
             </div>
-            <div class="form_fields">
-              <%= f.label :first_name %>
-              <%= f.text_field :first_name %>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+              <%= f.label :first_name, class: "mdl-textfield__label" %>
+              <%= f.text_field :first_name, class: "mdl-textfield__input" %>
             </div>
-            <div class="form_fields">
-              <%= f.label :last_name %>
-              <%= f.text_field :last_name %>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+              <%= f.label :last_name, class: "mdl-textfield__label" %>
+              <%= f.text_field :last_name, class: "mdl-textfield__input" %>
             </div>
-            <div class="form_fields">
-              <%= f.label :email %>
-              <%= f.text_field :email %>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+              <%= f.label :email, class: "mdl-textfield__label" %>
+              <%= f.text_field :email, class: "mdl-textfield__input" %>
             </div>
-            <div class="form_fields">
-              <%= f.label :password %>
-              <%= f.password_field :password %>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+              <%= f.label :password, class: "mdl-textfield__label" %>
+              <%= f.password_field :password, class: "mdl-textfield__input" %>
             </div>
-            <div class="form_fields">
-              <%= f.label :password_confirmation %>
-              <%= f.password_field :password_confirmation %>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+              <%= f.label :password_confirmation, class: "mdl-textfield__label" %>
+              <%= f.password_field :password_confirmation, class: "mdl-textfield__input" %>
             </div>
-            <div class="form_fields">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
               <%= f.submit "Sign up" %>
             </div>
           <% end %>
         </div>
+          <p><a data-popup-close="popup-2" href="#">Close</a></p>
           <a class="popup-close" data-popup-close="popup-2" href="#">x</a>
       </div>
     </div>
@@ -122,6 +124,7 @@
         <p><span id="search-data-lng"></span></p>
       </div>
         <%= render partial: "/locations/form" %>
+      <p><a data-popup-close="popup-3" href="#">Close</a></p>
       <a class="popup-close" data-popup-close="popup-3" href="#">x</a>
     </div>
   </div>

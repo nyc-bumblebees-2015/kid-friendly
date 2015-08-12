@@ -3,9 +3,13 @@
 
 <div>
   <% @locations.each do |location| %>
-    <div>
-      <%= link_to location.name, location_path(location) %> <br>
-      <%= link_to location.formatted_address, location.directions_url %>
+    <div class='quick-find-list'>
+      <div class='quick-find-container-1'>
+      <%= link_to location.name, location_path(location), class: 'quick-list-name' %> <br>
+      </div>
+      <div class='quick-find-container-2'>
+      <%= link_to location.formatted_address, location.directions_url, class: 'quick-list-address' %>
+      </div>
     </div>
   <% end %>
 </div>
