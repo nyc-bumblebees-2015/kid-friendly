@@ -68,4 +68,18 @@ RSpec.describe Location do
       review = create(:review, user: user, location: @location)
     }.to change(@location.reviews, :count).by(1)
   end
+
+  it "does not have a yelp deal if it does not have a yelp_id" do
+    notel = create(:no_phone_number)
+    expect(notel.has_yelp_deal?).to be_falsey
+  end
+
+  it "might not have a yelp deal even if it has a yelp id" do
+    expect(@location.has_yelp_deal?).to be_falsey
+  end
+
+  it "does have a yelp deal" do
+    has_deal = create(:has_yelp_deals)
+    expect(has_deal.has_yelp_deal?).to be_truthy
+  end 
 end

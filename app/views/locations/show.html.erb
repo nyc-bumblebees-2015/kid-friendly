@@ -15,6 +15,8 @@
     <% end %>
     <% if @location.has_yelp_deal? %>
       <%= render partial: 'deal', locals: {location: @location} %>
+    <% else %>
+      No deals at this time
     <% end %>
   </div>
 </div>

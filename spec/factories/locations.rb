@@ -52,5 +52,16 @@ FactoryGirl.define do
       name "Super 8 Brooklyn / Park Slope Hotel"
       place_id "ChIJbbhVClVawokRvFU-hqN-lvk"
     end
+
+    #This one may not work once the deal expires. 
+    #need to look at yelp gem for more reliable way to test this
+    factory :has_yelp_deals do
+      name "The Morrison"
+      formatted_phone_number "(323) 667-1839"
+      formatted_address "3179 Los Feliz Boulevard, Los Angeles, CA 90039, United States"
+      lat "34.123817"
+      lng "-118.26874599999996"
+      place_id "ChIJ_5O6wunAwoARfoJOtIM7ci0"
+    end
   end
 end

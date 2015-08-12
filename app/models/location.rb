@@ -63,11 +63,7 @@ class Location < ActiveRecord::Base
   end
 
   def has_yelp_deal?
-    if self.yelp_id && yelp_id_lookup.deals
-      return true
-    else
-      return false
-    end
+    self.yelp_id && yelp_id_lookup.keys.any? {|n| n == "deals"}
   end
 
   def yelp_deal
