@@ -2,8 +2,16 @@ h3.review-count-header{
   font-size:32px;
 }
 
-.edit-user-div {
-  margin-left: 15px;
+.user-edit-delete {
+  margin-left: 1em;
+}
+
+.edit-user-div a{
+  text-decoration: none;
+}
+
+.delete-user-div a{
+  text-decoration: none;
 }
 
 a.review-title {
