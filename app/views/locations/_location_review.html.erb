@@ -1,0 +1,32 @@
+<div class="review-box mdl-card mdl-shadow--2dp amazing mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title mdl-color-text--grey-50">
+    <div class="individual-star-rating"><%= review.overall_star_rating %></div>
+  </div>
+  <% if review.body %>
+    <div class="reviewed-details mdl-card__supporting-text mdl-color-text--grey-600">
+      <%= simple_format(review.body) %>
+    </div>
+  <% end %>
+    <div class="reviewer mdl-card__supporting-text meta mdl-color-text--grey-600">
+      <%= gravatar_for review.user %>
+      <div class="user-details">
+        <strong><%= link_to review.user.username, review.user %></strong>
+        <span><%= time_ago_in_words(review.created_at) %> ago</span>
+      </div>
+      <div class="helped_statement">
+        <%= render partial: 'likes/form', locals: {review: review, likes: likes} %>
+        <span class="helpful_points"><%= review.helpful_count %></span>
+        <% if review.helpful_count == 1 %>
+          <span class="helped">person</span>
+        <% else %>
+          <span class="helped">people</span>
+        <% end %>
+        found this review helpful.
+      </div>
+      <div>
+        <% if current_user && current_user.is_admin? %>
+          <%= link_to 'delete', location_review_path(@location, review), method: :delete %>
+        <% end %>
+      </div>
+    </div>
+</div>

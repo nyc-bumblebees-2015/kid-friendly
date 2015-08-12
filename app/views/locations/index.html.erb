@@ -27,7 +27,19 @@
         </div>
 
       <div id="search-results-container">
+        <script id="search-results-template" type="text/x-handlebars-template">
+          <div id="api-search-locations-checkin">
+            {{#locations}}
+            <div id="search-location-index">
+              <a href="/locations/{{id}}">{{name}}</a>
+              <br>
+              {{formatted_address}}
+            </div>
+              {{/locations}}
+          </div>
+        </script>
       </div>
+      <div id="search-results-list"></div>
     </div>
   </div>
   <div class="mdl-cell mdl-cell--4-col"></div>
