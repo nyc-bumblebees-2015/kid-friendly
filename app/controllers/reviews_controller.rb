@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :require_logged_in_user, only: [:new, :create, :edit, :update] 
+  before_action :require_logged_in_user, only: [:new, :create, :edit, :update]
   def index
   end
 
@@ -18,6 +18,13 @@ class ReviewsController < ApplicationController
       flash[:errors] = review.errors.full_messages
       redirect_to location_path(review.location)
     end
+  end
+
+  def destroy
+    review = Review.find_by(id: params[:id])
+    location = review.location
+    review.destroy
+    redirect_to location_path(location)
   end
 
   private

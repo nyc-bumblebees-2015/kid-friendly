@@ -2,7 +2,7 @@ var LocationSearch = {};
 
 // Model
 LocationSearch.Models = (function(){
-  var Location = function LocationCreate(data) {
+  var Location = function LocationCreate(data){
     data = data || {};
     for (var i in data) {
       this[i] = data[i]
@@ -11,8 +11,8 @@ LocationSearch.Models = (function(){
     this.updated_at = new Date(data.updated_at);
   };
 
-  Location.nameSearch = function(name, prox) {
-    url = '/locations/search/' + encodeURIComponent(name) + '?prox=' + prox + '\&lat=' + window.lat + '\&lng=' + window.lng;
+  Location.nameSearch = function(name, prox){
+    url = '/locations/search/' + encodeURIComponent(name) + '?prox=' + prox + '\&lat=' + sessionStorage.getItem('lat') + '\&lng=' + sessionStorage.getItem('lng');
     var deferred = $.ajax({url: url})
     .then(function(response){
       return response.map(function(ele){
@@ -34,8 +34,6 @@ LocationSearch.BrowserLocation = (function(){
         navigator.geolocation.getCurrentPosition(function(position){
           sessionStorage.setItem('lat', position.coords.latitude);
           sessionStorage.setItem('lng', position.coords.longitude);
-          // window.lat = position.coords.latitude;
-          // window.lng = position.coords.longitude;
         });
     } else {
         alert("Geolocation is not supported by this browser. Please turn it on to ensure better search results");
@@ -84,7 +82,7 @@ LocationSearch.View = function(controller){
   $('#search-form').on('submit', function(event){
     event.preventDefault();
     var searchName = $('#search').val();
-    var prox = $('select').val();
+    var prox = $('#proximity').val();
     this.controller.performNameSearch(searchName, prox);
   }.bind(this));
 
