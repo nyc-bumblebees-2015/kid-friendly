@@ -23,22 +23,38 @@
 <div class="new-location-form">
 
   <%= form_for @location, :html => {:class => "new-checkin"} do |f| %>
+    <div class="check-in-page-amenity">
     <%= f.label 'Changing Stations' %>
     <%= f.check_box :changing_stations, options = {}, checked_value = true, unchecked_value = false %>
+    </div>
+    <div class="check-in-page-amenity">
     <%= f.label 'Nursing Stations' %>
     <%= f.check_box :nursing_stations, options = {}, checked_value = true, unchecked_value = false %>
+    </div>
+    <div class="check-in-page-amenity">
     <%= f.label 'Family Restrooms' %>
     <%= f.check_box :family_restrooms, options = {}, checked_value = true, unchecked_value = false %>
+    </div>
+    <div class="check-in-page-amenity">
     <%= f.label 'Restrooms' %>
     <%= f.check_box :restrooms, options = {}, checked_value = true, unchecked_value = false %>
+    </div>
+    <div class="check-in-page-amenity">
     <%= f.label 'Play Areas' %>
     <%= f.check_box :play_areas, options = {}, checked_value = true, unchecked_value = false %>
+    </div>
+    <div class="check-in-page-amenity">
     <%= f.label 'Water Fountains' %>
     <%= f.check_box :water_fountains, options = {}, checked_value = true, unchecked_value = false %>
+    </div>
+    <div class="check-in-page-amenity">
     <%= f.label 'High Chairs' %>
     <%= f.check_box :high_chairs, options = {}, checked_value = true, unchecked_value = false %>
+    </div>
+    <div class="check-in-page-amenity">
     <%= f.label 'Cribs' %>
     <%= f.check_box :cribs, options = {}, checked_value = true, unchecked_value = false %>
+    </div>
     <%= f.submit 'Submit' , id: 'checkin-submit-btn' %>
   <% end %>
   <div>
