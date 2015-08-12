@@ -1,7 +1,7 @@
 <% provide(:title, "New User") %>
 <h2>New User Registration</h2>
 <div class="new_user_form form">
-  <%= form_for @user do |f| %>
+  <%= form_for User.new do |f| %>
     <div class="form_fields">
       <%= f.label :username %>
       <%= f.text_field :username %>
