@@ -2,6 +2,10 @@ body {
   width: 100%;
 }
 
+h2 {
+  text-align: center;
+}
+
 #slogan {
   font-style: italic;
 }
@@ -28,7 +32,32 @@ body {
   font-size: 1.8em;
 }
 
+.quick-find-list {
+  background-color: #536dfe;
+  border: 1px solid #536dfe;
+  border-radius: 15px;
+  box-shadow: 2px 2px 2px #424C55;
+  margin: 0 auto 5px auto;
+  text-align: center;
+  width: 50%;
+}
 
+.quick-find-container-1 {
+  border-bottom: 2px solid #424242;
+}
+
+.quick-find-container-1, .quick-find-container-2 {
+  padding: 5px;
+}
+
+.quick-list-name {
+  font-size: 25px;
+}
+
+.quick-list-name, .quick-list-address {
+  color: white;
+  text-decoration: none;
+}
 
 .mdl-button__ripple-container {
   display: block;
@@ -124,6 +153,23 @@ body {
 
 #search-form label {
   font-size: 16px;
+}
+
+.search-amenity-container {
+  background-color: #536dfe;
+  border: 1px solid #536dfe;
+  border-radius: 15px;
+  box-shadow: 2px 2px 2px #424C55;
+  margin: 0 auto 5px auto;
+  padding: 5px;
+  text-align: center;
+  width: 50%;
+}
+
+.search-amenity-container a {
+  font-size: 27px;
+  text-decoration: none;
+  color: #fff;
 }
 
 .mdl-button {
