@@ -26,10 +26,14 @@
         <script id="search-results-template" type="text/x-handlebars-template">
           <div id="api-search-locations-checkin">
             {{#locations}}
-            <div id="search-location-index">
-              <a href="/locations/{{id}}">{{name}}</a>
+            <div id="search-location-index" class="quick-find-list">
+              <div class="quick-find-container-1">
+               <a class="quick-list-name" href="/locations/{{id}}">{{name}}</a>
               <br>
-              {{formatted_address}}
+              </div>
+              <div class="quick-find-container-2">
+               <span class="quick-list-address">{{formatted_address}}</span>
+              </div>
             </div>
               {{/locations}}
           </div>
