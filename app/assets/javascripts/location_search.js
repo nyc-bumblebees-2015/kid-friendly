@@ -51,15 +51,15 @@ LocationSearch.Controller = function(){
   LocationSearch.Controller.prototype.performNameSearch = function(searchText, distance) {
     LocationSearch.Models.Location.nameSearch(searchText, distance)
     .then(function(results){
-      var resultsAry = [];
-      // this.view.renderSeachResults(results)
-      for (var i = 0; i < results.length; i++){
-        resultsAry.push({name: results[i].name, formatted_address: results[i].formatted_address, id: results[i].id})
-      }
-      var context = {locations:resultsAry};
-      var source = $("#search-results-template").html();
-      var template = Handlebars.compile(source);
-      $('#search-results-list').html(template(context))
+      // var resultsAry = [];
+      this.view.renderSeachResults(results)
+      // for (var i = 0; i < results.length; i++){
+      //   resultsAry.push({name: results[i].name, formatted_address: results[i].formatted_address, id: results[i].id})
+      // }
+      // var context = {locations:resultsAry};
+      // var source = $("#search-results-template").html();
+      // var template = Handlebars.compile(source);
+      // $('#search-results-list').html(template(context))
     }.bind(this))
     .fail(function(req, stat, text){
       alert(searchText + ': ' + text);
@@ -72,7 +72,16 @@ LocationSearch.Controller = function(){
 LocationSearch.View = function(controller){
   this.controller = controller;
 
-  // LocationSearch.View.prototype.renderSeachResults = function(locations) {
+  LocationSearch.View.prototype.renderSeachResults = function(locations) {
+    var locationsAry = [];
+    for (var i = 0; i < locations.length; i++){
+      locationsAry.push({name: locations[i].name, formatted_address: locations[i].formatted_address, id: locations[i].id})
+    }
+    var context = {locations:locationsAry};
+    var source = $("#search-results-template").html();
+    var template = Handlebars.compile(source);
+    $('#search-results-list').html(template(context))
+  }
   //   var html = '';
   //   locations.forEach(function(location) { html += this.renderLocation(location) }.bind(this))
   //   $('#search-results-container').html(html);
