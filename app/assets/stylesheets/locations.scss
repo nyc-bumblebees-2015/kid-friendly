@@ -5,9 +5,19 @@
 div#api-search-locations-checkin{
 	float:left;
 	width:35%;
+  margin-left: .5em;
+}
+
+.result-row {
+  border: 1px solid black;
+  box-shadow: 2px 2px 2px #424C55;
+  border-radius: 15px;
+  text-align: center;
+  padding: 10px;
 }
 
 .new-location-form-checkin{
   position: fixed;
   left: 50%;
 }
+
