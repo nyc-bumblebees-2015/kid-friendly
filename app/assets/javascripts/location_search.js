@@ -65,18 +65,14 @@ LocationSearch.View = function(controller){
   this.controller = controller;
 
   LocationSearch.View.prototype.renderSeachResults = function(locations) {
-    var html = '';
-    locations.forEach(function(location) { html += this.renderLocation(location) }.bind(this))
-    $('#search-results-container').html(html);
-  };
-
-  LocationSearch.View.prototype.renderLocation = function(location) {
-    var html = '';
-    html += '<div>';
-    html +=  '<a href=/locations/' + location.id + '>' + location.name + '</a><br>';
-    html += location.formatted_address;
-    html += '</div>';
-    return html
+    var locationsAry = [];
+    for (var i = 0; i < locations.length; i++){
+      locationsAry.push({name: locations[i].name, formatted_address: locations[i].formatted_address, id: locations[i].id})
+    }
+    var context = {locations:locationsAry};
+    var source = $("#search-results-template").html();
+    var template = Handlebars.compile(source);
+    $('#search-results-list').html(template(context))
   };
 
   $('#search-form').on('submit', function(event){
