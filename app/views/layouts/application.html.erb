@@ -32,7 +32,6 @@
       <nav class="mdl-navigation">
         <%= render partial: 'shared/global_nav' %>
         <div class="drawer-separator"></div>
-        <span class="mdl-navigation__link drawer_heading" href>Account</span>
         <%= render partial: 'shared/accounts' %>
       </nav>
     </div>
@@ -118,7 +117,10 @@
     <div class='popup-inner'>
       <div id="search-data-display">
         <h5>Location Form</h5>
-        <input id="searchTextField" placeholder="Enter your address" type="text" size="75"></input>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+            <input class="mdl-textfield__input" id="searchTextField" type="text" size="75" placeholder=""/>
+            <label class="mdl-textfield__label" for="searchTextField">Enter a Location</label>
+          </div>
         <p><span id="search-data-name"></span></p>
         <p><span id="search-data-address"></span></p>
         <p><span id="search-data-lat"></span></p>
