@@ -1,6 +1,6 @@
 class Location < ActiveRecord::Base
   acts_as_mappable
-  has_many :reviews, dependent: :destroy
+  has_many :reviews
   validates :name, :lng, :lat, :formatted_address, :place_id, presence: true
   before_save :set_yelp_id, if: :parsable_phone_number?
   before_save :set_yelp_url, if: :parsable_phone_number?
@@ -58,16 +58,12 @@ class Location < ActiveRecord::Base
     self.reviews.count > 0
   end
 
+  def amenities
+    [self.cribs,self.changing_stations,self.high_chairs,self.family_restrooms,self.restrooms,self.nursing_stations,self.water_fountains,self.play_areas]
+  end
+
   def amenities?
-    [self.cribs,self.changing_stations,self.high_chairs,self.family_restrooms,self.restrooms,self.nursing_stations,self.water_fountains].any?
-  end
-
-  def has_yelp_deal?
-    self.yelp_id && yelp_id_lookup.keys.any? {|n| n == "deals"}
-  end
-
-  def yelp_deal
-    yelp_id_lookup.deals.first
+    self.amenities.any?
   end
 
   protected
@@ -85,7 +81,7 @@ class Location < ActiveRecord::Base
     end
 
     def yelp_id_lookup
-      Yelp.client.business(yelp_id)
+      Yelp.business(yelp_id)
     end
 
     def set_yelp_id

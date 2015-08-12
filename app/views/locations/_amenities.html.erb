@@ -1,13 +1,19 @@
-<div class="amenities">
-  <h3>Amenities</h3>
-  <ul>
-  <%= "Cribs:  #{location.cribs}" if location.cribs %>
-  <%= "Changing stations: #{location.changing_stations}" if location.changing_stations %>
-  <%= "High chairs: #{location.high_chairs}" if location.high_chairs %>
-  <%= "Family restrooms: #{location.family_restrooms}" if location.family_restrooms %>
-  <%= "Restrooms: #{location.restrooms}" if location.restrooms %>
-  <%= "Nursing stations: #{location.nursing_stations}" if location.nursing_stations %>
-  <%= "Water fountains: #{location.water_fountains}" if location.water_fountains %>
-  <%= "Play Areas: #{location.play_areas}" if location.play_areas %>
-  </ul>
+<div class="amenities mdl-card mdl-color--deep-purple-500 mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
+  <div class="mdl-card__supporting-text mdl-color-text--blue-grey-50">
+    <h3>Amenities</h3>
+    <ul>
+      <%= content_tag :li, "Cribs:  #{location.cribs}" if location.cribs %>
+      <%= content_tag :li, "Changing stations: #{location.changing_stations}" if location.changing_stations %>
+      <%= content_tag :li, "High chairs: #{location.high_chairs}" if location.high_chairs %>
+      <%= content_tag :li, "Family restrooms: #{location.family_restrooms}" if location.family_restrooms %>
+      <%= content_tag :li, "Restrooms: #{location.restrooms}" if location.restrooms %>
+      <%= content_tag :li, "Nursing stations: #{location.nursing_stations}" if location.nursing_stations %>
+      <%= content_tag :li, "Water fountains: #{location.water_fountains}" if location.water_fountains %>
+    </ul>
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--blue-grey-50" data-upgraded=",MaterialButton,MaterialRipple">Edit Amenities<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></a>
+    <div class="mdl-layout-spacer"></div>
+    <i class="material-icons">mode_edit</i>
+  </div>
 </div>
