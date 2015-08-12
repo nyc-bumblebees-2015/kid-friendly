@@ -13,6 +13,9 @@ gem 'geokit-rails', '~> 2.1.0'
 gem 'yelp'
 gem 'responders', '~> 2.0'
 gem 'rails_12factor', group: :production
+gem 'dashing-rails'
+gem 'puma'
+gem 'travis'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -20,7 +23,6 @@ group :development, :test do
   gem 'pry'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
-  gem 'spring'
 end
 
 group :test do

@@ -1,0 +1,5 @@
+org:
+  auth_token: 5ykZ5qKK3jwKDM367nDy
+  repositories:
+    ci_travis_radar: nyc-bumblebees-2015/kid-friendly
+  type: org
