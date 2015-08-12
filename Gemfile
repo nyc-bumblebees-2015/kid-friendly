@@ -13,6 +13,7 @@ gem 'geokit-rails', '~> 2.1.0'
 gem 'yelp'
 gem 'responders', '~> 2.0'
 gem 'rails_12factor', group: :production
+gem 'seed_dump', group: :development
 
 group :development, :test do
   gem 'rspec-rails'
