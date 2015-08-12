@@ -6,12 +6,17 @@ h3.review-count-header{
   margin-left: 1em;
 }
 
-.edit-user-div a{
+.edit-user-div a, .delete-user-div a{
+  border: 1px solid black;
+  box-shadow: 2px 2px 2px #424C55;
+  border-radius: 15px;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 10px;
   text-decoration: none;
-}
-
-.delete-user-div a{
-  text-decoration: none;
+  display: inline-block;
+  color:#4caf50;
+  width:100px;
 }
 
 a.review-title {
