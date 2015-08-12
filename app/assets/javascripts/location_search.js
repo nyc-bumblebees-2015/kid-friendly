@@ -51,15 +51,7 @@ LocationSearch.Controller = function(){
   LocationSearch.Controller.prototype.performNameSearch = function(searchText, distance) {
     LocationSearch.Models.Location.nameSearch(searchText, distance)
     .then(function(results){
-      // var resultsAry = [];
       this.view.renderSeachResults(results)
-      // for (var i = 0; i < results.length; i++){
-      //   resultsAry.push({name: results[i].name, formatted_address: results[i].formatted_address, id: results[i].id})
-      // }
-      // var context = {locations:resultsAry};
-      // var source = $("#search-results-template").html();
-      // var template = Handlebars.compile(source);
-      // $('#search-results-list').html(template(context))
     }.bind(this))
     .fail(function(req, stat, text){
       alert(searchText + ': ' + text);
@@ -81,21 +73,7 @@ LocationSearch.View = function(controller){
     var source = $("#search-results-template").html();
     var template = Handlebars.compile(source);
     $('#search-results-list').html(template(context))
-  }
-  //   var html = '';
-  //   locations.forEach(function(location) { html += this.renderLocation(location) }.bind(this))
-  //   $('#search-results-container').html(html);
-  // };
-
-  // LocationSearch.View.prototype.renderLocation = function(location) {
-  //   var html = '';
-  //   html += '<div>';
-  //   html +=  '<a href=/locations/' + location.id + '>' + location.name + '</a><br>';
-  //   html += location.formatted_address;
-  //   html += '</div>';
-  //   return html
-
-  // };
+  };
 
   $('#search-form').on('submit', function(event){
     event.preventDefault();
