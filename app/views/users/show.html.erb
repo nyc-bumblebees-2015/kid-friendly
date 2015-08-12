@@ -10,13 +10,13 @@
   <div class="mdl-cell mdl-cell--2-col"></div>
 </div>
 
-<div>
+<div data-popup-open="popup-4">
   <% if current_user?(@user) || (current_user.is_admin? if current_user) %>
     <%= link_to 'edit', edit_user_path(@user) %>
   <% end %>
 </div>
 
-<div>
+<div class="delete-user-div">
   <% if current_user && current_user.is_admin? %>
     <%= link_to 'delete', user_path(@user), method: :delete %>
   <% end %>
@@ -52,3 +52,39 @@
   <div class="mdl-cell mdl-cell--4-col"></div>
   <div class="mdl-cell mdl-cell--2-col"></div>
 </div>
+
+
+<div class='popup' data-popup='popup-4'>
+    <div class='popup-inner'>
+   <h2>Edit User</h2>
+    <div>
+      <%= form_for @user do |f| %>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+        <%= f.label :username, class: "mdl-textfield__label" %>
+        <%= f.text_field :username, value: @user.username, class: "mdl-textfield__input" %>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+        <%= f.label :first_name, class: "mdl-textfield__label" %>
+        <%= f.text_field :first_name, value: @user.first_name, class: "mdl-textfield__input" %>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+        <%= f.label :last_name, class: "mdl-textfield__label" %>
+        <%= f.text_field :last_name, value: @user.last_name, class: "mdl-textfield__input" %>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+        <%= f.label :email, class: "mdl-textfield__label" %>
+        <%= f.text_field :email, value: @user.email, class: "mdl-textfield__input" %>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+        <%= f.label :password, class: "mdl-textfield__label" %>
+        <%= f.text_field :password, value: @user.password, class: "mdl-textfield__input" %>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+        <%= f.submit %>
+        </div>
+      <% end %>
+    </div>
+      <p><a data-popup-close="popup-4" href="#">Close</a></p>
+      <a class="popup-close" data-popup-close="popup-4" href="#">x</a>
+    </div>
+  </div>
