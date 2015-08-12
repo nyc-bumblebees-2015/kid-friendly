@@ -67,7 +67,7 @@
             <label class="mdl-textfield__label">Password</label>
             <input class="mdl-textfield__input" type="password" name="password" />
           </div>
-          <%= submit_tag "Login" %>
+          <%= submit_tag "Login", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast" %>
 
         <% end %>
       </div>
@@ -105,7 +105,7 @@
               <%= f.password_field :password_confirmation, class: "mdl-textfield__input" %>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-              <%= f.submit "Sign up" %>
+              <%= f.submit "Sign up", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast" %>
             </div>
           <% end %>
         </div>
