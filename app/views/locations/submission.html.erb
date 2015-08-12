@@ -1,17 +1,28 @@
+<div class="submission mdl-grid">
 <div class='submission-msg'>
   <h4>Thank you for your submission!</h4>
   <h6>Your submission is currently under review! It will be updated after we have validated the information!</h6>
 </div>
 <div class="submission-info">
-    <%= render partial: 'heading', locals: {location: @location} %>
-  <div>
+    <h3 id="submission-title-name"> <%= @location.name %> </h3>
+    <p class="submission-address"> <%= @location.formatted_address %> </p>
+  <div class="submission-amenities">
     <% if @location.amenities? %>
-        <%= render partial: 'amenities', locals: {location: @location} %>
+      <h3 class="submission-amenities-title">Amenities</h3>
+        <ul class="submission-amenities-list">
+          <%= content_tag :li, "Cribs:  #{@location.cribs}" if @location.cribs %>
+          <%= content_tag :li, "Changing stations: #{@location.changing_stations}" if @location.changing_stations %>
+          <%= content_tag :li, "High chairs: #{@location.high_chairs}" if @location.high_chairs %>
+          <%= content_tag :li, "Family restrooms: #{@location.family_restrooms}" if @location.family_restrooms %>
+          <%= content_tag :li, "Restrooms: #{@location.restrooms}" if @location.restrooms %>
+          <%= content_tag :li, "Nursing stations: #{@location.nursing_stations}" if @location.nursing_stations %>
+          <%= content_tag :li, "Water fountains: #{@location.water_fountains}" if @location.water_fountains %>
+        </ul>
     <% end %>
   </div>
 </div>
 <p id='timer'> <script type="text/javascript">countDown();</script> </p>
 
-<p>or click here to return home now...</p>
-<%= button_to 'RETURN HOME', root_path, method: :get %>
-
+<p> or click here to return home now... </p>
+<p><%= link_to 'Return Home', root_path %></p>
+</div>
