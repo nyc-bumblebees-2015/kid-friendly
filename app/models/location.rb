@@ -1,6 +1,6 @@
 class Location < ActiveRecord::Base
   acts_as_mappable
-  has_many :reviews, dependent: :destroy
+  has_many :reviews
   validates :name, :lng, :lat, :formatted_address, :place_id, presence: true
   before_save :set_yelp_id, if: :parsable_phone_number?
   before_save :set_yelp_url, if: :parsable_phone_number?
@@ -58,8 +58,12 @@ class Location < ActiveRecord::Base
     self.reviews.count > 0
   end
 
+  def amenities
+    [self.cribs,self.changing_stations,self.high_chairs,self.family_restrooms,self.restrooms,self.nursing_stations,self.water_fountains,self.play_areas]
+  end
+
   def amenities?
-    [self.cribs,self.changing_stations,self.high_chairs,self.family_restrooms,self.restrooms,self.nursing_stations,self.water_fountains].any?
+    self.amenities.any?
   end
 
   def has_yelp_deal?
@@ -70,29 +74,29 @@ class Location < ActiveRecord::Base
     yelp_id_lookup.deals.first
   end
 
-  protected
-    def parsable_phone_number?
-      self.formatted_phone_number && self.formatted_phone_number.match(/^\(\d{3}\)\s\d{3}(-)\d{4}$/)
-    end
+protected
+  def parsable_phone_number?
+    self.formatted_phone_number && self.formatted_phone_number.match(/^\(\d{3}\)\s\d{3}(-)\d{4}$/)
+  end
 
-    def escaped_phone_number
-      "+1" + self.formatted_phone_number.gsub(/(\(| |\) |-)/, "")
-    end
+  def escaped_phone_number
+    "+1" + self.formatted_phone_number.gsub(/(\(| |\) |-)/, "")
+  end
 
-    def yelp_phone_lookup
-      results = Yelp.client.phone_search(escaped_phone_number)
-      results.businesses.first
-    end
+  def yelp_phone_lookup
+    results = Yelp.client.phone_search(escaped_phone_number)
+    results.businesses.first
+  end
 
-    def yelp_id_lookup
-      Yelp.client.business(yelp_id)
-    end
+  def yelp_id_lookup
+    Yelp.client.business(yelp_id)
+  end
 
-    def set_yelp_id
-      self.yelp_id = yelp_phone_lookup.id if yelp_phone_lookup
-    end
+  def set_yelp_id
+    self.yelp_id = yelp_phone_lookup.id if yelp_phone_lookup
+  end
 
-    def set_yelp_url
-      self.yelp_url = yelp_phone_lookup.url if yelp_phone_lookup
-    end
+  def set_yelp_url
+    self.yelp_url = yelp_phone_lookup.url if yelp_phone_lookup
+  end
 end

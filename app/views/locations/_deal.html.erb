@@ -1,6 +1,10 @@
-<div class="yelp_deal">
-<h3>Yelp Deal</h3>
-<%= location.yelp_deal.title %>
-<%= (location.yelp_deal.what_you_get).html_safe %>
-<%= link_to "View Details", location.yelp_deal.url %>
+<div class="deals mdl-card mdl-color--deep-purple-500 mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
+  <div class="mdl-card__supporting-text mdl-color-text--blue-grey-50">
+    <div class="yelp_deal">
+    <h3>Yelp Deal</h3>
+    <%= location.yelp_deal.title %>
+    <%= (location.yelp_deal.what_you_get).html_safe %>
+    <%= link_to "View Details", location.yelp_deal.url %>
+    </div>
+  </div>
 </div>
