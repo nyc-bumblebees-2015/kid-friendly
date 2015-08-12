@@ -5,4 +5,8 @@ module LocationsHelper
       image_tag(location_url, alt: location.name, class: "location_image")
     end
   end
+
+  def amenity_name(amenity)
+    amenity.camelize.titleize
+  end
 end
