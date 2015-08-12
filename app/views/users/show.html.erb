@@ -26,7 +26,7 @@
   <div class="mdl-cell mdl-cell--6-col">
     <% if @user.reviews? %>
       <div class="location_reviews">
-        <h3><%= pluralize(@user.reviews.count, "review") %></h3>
+        <h3 class="review-count-header"><%= pluralize(@user.reviews.count, "review") %></h3>
         <% @user.reviews.each do |review| %>
           <div class="review">
             <div class="review_details">
