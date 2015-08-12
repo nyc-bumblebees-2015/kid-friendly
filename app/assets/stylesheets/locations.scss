@@ -1,11 +1,12 @@
-.selected-row {
-  background-color: #66CCFF;
-}
 
 div#api-search-locations-checkin{
-	float:left;
-	width:35%;
+  float:left;
+  width:35%;
   margin-left: .5em;
+}
+
+.selected-row {
+  background-color: #66CCFF;
 }
 
 .result-row {
@@ -14,6 +15,10 @@ div#api-search-locations-checkin{
   border-radius: 15px;
   text-align: center;
   padding: 10px;
+}
+
+.checkin-icon {
+  pointer-events: none;
 }
 
 .new-location-form-checkin{
