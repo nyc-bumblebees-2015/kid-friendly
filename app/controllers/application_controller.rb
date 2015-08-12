@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user?(user)
-    user && session[:user_id] == user_id
+    session[:user_id] == user.id
   end
 
   def require_logged_in_user
