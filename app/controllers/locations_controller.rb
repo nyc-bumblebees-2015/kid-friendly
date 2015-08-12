@@ -42,10 +42,10 @@ class LocationsController < ApplicationController
 
   def update
     @location.update(location_params)
-
     if @location.save
-      render :show
+      redirect_to @location
     else
+      flash[:errors] = @location.errors.full_messages
       render :edit
     end
   end

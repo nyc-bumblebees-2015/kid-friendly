@@ -23,5 +23,10 @@
         <% end %>
         found this review helpful.
       </div>
+      <div>
+        <% if current_user && current_user.is_admin? %>
+          <%= link_to 'delete', location_review_path(@location, review), method: :delete %>
+        <% end %>
+      </div>
     </div>
 </div>
