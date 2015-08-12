@@ -51,7 +51,11 @@ LocationSearch.Controller = function(){
   LocationSearch.Controller.prototype.performNameSearch = function(searchText, distance) {
     LocationSearch.Models.Location.nameSearch(searchText, distance)
     .then(function(results){
-      this.view.renderSeachResults(results)
+      if (results.length === 0) {
+        $('#search-results-list').html('<div>No Locations Found</div>')
+      } else {
+        this.view.renderSeachResults(results)
+      };
     }.bind(this))
     .fail(function(req, stat, text){
       alert(searchText + ': ' + text);
