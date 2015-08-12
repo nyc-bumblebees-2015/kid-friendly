@@ -30,7 +30,7 @@
         <% @user.reviews.each do |review| %>
           <div class="review">
             <div class="review_details">
-            <h4><%= link_to review.location.name, review.location %></h4>
+            <h4><%= link_to review.location.name, review.location, class: "review-title" %></h4>
             <span class="time-ago"><%= time_ago_in_words(review.created_at) %> ago</span>
               <div class="reviewer_gravatar icon_image"><%= image_for review.location %></div>
               <%= render partial: 'reviews/review', locals: {review: review} %>
@@ -41,7 +41,7 @@
                 <% else %>
                   <span class="helped">people</span>
                 <% end %>
-                found this review helpful.
+                <span class="helped">found this review helpful.</span>
               </div>
             </div>
           </div>
