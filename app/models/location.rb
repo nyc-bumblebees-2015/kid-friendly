@@ -66,29 +66,37 @@ class Location < ActiveRecord::Base
     self.amenities.any?
   end
 
-  protected
-    def parsable_phone_number?
-      self.formatted_phone_number && self.formatted_phone_number.match(/^\(\d{3}\)\s\d{3}(-)\d{4}$/)
-    end
+  def has_yelp_deal?
+    self.yelp_id && yelp_id_lookup.keys.any? {|n| n == "deals"}
+  end
 
-    def escaped_phone_number
-      "+1" + self.formatted_phone_number.gsub(/(\(| |\) |-)/, "")
-    end
+  def yelp_deal
+    yelp_id_lookup.deals.first
+  end
 
-    def yelp_phone_lookup
-      results = Yelp.client.phone_search(escaped_phone_number)
-      results.businesses.first
-    end
+protected
+  def parsable_phone_number?
+    self.formatted_phone_number && self.formatted_phone_number.match(/^\(\d{3}\)\s\d{3}(-)\d{4}$/)
+  end
 
-    def yelp_id_lookup
-      Yelp.business(yelp_id)
-    end
+  def escaped_phone_number
+    "+1" + self.formatted_phone_number.gsub(/(\(| |\) |-)/, "")
+  end
 
-    def set_yelp_id
-      self.yelp_id = yelp_phone_lookup.id if yelp_phone_lookup
-    end
+  def yelp_phone_lookup
+    results = Yelp.client.phone_search(escaped_phone_number)
+    results.businesses.first
+  end
 
-    def set_yelp_url
-      self.yelp_url = yelp_phone_lookup.url if yelp_phone_lookup
-    end
+  def yelp_id_lookup
+    Yelp.client.business(yelp_id)
+  end
+
+  def set_yelp_id
+    self.yelp_id = yelp_phone_lookup.id if yelp_phone_lookup
+  end
+
+  def set_yelp_url
+    self.yelp_url = yelp_phone_lookup.url if yelp_phone_lookup
+  end
 end
