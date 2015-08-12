@@ -31,7 +31,7 @@
           <div class="review">
             <div class="review_details">
             <h4><%= link_to review.location.name, review.location %></h4>
-            <%= time_ago_in_words(review.created_at) %> ago
+            <span class="time-ago"><%= time_ago_in_words(review.created_at) %> ago</span>
               <div class="reviewer_gravatar icon_image"><%= image_for review.location %></div>
               <%= render partial: 'reviews/review', locals: {review: review} %>
               <div class="helped_statement">
