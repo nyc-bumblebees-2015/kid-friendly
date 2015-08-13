@@ -3,59 +3,60 @@
 <head>
   <title><%= full_title(yield(:title)) %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.green-indigo.min.css" />
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <script src="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.min.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="/assets/stylesheets/material.min.css">
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places" %>
+  <link href='http://fonts.googleapis.com/css?family=Freckle+Face' rel='stylesheet' type='text/css'>
   <script src="//cdn.ckeditor.com/4.5.2/standard/ckeditor.js"></script>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="mdl-layout mdl-layout--fixed-header mdl-js-layout">
-    <header class="mdl-layout__header mdl-layout__header--scroll">
-      <div class="mdl-layout__header-row">
-        <span class="mdl-layout-title"><%= link_to "kidpanion", root_path %></span>
-        <div class="mdl-layout-spacer"></div>
-        <nav class="mdl-navigation mdl-layout--large-screen-only features">
+  <div class="mdl-layout__container">
+    <div class="<%= @home_page ? 'home' : ''%> mdl-layout mdl-layout--fixed-header mdl-js-layout">
+      <header class="mdl-layout__header mdl-layout__header--scroll">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title"><h1><%= link_to "kidpanion", root_path %></h1></span>
+          <div class="mdl-layout-spacer"></div>
+          <nav class="mdl-navigation mdl-layout--large-screen-only features">
+            <%= render partial: 'shared/global_nav' %>
+          </nav>
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+            <%= render partial: 'shared/accounts' %>
+          </nav>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+        <span class="mdl-layout-title"><h1><%= link_to "kidpanion", root_path %></h1></span>
+        <nav class="mdl-navigation">
           <%= render partial: 'shared/global_nav' %>
-        </nav>
-          <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <div class="drawer-separator"></div>
+          <span class="mdl-navigation__link drawer_heading" href>Account</span>
           <%= render partial: 'shared/accounts' %>
         </nav>
       </div>
-    </header>
-    <div class="mdl-layout__drawer mdl-layout--small-screen-only">
-      <span class="mdl-layout-title"><%= link_to "kidpanion", root_path %></span>
-      <nav class="mdl-navigation">
-        <%= render partial: 'shared/global_nav' %>
-        <div class="drawer-separator"></div>
-        <%= render partial: 'shared/accounts' %>
-      </nav>
-    </div>
-    <main class="mdl-layout__content">
-      <%= render partial: 'shared/flash_messages' %>
-      <%= yield %>
-    </main>
-  <footer class="mdl-mini-footer">
-  <div class="mdl-mini-footer__left-section">
-    <div class="mdl-logo">
-      kidpanion - <%= Time.now.year %>
-    </div>
-    <ul class="mdl-mini-footer__link-list">
-      <li><a href="">About</a></li>
-      <li><a href="">Contact</a></li>
-      <li><%= link_to 'Search Locations', root_path %></li>
-    </ul>
+      <main class="mdl-layout__content">
+        <%= render partial: 'shared/flash_messages' %>
+        <%= yield %>
+      </main>
+        <footer class="mdl-mini-footer">
+          <div class="mdl-mini-footer__left-section">
+            <div class="mdl-logo">
+              kidpanion - <%= Time.now.year %>
+            </div>
+            <ul class="mdl-mini-footer__link-list">
+              <li><a href="">About</a></li>
+              <li><a href="">Contact</a></li>
+              <li><%= link_to 'Search Locations', root_path %></li>
+            </ul>
+          </div>
+          <div class="mdl-mini-footer__right-section alert-buttons">
+            <%= render partial: 'shared/find_specific_amenities' %>
+          </div>
+        </footer>
   </div>
-  <div class="mdl-mini-footer__right-section alert-buttons">
-    <%= render partial: 'shared/find_specific_amenities' %>
-  </div>
-</footer>
-  </div>
-
+</div>
   <div class='popup' data-popup='popup-1'>
     <div class='popup-inner'>
       <div class="login">
@@ -76,6 +77,7 @@
         <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
     </div>
   </div>
+
   <div class='popup' data-popup='popup-2'>
       <div class='popup-inner'>
       <h2>New User Registration</h2>
@@ -130,5 +132,7 @@
       <a class="popup-close" data-popup-close="popup-3" href="#">x</a>
     </div>
   </div>
+
+  <script src="/assets/javascripts/material.min.js"></script>
 </body>
 </html>

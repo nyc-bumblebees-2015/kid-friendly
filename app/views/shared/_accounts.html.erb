@@ -6,6 +6,4 @@
     <%= link_to "Sign up", signup_path, class: "mdl-navigation__link" %>
   </div>
 <% end %>
-
-<%= link_to "Account", user_path(current_user), class: "mdl-navigation__link drawer_heading" if current_user %>
 <%= link_to "Logout", logout_path, class: "mdl-navigation__link" if current_user %>

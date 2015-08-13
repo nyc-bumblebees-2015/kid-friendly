@@ -1,34 +1,11 @@
 <% provide(:title, "Search by Amenity") %>
 <h2><%= yield(:title) %></h2>
-
-<div>
-
-  <div class='search-amenity-container'>
-    <a id="cribs" href="<%= find_amenities_path('cribs')%>">Cribs</a>
+  <div class="mdl-list">
+    <div class="mdl-list__item mdl-card mdl-card mdl-shadow--2dp"><a id="cribs" href="<%= find_amenities_path('cribs')%>">Cribs</a></div>
+    <div class="mdl-list__item mdl-card mdl-card mdl-shadow--2dp"><a id="changing_stations" href="<%= find_amenities_path('changing_stations')%>">Changing Stations</a></div>
+    <div class="mdl-list__item mdl-card mdl-card mdl-shadow--2dp"><a id="high_chairs" href="<%= find_amenities_path('high_chairs')%>">High Chairs</a></div>
+    <div class="mdl-list__item mdl-card mdl-card mdl-shadow--2dp"><a id="family_restrooms" href="<%= find_amenities_path('family_restrooms')%>">Family Restrooms</a></div>
+    <div class="mdl-list__item mdl-card mdl-card mdl-shadow--2dp"><a id="restrooms" href="<%= find_amenities_path('restrooms')%>">Restrooms</a></div>
+    <div class="mdl-list__item mdl-card mdl-card mdl-shadow--2dp"><a id="nursing_stations" href="<%= find_amenities_path('nursing_stations')%>">Nursing Stations</a></div>
+    <div class="mdl-list__item mdl-card mdl-card mdl-shadow--2dp"><a id="water_fountains" href="<%= find_amenities_path('water_fountains')%>">Water Fountains</a></div>
   </div>
-
-  <div class='search-amenity-container'>
-    <a id="changing_stations" href="<%= find_amenities_path('changing_stations')%>">Changing Stations</a>
-  </div>
-
-  <div class='search-amenity-container'>
-    <a id="high_chairs" href="<%= find_amenities_path('high_chairs')%>">High Chairs</a>
-  </div>
-
-  <div class='search-amenity-container'>
-    <a id="family_restrooms" href="<%= find_amenities_path('family_restrooms')%>">Family Restrooms</a>
-  </div>
-
-  <div class='search-amenity-container'>
-    <a id="restrooms" href="<%= find_amenities_path('restrooms')%>">Restrooms</a>
-  </div>
-
-  <div class='search-amenity-container'>
-    <a id="nursing_stations" href="<%= find_amenities_path('nursing_stations')%>">Nursing Stations</a>
-  </div>
-
-  <div class='search-amenity-container'>
-    <a id="water_fountains" href="<%= find_amenities_path('water_fountains')%>">Water Fountains</a>
-  </div>
-
-</div>
