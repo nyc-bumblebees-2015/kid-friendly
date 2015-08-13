@@ -31,7 +31,7 @@ Location.create!([
   {name: "Disneyland Park", place_id: "ChIJa147K9HX3IAR-lwiGIQv9i4", lng: -117.918974, lat: 33.812092, formatted_address: "1313 Disneyland Drive, Anaheim, CA 92802, United States", formatted_phone_number: "(714) 781-4636", cribs: true, changing_stations: true, high_chairs: true, family_restrooms: true, restrooms: true, nursing_stations: true, water_fountains: true, play_areas: nil, yelp_id: "mickeys-halloween-party-anaheim", yelp_url: "http://www.yelp.com/biz/mickeys-halloween-party-anaheim"},
   {name: "Epcot", place_id: "ChIJGzFs3q9_3YgRvZd1y2NSJOo", lng: -81.549404, lat: 28.374694, formatted_address: "200 Epcot Center Dr, Orlando, FL 32821, United States", formatted_phone_number: "(407) 824-4321", cribs: true, changing_stations: true, high_chairs: true, family_restrooms: true, restrooms: true, nursing_stations: true, water_fountains: true, play_areas: nil, yelp_id: "disneys-typhoon-lagoon-water-park-orlando", yelp_url: "http://www.yelp.com/biz/disneys-typhoon-lagoon-water-park-orlando"},
   {name: "National Baseball Hall of Fame and Museum", place_id: "ChIJiyz7EScH3IkRhQO_m7d9hUw", lng: -74.923214, lat: 42.699937, formatted_address: "25 Main Street, Cooperstown, NY 13326, United States", formatted_phone_number: "(888) 425-5633", cribs: nil, changing_stations: true, high_chairs: nil, family_restrooms: true, restrooms: true, nursing_stations: nil, water_fountains: true, play_areas: true, yelp_id: nil, yelp_url: nil},
-  {name: "Carvel", place_id: "ChIJg4SGERhawokRqD4HzlSkaAc", lng: -74.005854, lat: 40.707592, formatted_address: "112 John Street, New York, NY 10038, United States", formatted_phone_number: "(212) 732-7283", cribs: nil, changing_stations: nil, high_chairs: nil, family_restrooms: nil, restrooms: nil, nursing_stations: nil, water_fountains: nil, play_areas: nil, yelp_id: "carvel-ice-cream-cake-new-york", yelp_url: "http://www.yelp.com/biz/carvel-ice-cream-cake-new-york"}
+  {name: "Carvel", place_id: "ChIJg4SGERhawokRqD4HzlSkaAc", lng: -74.005854, lat: 40.707592, formatted_address: "112 John Street, New York, NY 10038, United States", formatted_phone_number: "(212) 732-7283", cribs: nil, changing_stations: nil, high_chairs: true, family_restrooms: nil, restrooms: true, nursing_stations: nil, water_fountains: nil, play_areas: nil, yelp_id: "carvel-ice-cream-cake-new-york", yelp_url: "http://www.yelp.com/biz/carvel-ice-cream-cake-new-york"}
 ])
 Review.create!([
   {location_id: 3, user_id: 1, overall_rating: 4, cleanliness_rating: 4, spaciousness_rating: 3, body: "This place is crowded on weekdays, but the wait isn't too long. I would bring my kid here because he likes Mike's hot honey."},
@@ -43,12 +43,15 @@ Review.create!([
   {location_id: 13, user_id: 7, overall_rating: 5, cleanliness_rating: 4, spaciousness_rating: 4, body: "My latest trip to New York was a business trip. However, I decided to bring my wife and 1 year old along as I foresaw that I would have time for some sight seeing. This hotel was great. The amenities are great and the hotel was extremely clean. Kind of pricey but my company paid for it so it was great!"},
   {location_id: 2, user_id: 7, overall_rating: 5, cleanliness_rating: 4, spaciousness_rating: 5, body: "I had a great time taking my family on a trip to Yosemite. The park is enormous. I had a great time showing my son the wonders of nature. He was so excited to see all the animals and waterfalls. Highly recommend for families. "},
   {location_id: 7, user_id: 7, overall_rating: 2, cleanliness_rating: 2, spaciousness_rating: 2, body: "This place is definitely not for kids. Not enough space and nothing on the menu for them. Stay away if you have kids."},
-  {location_id: 24, user_id: 4, overall_rating: 3, cleanliness_rating: 2, spaciousness_rating: 2, body: "This store has great ice cream but not enough seating and it is very cramped."}
+  {location_id: 24, user_id: 4, overall_rating: 3, cleanliness_rating: 3, spaciousness_rating: 3, body: "This carvel is decent. I love the icecream and the kids seemed to enjoy it as well. I would say that the overall space was a bit cramped. There were some other kids in the space and it got crowded quickly. I would say it was decently clean but it could have been better. Overall a decent experience."}
 ])
 Like.create!([
   {user_id: 1, review_id: 1},
   {user_id: 7, review_id: 4},
-  {user_id: 7, review_id: 6}
+  {user_id: 7, review_id: 6},
+  {user_id: 1, review_id: 10},
+  {user_id: 2, review_id: 10},
+  {user_id: 3, review_id: 10}
 ])
 
 ["likes", "locations", "reviews", "users"].each do |table_name|
