@@ -1,13 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :current_user
   helper_method :current_user, :current_user?
 
   def current_user
-    User.find_by(id: session[:user_id])
+    @current_user || User.find_by(id: session[:user_id]) if session[:user_id]
   end
 
   def current_user?(user)
-    user && session[:user_id] == user_id
+    session[:user_id] == user.id
   end
 
   def require_logged_in_user
@@ -22,5 +23,14 @@ class ApplicationController < ActionController::Base
       flash[:error] = ["You don't have access to this page"]
       redirect_to root_path
     end
+  end
+
+def authenticate_admin_user!
+  redirect_to root_path unless current_user.try(:is_admin?)
+end
+
+
+  def current_admin_user
+    @current_admin_user || User.find_by(id: session[:user_id]) if session[:user_id] && User.find_by(id: session[:user_id]).admin == true
   end
 end

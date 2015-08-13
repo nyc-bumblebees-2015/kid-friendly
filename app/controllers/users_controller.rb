@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :require_authenticated_user, except: [:new, :create, :show] 
+  before_action except: [:new, :create, :show] do
+    require_authenticated_user(current_user)
+  end
 
   def show
   end
@@ -21,6 +23,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    render :show if (current_user.id != params[:id].to_i && !current_user.is_admin?)
   end
 
   def update
@@ -29,7 +32,7 @@ class UsersController < ApplicationController
     else
       flash[:errors] = @user.errors.full_messages
       render :edit
-    end    
+    end
   end
 
   def destroy
@@ -37,7 +40,7 @@ class UsersController < ApplicationController
       redirect_to root_path, notice: "Account delete succesfully."
     else
       redirect_to @user, notice: "Something went wrong. Account still active."
-    end 
+    end
   end
 
   private

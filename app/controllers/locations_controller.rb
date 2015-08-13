@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+  before_action :get_location, only: [:show, :edit, :update, :destroy]
 
   def index
     @home_page = true
@@ -9,7 +10,6 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @location = Location.find_by(id: params[:id])
     @like = Like.new
   end
 
@@ -37,12 +37,22 @@ class LocationsController < ApplicationController
   end
 
   def edit
+    render :show unless current_user && current_user.is_admin?
   end
 
   def update
+    @location.update(location_params)
+    if @location.save
+      redirect_to @location
+    else
+      flash[:errors] = @location.errors.full_messages
+      render :edit
+    end
   end
 
   def destroy
+    @location.destroy
+    redirect_to root_path
   end
 
   def search_amenities
@@ -50,6 +60,7 @@ class LocationsController < ApplicationController
 
   def find_amenities
     @locations = Location.nearby_amenities(amenity: params[:amenity], lat: params[:lat], lng: params[:lng])
+    @amenity = params[:amenity]
   end
 
   def report_amenities
@@ -69,7 +80,7 @@ class LocationsController < ApplicationController
   private
 
   def location_params
-    params.require(:location).permit(:name, :lng, :lat, :place_id, :formatted_address, :formatted_phone_number, :cribs, :changing_stations, :high_chairs, :family_restrooms, :restrooms, :nursing_stations, :water_fountains)
+    params.require(:location).permit(:name, :lng, :lat, :place_id, :formatted_address, :formatted_phone_number, :cribs, :changing_stations, :high_chairs, :family_restrooms, :restrooms, :nursing_stations, :water_fountains, :play_areas)
   end
 
   def locations_search(proximity)
@@ -78,6 +89,10 @@ class LocationsController < ApplicationController
     else
       Location.nearby_places({name: params[:name], lat: params[:lat], lng: params[:lng], prox: params[:prox]})
     end
+  end
+
+  def get_location
+    @location = Location.find_by(id: params[:id])
   end
 
 end

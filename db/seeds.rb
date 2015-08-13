@@ -1,145 +1,58 @@
-locations = [
- { name: "Starbucks",
-   place_id: "ChIJbR_XgT1awokRkaDripRk7Ns",
-   lng: -74.006826,
-   lat: 40.706132,
-   formatted_address: "80 Pine Street, New York, NY 10005, United States",
-   formatted_phone_number: "(212) 480-3970",
-   cribs: nil,
-   changing_stations: true,
-   high_chairs: nil,
-   family_restrooms: nil,
-   restrooms: true,
-   nursing_stations: nil,
-   water_fountains: nil
- },
+User.create!([
+  {first_name: "Vic", last_name: "Zhu", username: "dondoodie", email: "duanereade@don.com", password: "123456",  admin: false},
+  {first_name: "Don", last_name: "Doodie", username: "Admin", email: "whatisaduaneread@dondoodie.com", password: "123456",  admin: true},
+  {first_name: "Jonathan", last_name: "Chung", username: "hukashi", email: "hukashi@gmail.com", password: "123456", password_confirmation: "123456" , admin: false},
+  {first_name: "Vick", last_name: "Zhu", username: "vick", email: "vicxizhu@gmail.com", password: "123456",  admin: false},
+  {first_name: "Britney", last_name: "Wright", username: "Brit", email: "blw06g@gmail.com", password: "123456",  admin: false},
+  {first_name: "Sihong", last_name: "Huang", username: "superdad", email: "sihongspring2011@gmail.com", password: "123456",  admin: false},
+  {first_name: "Steven", last_name: "Cassidy", username: "superuser", email: "stevecass@devbootcamp.com", password: "123456",  admin: true}
+])
+Location.create!([
+  {name: "Yosemite National park", place_id: "ChIJxeyK9Z3wloAR_gOA7SycJC0", lng: -119.538329, lat: 37.865101, formatted_address: "California, United States", formatted_phone_number: "(209) 372-0200", cribs: nil, changing_stations: nil, high_chairs: nil, family_restrooms: nil, restrooms: nil, nursing_stations: nil, water_fountains: nil, play_areas: nil, yelp_id: "half-dome-yosemite-national-park", yelp_url: "http://www.yelp.com/biz/half-dome-yosemite-national-park"},
+  {name: "Empire State Bldg", place_id: "ChIJtcaxrqlZwokRfwmmibzPsTU", lng: -73.9856554, lat: 40.7484404, formatted_address: "Empire State Bldg, 350 5th Ave, New York, NY 10118, USA", formatted_phone_number: nil, cribs: nil, changing_stations: nil, high_chairs: nil, family_restrooms: nil, restrooms: nil, nursing_stations: nil, water_fountains: nil, play_areas: nil, yelp_id: nil, yelp_url: nil},
+  {name: "Starbucks", place_id: "ChIJKWoRxFhYwokRxuzYFXkTyBI", lng: -73.984914, lat: 40.769435, formatted_address: "2 Columbus Circle, New York, NY 10023, United States", formatted_phone_number: "(212) 489-6757", cribs: nil, changing_stations: nil, high_chairs: nil, family_restrooms: nil, restrooms: true, nursing_stations: true, water_fountains: nil, play_areas: nil, yelp_id: "starbucks-new-york-314", yelp_url: "http://www.yelp.com/biz/starbucks-new-york-314"},
+  {name: "Neapolitan Express", place_id: "ChIJPzAo_hZawokRg4hfOTNB3NU", lng: -74.009668, lat: 40.706983, formatted_address: "40 Wall Street, New York, NY 10260, United States", formatted_phone_number: "(646) 918-6169", cribs: nil, changing_stations: nil, high_chairs: nil, family_restrooms: nil, restrooms: nil, nursing_stations: nil, water_fountains: nil, play_areas: nil, yelp_id: "neapolitan-express-new-york-4", yelp_url: "http://www.yelp.com/biz/neapolitan-express-new-york-4"},
+  {name: "Starbucks", place_id: "ChIJbR_XgT1awokRkaDripRk7Ns", lng: -74.006826, lat: 40.706132, formatted_address: "80 Pine Street, New York, NY 10005, United States", formatted_phone_number: "(212) 480-3970", cribs: nil, changing_stations: true, high_chairs: nil, family_restrooms: nil, restrooms: true, nursing_stations: nil, water_fountains: nil, play_areas: nil, yelp_id: "starbucks-manhattan-276", yelp_url: "http://www.yelp.com/biz/starbucks-manhattan-276"},
+  {name: "Delmonico's", place_id: "ChIJwy8lmxZawokRtWUTg5wuv6I", lng: -74.010305, lat: 40.705025, formatted_address: "56 Beaver Street, New York, NY 10004, United States", formatted_phone_number: "(212) 509-1144", cribs: nil, changing_stations: true, high_chairs: nil, family_restrooms: nil, restrooms: true, nursing_stations: nil, water_fountains: nil, play_areas: nil, yelp_id: "delmonicos-new-york", yelp_url: "http://www.yelp.com/biz/delmonicos-new-york"},
+  {name: "Museum of American Finance", place_id: "ChIJa168WRZawokRMEHaXpp3OFc", lng: -74.009029, lat: 40.706544, formatted_address: "48 Wall Street, New York, NY 10005, United States", formatted_phone_number: "(212) 908-4110", cribs: nil, changing_stations: true, high_chairs: nil, family_restrooms: nil, restrooms: true, nursing_stations: nil, water_fountains: nil, play_areas: nil, yelp_id: "the-museum-of-american-finance-new-york", yelp_url: "http://www.yelp.com/biz/the-museum-of-american-finance-new-york"},
+  {name: "Club Quarters Hotel, Wall Street", place_id: "ChIJ-ziaVBZawokRj7B7C4qAWPY", lng: -74.008815, lat: 40.70672, formatted_address: "52 William Street, New York, NY 10005, United States", formatted_phone_number: "(212) 269-6400", cribs: true, changing_stations: nil, high_chairs: nil, family_restrooms: true, restrooms: nil, nursing_stations: nil, water_fountains: nil, play_areas: nil, yelp_id: "club-quarters-new-york-2", yelp_url: "http://www.yelp.com/biz/club-quarters-new-york-2"},
+  {name: "DoubleTree by Hilton New York City Financial District", place_id: "ChIJ0fci9hNawokRJVR9hdTAt80", lng: -74.01237, lat: 40.703849, formatted_address: "8 Stone Street, New York, NY 10004, United States", formatted_phone_number: "(212) 480-9100", cribs: true, changing_stations: true, high_chairs: true, family_restrooms: true, restrooms: true, nursing_stations: true, water_fountains: nil, play_areas: nil, yelp_id: "double-tree-new-york", yelp_url: "http://www.yelp.com/biz/double-tree-new-york"},
+  {name: "Les Halles", place_id: "ChIJN5suLhhawokRuAg2igbpeC4", lng: -74.008875, lat: 40.710061, formatted_address: "15 John Street, New York, NY 10038, United States", formatted_phone_number: "(212) 285-8585", cribs: nil, changing_stations: true, high_chairs: true, family_restrooms: nil, restrooms: true, nursing_stations: nil, water_fountains: nil, play_areas: nil, yelp_id: "les-halles-new-york-5", yelp_url: "http://www.yelp.com/biz/les-halles-new-york-5"},
+  {name: "Holiday Inn New York City - Wall Street", place_id: "ChIJPTJohhdawokR5-M2cwZ2WDo", lng: -74.009167, lat: 40.708987, formatted_address: "51 Nassau Street, New York, NY 10038, United States", formatted_phone_number: "(646) 844-2987", cribs: true, changing_stations: true, high_chairs: true, family_restrooms: true, restrooms: true, nursing_stations: true, water_fountains: nil, play_areas: nil, yelp_id: nil, yelp_url: nil},
+  {name: "W New York - Downtown", place_id: "ChIJUXPOvRBawokR2iT8sI7Mq3U", lng: -74.013711, lat: 40.709217, formatted_address: "8 Albany Street, New York, NY 10006, United States", formatted_phone_number: "(646) 826-8600", cribs: true, changing_stations: true, high_chairs: true, family_restrooms: nil, restrooms: true, nursing_stations: true, water_fountains: nil, play_areas: nil, yelp_id: "w-new-york-downtown-new-york", yelp_url: "http://www.yelp.com/biz/w-new-york-downtown-new-york"},
+  {name: "Battery Park", place_id: "ChIJraKL-BJawokREpxDmF5GcL4", lng: -74.017028, lat: 40.703278, formatted_address: "New York, NY, United States", formatted_phone_number: "", cribs: nil, changing_stations: true, high_chairs: nil, family_restrooms: true, restrooms: true, nursing_stations: nil, water_fountains: true, play_areas: nil, yelp_id: nil, yelp_url: nil},
+  {name: "SCORES™ New York", place_id: "ChIJOTmUV7ZZwokR7VXsJXwtqWU", lng: -74.003591, lat: 40.751285, formatted_address: "536 West 28th Street, New York, NY 10001, United States", formatted_phone_number: "(212) 868-4900", cribs: nil, changing_stations: true, high_chairs: nil, family_restrooms: nil, restrooms: nil, nursing_stations: true, water_fountains: nil, play_areas: nil, yelp_id: "roberts-steakhouse-new-york-2", yelp_url: "http://www.yelp.com/biz/roberts-steakhouse-new-york-2"},
+  {name: "Central Park", place_id: "ChIJ4zGFAZpYwokRGUGph3Mf37k", lng: -73.965355, lat: 40.782865, formatted_address: "New York, NY, United States", formatted_phone_number: "(212) 310-6600", cribs: nil, changing_stations: true, high_chairs: nil, family_restrooms: nil, restrooms: true, nursing_stations: nil, water_fountains: true, play_areas: nil, yelp_id: "central-park-new-york", yelp_url: "http://www.yelp.com/biz/central-park-new-york"},
+  {name: "Statue of Liberty National Monument", place_id: "ChIJPTacEpBQwokRKwIlDXelxkA", lng: -74.0445, lat: 40.689249, formatted_address: "New York, NY, United States", formatted_phone_number: "(212) 363-3200", cribs: nil, changing_stations: true, high_chairs: nil, family_restrooms: true, restrooms: true, nursing_stations: true, water_fountains: true, play_areas: nil, yelp_id: "statue-of-liberty-new-york-3", yelp_url: "http://www.yelp.com/biz/statue-of-liberty-new-york-3"},
+  {name: "Century 21 Department Store", place_id: "ChIJH0q3RfVYwokR0lV5sCbWE3k", lng: -73.98188, lat: 40.774005, formatted_address: "1972 Broadway, New York, NY 10023, United States", formatted_phone_number: "(212) 518-2121", cribs: nil, changing_stations: true, high_chairs: nil, family_restrooms: true, restrooms: true, nursing_stations: true, water_fountains: nil, play_areas: nil, yelp_id: "century-21-new-york-4", yelp_url: "http://www.yelp.com/biz/century-21-new-york-4"},
+  {name: "New York Aquarium", place_id: "ChIJcRMeDzZEwokR3NsXUDpO9UU", lng: -73.975901, lat: 40.574004, formatted_address: "602 Surf Avenue, Brooklyn, NY 11224, United States", formatted_phone_number: "(718) 265-3474", cribs: nil, changing_stations: true, high_chairs: true, family_restrooms: true, restrooms: true, nursing_stations: true, water_fountains: true, play_areas: nil, yelp_id: "n-y-city-of-brooklyn-437", yelp_url: "http://www.yelp.com/biz/n-y-city-of-brooklyn-437"},
+  {name: "Bronx Zoo", place_id: "ChIJi9JqUYP0wokRLhCVlxy0bgU", lng: -73.876998, lat: 40.850595, formatted_address: "2300 Southern Boulevard, Bronx, NY 10460, United States", formatted_phone_number: "(718) 367-1010", cribs: true, changing_stations: true, high_chairs: true, family_restrooms: true, restrooms: true, nursing_stations: true, water_fountains: true, play_areas: nil, yelp_id: "bronx-zoo-wildlife-conservation-society-bronx", yelp_url: "http://www.yelp.com/biz/bronx-zoo-wildlife-conservation-society-bronx"},
+  {name: "Brooklyn Botanic Garden", place_id: "ChIJwYu_aA5bwokR2lxjW-QvQlc", lng: -73.962089, lat: 40.666042, formatted_address: "990 Washington Avenue, Brooklyn, NY 11225, United States", formatted_phone_number: "(718) 623-7200", cribs: nil, changing_stations: true, high_chairs: true, family_restrooms: true, restrooms: true, nursing_stations: true, water_fountains: true, play_areas: nil, yelp_id: "brooklyn-botanic-garden-brooklyn-2", yelp_url: "http://www.yelp.com/biz/brooklyn-botanic-garden-brooklyn-2"},
+  {name: "Disneyland Park", place_id: "ChIJa147K9HX3IAR-lwiGIQv9i4", lng: -117.918974, lat: 33.812092, formatted_address: "1313 Disneyland Drive, Anaheim, CA 92802, United States", formatted_phone_number: "(714) 781-4636", cribs: true, changing_stations: true, high_chairs: true, family_restrooms: true, restrooms: true, nursing_stations: true, water_fountains: true, play_areas: nil, yelp_id: "mickeys-halloween-party-anaheim", yelp_url: "http://www.yelp.com/biz/mickeys-halloween-party-anaheim"},
+  {name: "Epcot", place_id: "ChIJGzFs3q9_3YgRvZd1y2NSJOo", lng: -81.549404, lat: 28.374694, formatted_address: "200 Epcot Center Dr, Orlando, FL 32821, United States", formatted_phone_number: "(407) 824-4321", cribs: true, changing_stations: true, high_chairs: true, family_restrooms: true, restrooms: true, nursing_stations: true, water_fountains: true, play_areas: nil, yelp_id: "disneys-typhoon-lagoon-water-park-orlando", yelp_url: "http://www.yelp.com/biz/disneys-typhoon-lagoon-water-park-orlando"},
+  {name: "National Baseball Hall of Fame and Museum", place_id: "ChIJiyz7EScH3IkRhQO_m7d9hUw", lng: -74.923214, lat: 42.699937, formatted_address: "25 Main Street, Cooperstown, NY 13326, United States", formatted_phone_number: "(888) 425-5633", cribs: nil, changing_stations: true, high_chairs: nil, family_restrooms: true, restrooms: true, nursing_stations: nil, water_fountains: true, play_areas: true, yelp_id: nil, yelp_url: nil},
+  {name: "Carvel", place_id: "ChIJg4SGERhawokRqD4HzlSkaAc", lng: -74.005854, lat: 40.707592, formatted_address: "112 John Street, New York, NY 10038, United States", formatted_phone_number: "(212) 732-7283", cribs: nil, changing_stations: nil, high_chairs: nil, family_restrooms: nil, restrooms: nil, nursing_stations: nil, water_fountains: nil, play_areas: nil, yelp_id: "carvel-ice-cream-cake-new-york", yelp_url: "http://www.yelp.com/biz/carvel-ice-cream-cake-new-york"}
+])
+Review.create!([
+  {location_id: 3, user_id: 1, overall_rating: 4, cleanliness_rating: 4, spaciousness_rating: 3, body: "This place is crowded on weekdays, but the wait isn't too long. I would bring my kid here because he likes Mike's hot honey."},
+  {location_id: 21, user_id: 6, overall_rating: 5, cleanliness_rating: 5, spaciousness_rating: 5, body: "My family just got back from a visit to Disneyland. It was great! Definitely a great place to take your family. We have 3 children, of which one is a 1 year old toddler. I must say the park was very accommodating for her. Even the restaurants were very well stocked with all the amenities we needed to have a good dining experience. "},
+  {location_id: 12, user_id: 6, overall_rating: 4, cleanliness_rating: 3, spaciousness_rating: 3, body: "We visited New York and decided to stay in the Financial District Area. This hotel was decent. However, it was a bit cramped and needs to be a bit more helpful with families that stay there."},
+  {location_id: 11, user_id: 6, overall_rating: 3, cleanliness_rating: 3, spaciousness_rating: 2, body: "We ate at this restaurant during our vacation. The foodl was great. However, we were traveling with our 3 year old and the seating was too cramped. He was able to reach everything on the table because we couldn't even pull him away from the table at all. The place could have been a little cleaner for our taste."},
+  {location_id: 12, user_id: 5, overall_rating: 3, cleanliness_rating: 3, spaciousness_rating: 2, body: "Staying here was just Ok. We decided that we could do with the minimal space  with our 2 year old. However, it proved to be a bit difficult. Try to find a different place that will be much more accommodating to younger children."},
+  {location_id: 11, user_id: 5, overall_rating: 3, cleanliness_rating: 3, spaciousness_rating: 2, body: "I would have to agree with the previous reviewer. They were pretty much on the money with their review. Food is great but they could use less tables to create more space."},
+  {location_id: 13, user_id: 7, overall_rating: 5, cleanliness_rating: 4, spaciousness_rating: 4, body: "My latest trip to New York was a business trip. However, I decided to bring my wife and 1 year old along as I foresaw that I would have time for some sight seeing. This hotel was great. The amenities are great and the hotel was extremely clean. Kind of pricey but my company paid for it so it was great!"},
+  {location_id: 2, user_id: 7, overall_rating: 5, cleanliness_rating: 4, spaciousness_rating: 5, body: "I had a great time taking my family on a trip to Yosemite. The park is enormous. I had a great time showing my son the wonders of nature. He was so excited to see all the animals and waterfalls. Highly recommend for families. "},
+  {location_id: 7, user_id: 7, overall_rating: 2, cleanliness_rating: 2, spaciousness_rating: 2, body: "This place is definitely not for kids. Not enough space and nothing on the menu for them. Stay away if you have kids."},
+  {location_id: 24, user_id: 4, overall_rating: 3, cleanliness_rating: 2, spaciousness_rating: 2, body: "This store has great ice cream but not enough seating and it is very cramped."}
+])
+Like.create!([
+  {user_id: 1, review_id: 1},
+  {user_id: 7, review_id: 4},
+  {user_id: 7, review_id: 6}
+])
 
- { name: "Starbucks",
-   place_id: "ChIJKWoRxFhYwokRxuzYFXkTyBI",
-   lng:-73.984914,
-   lat:40.769435,
-   formatted_address: "2 Columbus Circle, New York, NY 10023, United States",
-   formatted_phone_number: "(212) 489-6757",
-   cribs: nil,
-   changing_stations: nil,
-   high_chairs: nil,
-   family_restrooms: nil,
-   restrooms: true,
-   nursing_stations: true,
-   water_fountains: nil
- },
-
- { name: "Neapolitan Express",
-   place_id: "ChIJPzAo_hZawokRg4hfOTNB3NU",
-   lng:-74.009668,
-   lat:40.706983,
-   formatted_address:"40 Wall Street, New York, NY 10260, United States",
-   formatted_phone_number:"(646) 918-6169",
-   cribs: nil,
-   changing_stations: nil,
-   high_chairs: nil,
-   family_restrooms: nil,
-   restrooms: nil,
-   nursing_stations: nil,
-   water_fountains: nil
- },
-
- { name: "Battery Park",
-   place_id: "ChIJraKL-BJawokREpxDmF5GcL4",
-   lng:-74.017028,
-   lat:40.703278,
-   formatted_address:"New York, NY, United States",
-   formatted_phone_number:nil,
-   cribs: nil,
-   changing_stations: nil,
-   high_chairs: nil,
-   family_restrooms: nil,
-   restrooms: nil,
-   nursing_stations: nil,
-   water_fountains: nil
- },
-{ name: "Yosemite National park",
-   place_id: "ChIJxeyK9Z3wloAR_gOA7SycJC0",
-   lng:-119.538329,
-   lat:37.865101,
-   formatted_address:"California, United States",
-   formatted_phone_number:"(209) 372-0200",
-   cribs: nil,
-   changing_stations: nil,
-   high_chairs: nil,
-   family_restrooms: nil,
-   restrooms: nil,
-   nursing_stations: nil,
-   water_fountains: nil
- },
-
- { name: "Empire State Bldg",
-   place_id: "ChIJtcaxrqlZwokRfwmmibzPsTU",
-   lng:-73.9856554,
-   lat:40.7484404,
-   formatted_address:"Empire State Bldg, 350 5th Ave, New York, NY 10118, USA",
-   formatted_phone_number:nil,
-   cribs: nil,
-   changing_stations: nil,
-   high_chairs: nil,
-   family_restrooms: nil,
-   restrooms: nil,
-   nursing_stations: nil,
-   water_fountains: nil
- }
-
-].shuffle
-
-users = [
-
-  { first_name: "Vic",
-    last_name: "Zhu",
-    email: "duanereade@don.com",
-    username: "dondoodie",
-    password: "123456"
-  },
-
-  { first_name: "Don",
-    last_name: "Doodie",
-    email: "whatisaduaneread@dondoodie.com",
-    username: "Admin",
-    password: "123456",
-    admin: true
-  }
-
-]
-
-reviews = [
-
-  { location_id: 3,
-    user_id: 1,
-    overall_rating: 4,
-    cleanliness_rating: 4,
-    spaciousness_rating: 3,
-    body: "This place is crowded on weekdays, but the wait isn't too long. I would bring my kid here because he likes Mike's hot honey."
-  }
-]
-
-likes = [
-  { user_id: 1,
-    review_id: 1
-  }
-]
-
-
-locations.each do |location|
-   Location.create(location)
+["likes", "locations", "reviews", "users"].each do |table_name|
+  statement = "SELECT setval('#{table_name}_id_seq', (SELECT MAX(id) FROM #{table_name}));"
+  puts statement
+  ActiveRecord::Base.connection.execute(statement)
 end
-
-users.each do |user|
-   User.create(user)
-end
-
-reviews.each do |review|
-   Review.create(review)
-end
-
-likes.each do |like|
-   Like.create(like)
-end
-

@@ -1,0 +1,27 @@
+<h2>Edit User</h2>
+
+<div>
+  <%= form_for @user do |f| %>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+    <%= f.label :username %>
+    <%= f.text_field :username, value: @user.username %>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, value: @user.first_name %>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, value: @user.last_name %>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+    <%= f.label :email %>
+    <%= f.text_field :email, value: @user.email %>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+    <%= f.label :password %>
+    <%= f.text_field :password, value: @user.password %>
+    <%= f.submit %>
+    </div>
+  <% end %>
+</div>

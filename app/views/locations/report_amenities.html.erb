@@ -4,8 +4,8 @@
 <script id="google-location-template" type="text/x-handlebars-template">
  <div id="api-search-locations-checkin">
   {{#locations}}
-  <img class='checkin-icon' src='{{icon}}' />
   <div class="result-row" data-place_id="{{placeID}}">
+  <img class='checkin-icon' src='{{icon}}' style="width:25px;height:25px"/>
     {{name}}
     <br>
     {{vicinity}}
@@ -20,26 +20,57 @@
 
 <div id="locals_list"></div>
 
-<div class="new-location-form">
+<div class="new-location-form-checkin">
 
   <%= form_for @location, :html => {:class => "new-checkin"} do |f| %>
-    <%= f.label 'Changing Stations' %>
-    <%= f.check_box :changing_stations, options = {}, checked_value = true, unchecked_value = false %>
-    <%= f.label 'Nursing Stations' %>
-    <%= f.check_box :nursing_stations, options = {}, checked_value = true, unchecked_value = false %>
-    <%= f.label 'Family Restrooms' %>
-    <%= f.check_box :family_restrooms, options = {}, checked_value = true, unchecked_value = false %>
-    <%= f.label 'Restrooms' %>
-    <%= f.check_box :restrooms, options = {}, checked_value = true, unchecked_value = false %>
-    <%= f.label 'Play Areas' %>
-    <%= f.check_box :play_areas, options = {}, checked_value = true, unchecked_value = false %>
-    <%= f.label 'Water Fountains' %>
-    <%= f.check_box :water_fountains, options = {}, checked_value = true, unchecked_value = false %>
-    <%= f.label 'High Chairs' %>
-    <%= f.check_box :high_chairs, options = {}, checked_value = true, unchecked_value = false %>
-    <%= f.label 'Cribs' %>
-    <%= f.check_box :cribs, options = {}, checked_value = true, unchecked_value = false %>
-    <%= f.submit 'Submit' , id: 'checkin-submit-btn' %>
+    <div class="check-in-page-amenity">
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="location_changing_stations">
+        <input type="checkbox" name="location[changing_stations]" id="location_changing_stations" class="mdl-checkbox__input" />
+        <span class="mdl-checkbox__label">Changing Stations</span>
+      </label>
+    </div>
+    <div class="check-in-page-amenity">
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="location_nursing_stations">
+        <input type="checkbox" name="location[nursing_stations]" id="location_nursing_stations" class="mdl-checkbox__input" />
+        <span class="mdl-checkbox__label">Nursing Stations</span>
+      </label>
+    </div>
+    <div class="check-in-page-amenity">
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="location_family_restrooms">
+        <input type="checkbox" name="location[family_restrooms]" id="location_family_restrooms" class="mdl-checkbox__input" />
+        <span class="mdl-checkbox__label">Family Restrooms</span>
+      </label>
+    </div>
+    <div class="check-in-page-amenity">
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="location_restrooms">
+        <input type="checkbox" name="location[restrooms]" id="location_restrooms" class="mdl-checkbox__input" />
+        <span class="mdl-checkbox__label">Restrooms</span>
+      </label>
+    <div class="check-in-page-amenity">
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="location_play_areas">
+        <input type="checkbox" name="location[play_areas]" id="location_play_areas" class="mdl-checkbox__input" />
+        <span class="mdl-checkbox__label">Play Areas</span>
+      </label>
+    </div>
+    <div class="check-in-page-amenity">
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="location_water_fountains">
+        <input type="checkbox" name="location[water_fountains]" id="location_water_fountains" class="mdl-checkbox__input" />
+        <span class="mdl-checkbox__label">Water Fountains</span>
+      </label>
+    </div>
+    <div class="check-in-page-amenity">
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="location_high_chairs">
+        <input type="checkbox" name="location[high_chairs]" id="location_high_chairs" class="mdl-checkbox__input" />
+        <span class="mdl-checkbox__label">High Chairs</span>
+      </label>
+    </div>
+    <div class="check-in-page-amenity">
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="location_cribs">
+        <input type="checkbox" name="location[cribs]" id="location_cribs" class="mdl-checkbox__input" />
+        <span class="mdl-checkbox__label">Cribs</span>
+      </label>
+    </div>
+    <%= f.submit 'Submit' , id: 'checkin-submit-btn', class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast" %>
   <% end %>
   <div>
     Not what you're looking for? <%= link_to "Add a new location.", new_location_path %>

@@ -1,0 +1,9 @@
+<div class="admin-panel mdl-card mdl-color--deep-purple-500 mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
+  <div class="mdl-card__supporting-text mdl-color-text--blue-grey-50">
+    <h3>Admin</h3>
+    <ul>
+      <li><%= link_to 'Delete', location_path(@location), method: :delete %></li>
+      <li><%= link_to 'Edit', edit_location_path(@location) %></li>
+    </ul>
+  </div>
+</div>

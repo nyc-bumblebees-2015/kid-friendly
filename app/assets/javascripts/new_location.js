@@ -9,8 +9,6 @@ function setupAutoComplete() {
     locationData = {name: newPlace.name, place_id: newPlace.place_id, lng: newPlace.geometry.location.K, lat: newPlace.geometry.location.G, formatted_address: newPlace.formatted_address, formatted_phone_number: newPlace.formatted_phone_number}
     $('#search-data-name').text('Name:' + newPlace.name)
     $('#search-data-address').text('Address:' + newPlace.formatted_address)
-    $('#search-data-lat').text('Latitude:' + newPlace.geometry.location.G)
-    $('#search-data-lng').text('Longitude:' + newPlace.geometry.location.K)
     $('#create-submit-btn').toggle(true);
     });
 
