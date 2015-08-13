@@ -1,28 +1,30 @@
-<div class="submission mdl-grid">
-<div class='submission-msg'>
-  <h4>Thank you for your submission!</h4>
-  <h6>Your submission is currently under review! It will be updated after we have validated the information!</h6>
-</div>
-<div class="submission-info">
-    <h3 id="submission-title-name"> <%= @location.name %> </h3>
-    <p class="submission-address"> <%= @location.formatted_address %> </p>
-  <div class="submission-amenities">
-    <% if @location.amenities? %>
-      <h3 class="submission-amenities-title">Amenities</h3>
-        <ul class="submission-amenities-list">
-          <%= content_tag :li, "Cribs:  #{@location.cribs}" if @location.cribs %>
-          <%= content_tag :li, "Changing stations: #{@location.changing_stations}" if @location.changing_stations %>
-          <%= content_tag :li, "High chairs: #{@location.high_chairs}" if @location.high_chairs %>
-          <%= content_tag :li, "Family restrooms: #{@location.family_restrooms}" if @location.family_restrooms %>
-          <%= content_tag :li, "Restrooms: #{@location.restrooms}" if @location.restrooms %>
-          <%= content_tag :li, "Nursing stations: #{@location.nursing_stations}" if @location.nursing_stations %>
-          <%= content_tag :li, "Water fountains: #{@location.water_fountains}" if @location.water_fountains %>
-        </ul>
-    <% end %>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--4-col"></div>
+  <div class="mdl-cell mdl-cell--4-col">
+    <h3>Thank you for your submission!</h3>
+    <p>Your submission is currently under review! It will be updated after we have validated the information!</p>
+      <div class="mdl-card mdl-shadow--2dp demo-card-wide">
+        <div class="submission-info">
+          <h4><%= @location.name %></h4>
+          <p><%= @location.formatted_address %></p>
+          <div class="submission-amenities">
+          <% if @location.amenities? %>
+            <h4>Amenities</h4>
+            <ul class="submission-amenities-list">
+              <%= content_tag :li, "Cribs:  #{@location.cribs}" if @location.cribs %>
+              <%= content_tag :li, "Changing stations: #{@location.changing_stations}" if @location.changing_stations %>
+              <%= content_tag :li, "High chairs: #{@location.high_chairs}" if @location.high_chairs %>
+              <%= content_tag :li, "Family restrooms: #{@location.family_restrooms}" if @location.family_restrooms %>
+              <%= content_tag :li, "Restrooms: #{@location.restrooms}" if @location.restrooms %>
+              <%= content_tag :li, "Nursing stations: #{@location.nursing_stations}" if @location.nursing_stations %>
+              <%= content_tag :li, "Water fountains: #{@location.water_fountains}" if @location.water_fountains %>
+            </ul>
+          <% end %>
+          </div>
+        </div>
+      </div>
+      <div id='timer'> <script type="text/javascript">countDown();</script></div>
+      <div>or <%= link_to 'click here', root_path %> to return home now... </div>
+    <div class="mdl-cell mdl-cell--4-col"></div>
   </div>
-</div>
-<p id='timer'> <script type="text/javascript">countDown();</script> </p>
-
-<p> or click here to return home now... </p>
-<p><%= link_to 'Return Home', root_path %></p>
 </div>
