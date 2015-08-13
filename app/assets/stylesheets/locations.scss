@@ -65,7 +65,9 @@ div#api-search-locations-checkin{
 .location_details, .location_ratings {
   margin-right: 15px;
 }
-
+.amenities.mdl-card {
+  background-color: $color-accent;
+}
 .amenities .mdl-card__actions {
   display: flex;
   box-sizing: border-box;
