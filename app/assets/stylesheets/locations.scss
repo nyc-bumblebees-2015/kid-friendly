@@ -37,7 +37,7 @@ div#api-search-locations-checkin{
   left: 50%;
 }
 
-.location-show {
+.location-show, .location-new {
   max-width: 1000px;
   h2 {
     font-size: 35px;
@@ -48,7 +48,6 @@ div#api-search-locations-checkin{
     line-height: auto;
   }
 }
-
 
 .demo-card-wide.mdl-card {
   width: 100%;
