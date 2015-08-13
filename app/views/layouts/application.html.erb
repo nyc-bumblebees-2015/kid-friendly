@@ -14,7 +14,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="mdl-layout mdl-layout--fixed-header mdl-js-layout">
+  <div class="<%= @home_page ? 'home' : ''%> mdl-layout mdl-layout--fixed-header mdl-js-layout">
     <header class="mdl-layout__header mdl-layout__header--scroll">
       <div class="mdl-layout__header-row">
         <span class="mdl-layout-title"><%= link_to "kidpanion", root_path %></span>

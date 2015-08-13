@@ -12,9 +12,8 @@ h2 {
   height: 100%;
 }
 
-.mdl-layout__content {
-  background-image: image-url("index_picture.jpg");
-  background-repeat: no-repeat;
+.home .mdl-layout__content {
+  background: url("index_picture.jpg") no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -28,10 +27,6 @@ h2 {
 
 .alert {
   margin: 5px auto;
-}
-
-.layout-transparent  {
-  /*background: url('/shutteroo.com-sunset-beach-family.jpg') center / cover;*/
 }
 
 .mdl-layout__header-row .mdl-layout-title a {
