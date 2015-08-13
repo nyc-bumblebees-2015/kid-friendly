@@ -14,6 +14,7 @@ gem 'yelp'
 gem 'responders', '~> 2.0'
 gem 'rails_12factor', group: :production
 gem 'seed_dump', group: :development
+gem 'activeadmin', github: 'activeadmin'
 
 group :development, :test do
   gem 'rspec-rails'
