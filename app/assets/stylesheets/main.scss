@@ -6,6 +6,18 @@ h2 {
   text-align: center;
 }
 
+#search-location-index{
+  width: 145%;
+  margin-top: 10px;
+  height: 100%;
+}
+
+.mdl-layout__content {
+  background-image: image-url("index_picture.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 #slogan {
   font-style: italic;
 }
@@ -181,57 +193,4 @@ h2 {
 
 .mdl-logo {
   margin-bottom: -10px;
-}
-
-.submission-msg h4, h6, p {
-  text-align: center;
-  margin: 0 auto;
-  padding: 10px 0;
-}
-
-#submission-title-name {
-  background-color: rgb(76,175,80);
-  margin: 0 auto;
-  text-align: center;
-  width: 70%;
-}
-
-.submission-address {
-  margin: 0 auto;
-  text-align: center;
-}
-
-.submission-amenities {
-  margin: 0 auto;
-  width: 70%;
-}
-
-.submission-amenities h3 {
-  margin: 0 auto;
-  text-align: center;
-  width: 70%;
-}
-
-.submission-amenities ul {
-  margin: 0 auto;
-  text-align: center;
-  width: 70%;
-}
-
-.submission-amenities li {
-  list-style-type: none;
-  margin: 0 auto;
-  margin-left: -10px;
-  text-align: center;
-  width: 70%;
-}
-
-.return-btn {
-  margin: 0 auto;
-}
-
-.submission {
-  flex-direction: column;
-  max-width: 1000;
-  justify-content: center;
 }

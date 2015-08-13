@@ -1,46 +1,48 @@
-<div class="demo-grid-1 mdl-grid">
-  <div class="mdl-cell mdl-cell--4-col"></div>
-  <div class="mdl-cell mdl-cell--4-col">
-    <div>
-      <h4 id='slogan'>"ensure a great time for all"</h4>
-        <div>
-          <form id="search-form">
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-              <input class="mdl-textfield__input" id="search" type="text">
-              <label class="mdl-textfield__label" for="sample3">Enter a location</label>
+<div class="picture-div">
+  <div class="demo-grid-1 mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col"></div>
+    <div class="mdl-cell mdl-cell--4-col">
+      <div>
+        <h4 id='slogan'>"ensure a great time for all"</h4>
+          <div>
+            <form id="search-form">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                <input class="mdl-textfield__input" id="search" type="text">
+                <label class="mdl-textfield__label" for="sample3">Enter a location</label>
+              </div>
+              <input type="image" src="/ic_search_black_24dp_2x.png" value="Search" class="search-icon">
+            </form>
+            <div class="distance-menu">
+              <p>Please select a search radius</p>
+            <select id="proximity">
+              <option value=".5" class="mdl-menu__item">within .5</option>
+              <option value="5" class="mdl-menu__item">within 5 miles</option>
+              <option value="50" class="mdl-menu__item">within 50 miles</option>
+              <option value="anywhere" class="mdl-menu__item">Anywhere</option>
+            </select>
             </div>
-            <input type="image" src="/ic_search_black_24dp_2x.png" value="Search" class="search-icon">
-          </form>
-          <div class="distance-menu">
-            <p>Please select a search radius</p>
-          <button id="menu-lower-left"
-            class="mdl-button mdl-js-button mdl-button--icon">
-            <i class="material-icons">more_vert</i>
-          </button>
-          <select id="proximity">
-            <option value=".5" class="mdl-menu__item">within .5</option>
-            <option value="5" class="mdl-menu__item">within 5 miles</option>
-            <option value="50" class="mdl-menu__item">within 50 miles</option>
-            <option value="anywhere" class="mdl-menu__item">Anywhere</option>
-          </select>
           </div>
-        </div>
 
-      <div id="search-results-container">
-        <script id="search-results-template" type="text/x-handlebars-template">
-          <div id="api-search-locations-checkin">
-            {{#locations}}
-            <div id="search-location-index">
-              <a href="/locations/{{id}}">{{name}}</a>
-              <br>
-              {{formatted_address}}
+        <div id="search-results-container">
+          <script id="search-results-template" type="text/x-handlebars-template">
+            <div id="api-search-locations-checkin">
+              {{#locations}}
+              <div id="search-location-index" class="quick-find-list">
+                <div class="quick-find-container-1">
+                 <a class="quick-list-name" href="/locations/{{id}}">{{name}}</a>
+                <br>
+                </div>
+                <div class="quick-find-container-2">
+                 <span class="quick-list-address">{{formatted_address}}</span>
+                </div>
+              </div>
+                {{/locations}}
             </div>
-              {{/locations}}
-          </div>
-        </script>
+          </script>
+        </div>
+        <div id="search-results-list"></div>
       </div>
-      <div id="search-results-list"></div>
     </div>
+    <div class="mdl-cell mdl-cell--4-col"></div>
   </div>
-  <div class="mdl-cell mdl-cell--4-col"></div>
 </div>
