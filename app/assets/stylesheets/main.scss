@@ -6,6 +6,10 @@ h2 {
   text-align: center;
 }
 
+a {
+  text-decoration: none;
+}
+
 #search-location-index{
   width: 145%;
   margin-top: 10px;
@@ -172,6 +176,25 @@ h2 {
   padding: 5px;
   text-align: center;
   width: 50%;
+}
+
+.mdl-list {
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  padding: 0;
+  line-height: 2em;
+}
+
+.mdl-list__item.mdl-card {
+  min-height: 50px;
+  margin: 20px auto;
+  background-color: #F5F6FF;
+}
+
+.mdl-list__item.mdl-card a{
+  margin: 12px;
+  font-size: 18px;
 }
 
 .search-amenity-container a {
