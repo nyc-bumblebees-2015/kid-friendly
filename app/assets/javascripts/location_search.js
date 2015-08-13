@@ -103,13 +103,13 @@ LocationSearch.View = function(controller){
     return lng;
   };
 
-  $('#changing').on('click', function(event){
+  $('.changing').on('click', function(event){
     event.preventDefault();
     var route = getBaseUrl() + '/find_amenities/' + 'changing_stations' + '?lat=' + getLat() + '\&lng=' + getLng();
     window.location.href = route;
   });
 
-  $('#nursing').on('click', function(event){
+  $('.nursing').on('click', function(event){
     event.preventDefault();
     var route = getBaseUrl() + '/find_amenities/' + 'nursing_stations' + '?lat=' + getLat() + '\&lng=' + getLng();
     window.location.href = route;
