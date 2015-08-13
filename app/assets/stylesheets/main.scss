@@ -49,31 +49,34 @@ a {
   font-size: 1.8em;
 }
 
-.quick-find-list {
-  background-color: #536dfe;
-  border: 1px solid #536dfe;
-  border-radius: 15px;
-  box-shadow: 2px 2px 2px #424C55;
-  margin: 0 auto 5px auto;
+.location-list {
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  width: 50%;
+  line-height: 2em;
 }
 
-.quick-find-container-1 {
-  border-bottom: 2px solid #424242;
-}
-
-.quick-find-container-1, .quick-find-container-2 {
-  padding: 5px;
+.quick-find-list {
+  min-height: 50px;
+  margin: 15px auto;
+  background-color: #F5F6FF;
 }
 
 .quick-list-name {
-  font-size: 25px;
+  color: $color-secondary-text;
 }
 
-.quick-list-name, .quick-list-address {
-  color: white;
-  text-decoration: none;
+.quick-list-address {
+  color: $color-primary;
+}
+
+.quick-find-container-1 {
+  margin: 12px;
+  font-size: 18px;
+}
+
+.quick-find-container-2 {
+  font-size: 14px;
 }
 
 .mdl-button__ripple-container {
