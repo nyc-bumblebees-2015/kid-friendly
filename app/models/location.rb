@@ -74,6 +74,10 @@ class Location < ActiveRecord::Base
     yelp_id_lookup.deals.first
   end
 
+  def recent_reviews
+    self.reviews.order('created_at DESC')
+  end
+
 protected
   def parsable_phone_number?
     self.formatted_phone_number && self.formatted_phone_number.match(/^\(\d{3}\)\s\d{3}(-)\d{4}$/)
@@ -99,4 +103,5 @@ protected
   def set_yelp_url
     self.yelp_url = yelp_phone_lookup.url if yelp_phone_lookup
   end
+
 end
