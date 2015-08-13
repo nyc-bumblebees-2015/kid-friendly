@@ -24,4 +24,13 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+def authenticate_admin_user!
+  redirect_to root_path unless current_user.try(:is_admin?)
+end
+
+
+  def current_admin_user
+    @current_admin_user || User.find_by(id: session[:user_id]) if session[:user_id] && User.find_by(id: session[:user_id]).admin == true
+  end
 end
