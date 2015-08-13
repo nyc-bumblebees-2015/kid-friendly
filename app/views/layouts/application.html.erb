@@ -3,10 +3,9 @@
 <head>
   <title><%= full_title(yield(:title)) %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.green-indigo.min.css" />
-  <%= stylesheet_link_tag 'application', media: 'all' %>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="/assets/stylesheets/material.min.css">
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places" %>
   <script src="//cdn.ckeditor.com/4.5.2/standard/ckeditor.js"></script>
   <%= javascript_include_tag 'application' %>
@@ -132,6 +131,6 @@
     </div>
   </div>
 
-  <script src="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.min.js"></script>
+  <script src="/assets/javascripts/material.min.js"></script>
 </body>
 </html>

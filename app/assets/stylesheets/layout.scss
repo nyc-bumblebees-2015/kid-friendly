@@ -1,5 +1,19 @@
+$color-primary: #009688;
+$color-primary-dark: #00796B;
+$color-light-primary: #B2DFDB;
+$color-accent: #FF5252;
+$color-primary-text: #212121;
+$color-secondary-text: #727272;
+$color-text-icons: #FFFFFF;
+$color-divider-color: #B6B6B6;
+
 $bold-accent-color: #EF4422;
 $light-accent-color: #F5F6FF;
+
+@mixin background-opacity($color, $opacity: 0.3) {
+  background: $color;
+  background: rgba($color, $opacity);
+}
 
 @media only screen and (min-width: 1027px) {
   .alert-buttons {
