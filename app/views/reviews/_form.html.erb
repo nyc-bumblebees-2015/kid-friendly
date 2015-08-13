@@ -1,7 +1,7 @@
 <%= form_for [location,review] do |f| %>
   <div class="form_ratings">
     <fieldset class="rating">
-        <legend><%= f.label :overall_rating %></legend>
+        <legend><h4><%= f.label :overall_rating %></h4></legend>
         <%= f.radio_button(:overall_rating, 5, :id => "overall5", :name => "review[overall_rating]" ) %>
         <label for="overall5" title="overall: 5">5</label>
         <%= f.radio_button(:overall_rating, 4, :id => "overall4", :name => "review[overall_rating]" ) %>
@@ -14,7 +14,7 @@
         <label for="overall1" title="overall: 1">1</label>
     </fieldset>
     <fieldset class="rating">
-        <legend><%= f.label "Cleanliness" %></legend>
+        <legend><h4><%= f.label "Cleanliness" %></h4></legend>
         <%= f.radio_button(:cleanliness_rating, 5, :id => "cleanliness5", :name => "review[cleanliness_rating]" ) %>
         <label for="cleanliness5" title="cleanliness: 5">5</label>
         <%= f.radio_button(:cleanliness_rating, 4, :id => "cleanliness4", :name => "review[cleanliness_rating]" ) %>
@@ -27,7 +27,7 @@
         <label for="cleanliness1" title="cleanliness: 1">1</label>
     </fieldset>
     <fieldset class="rating">
-        <legend><%= f.label "Spaciousness" %></legend>
+        <legend><h4><%= f.label "Spaciousness" %></h4></legend>
         <%= f.radio_button(:spaciousness_rating, 5, :id => "spaciousness5", :name => "review[spaciousness_rating]" ) %>
         <label for="spaciousness5" title="spaciousness: 5">5</label>
         <%= f.radio_button(:spaciousness_rating, 4, :id => "spaciousness4", :name => "review[spaciousness_rating]" ) %>
@@ -41,7 +41,7 @@
     </fieldset>
   </div>
   <div class="form_fields">
-    <%= f.label "review" %>
+    <h4><%= f.label "review" %></h4>
 
             <textarea name="review[body]"></textarea>
         <script>
@@ -49,6 +49,6 @@
         </script>
   </div>
   <div class="form_fields">
-    <%= f.submit "Submit review" %>
+    <%= f.submit "Submit review", class: 'mdl-button mdl-button--raised mdl-button--accent' %>
   </div>
 <% end %>
