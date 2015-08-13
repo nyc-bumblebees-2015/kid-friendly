@@ -22,15 +22,12 @@
 
         <div id="search-results-container">
           <script id="search-results-template" type="text/x-handlebars-template">
-            <div id="api-search-locations-checkin">
+            <div class="queried-locations">
               {{#locations}}
-              <div id="search-location-index" class="quick-find-list">
-                <div class="quick-find-container-1">
-                 <a class="quick-list-name" href="/locations/{{id}}">{{name}}</a>
-                <br>
-                </div>
-                <div class="quick-find-container-2">
-                 <span class="quick-list-address">{{formatted_address}}</span>
+              <div id="search-location-index">
+                <div class="queried-location">
+                  <div><a class="queried-location-name" href="/locations/{{id}}">{{name}}</a></div>
+                  <div>{{formatted_address}}</div>
                 </div>
               </div>
                 {{/locations}}

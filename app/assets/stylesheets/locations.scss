@@ -9,6 +9,18 @@
   border-radius: 5px;
 }
 
+.queried-locations {
+  text-align: left;
+}
+
+.queried-location {
+  margin: 20px auto;
+}
+
+.queried-location-name {
+  color: $color-primary-dark;
+}
+
 div#api-search-locations-checkin{
   float:left;
   width:35%;
