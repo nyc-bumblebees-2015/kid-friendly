@@ -185,15 +185,14 @@ a {
 
 .mdl-list {
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: column;
   text-align: center;
-  padding: 0;
   line-height: 2em;
 }
 
 .mdl-list__item.mdl-card {
   min-height: 50px;
-  margin: 20px auto;
+  margin: 15px auto;
   background-color: #F5F6FF;
 }
 
