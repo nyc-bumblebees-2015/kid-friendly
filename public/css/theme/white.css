@@ -34,14 +34,15 @@ body {
  *********************************************/
 .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
   margin: 0 0 20px 0;
-  color: #222;
-  font-family: 'Source Sans Pro', Helvetica, sans-serif;
+  color: #009688;
+  font-family: 'Freckle Face', cursive;
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: normal;
   text-transform: uppercase;
   text-shadow: none;
-  word-wrap: break-word; }
+  word-wrap: break-word;
+}
 
 .reveal h1 {
   font-size: 2.5em; }
@@ -187,14 +188,14 @@ body {
  * LINKS
  *********************************************/
 .reveal a {
-  color: #2a76dd;
+  color: #009688;
   text-decoration: none;
   -webkit-transition: color 0.15s ease;
   -moz-transition: color 0.15s ease;
   transition: color 0.15s ease; }
 
 .reveal a:hover {
-  color: #6ca2e8;
+  color: #009688;
   text-shadow: none;
   border: none; }
 
@@ -225,28 +226,28 @@ body {
  * NAVIGATION CONTROLS
  *********************************************/
 .reveal .controls div.navigate-left, .reveal .controls div.navigate-left.enabled {
-  border-right-color: #2a76dd; }
+  border-right-color: #FF5252; }
 
 .reveal .controls div.navigate-right, .reveal .controls div.navigate-right.enabled {
-  border-left-color: #2a76dd; }
+  border-left-color: #FF5252; }
 
 .reveal .controls div.navigate-up, .reveal .controls div.navigate-up.enabled {
-  border-bottom-color: #2a76dd; }
+  border-bottom-color: #FF5252; }
 
 .reveal .controls div.navigate-down, .reveal .controls div.navigate-down.enabled {
-  border-top-color: #2a76dd; }
+  border-top-color: #FF5252; }
 
 .reveal .controls div.navigate-left.enabled:hover {
-  border-right-color: #6ca2e8; }
+  border-right-color: #f09191; }
 
 .reveal .controls div.navigate-right.enabled:hover {
-  border-left-color: #6ca2e8; }
+  border-left-color: #f09191; }
 
 .reveal .controls div.navigate-up.enabled:hover {
-  border-bottom-color: #6ca2e8; }
+  border-bottom-color: #f09191; }
 
 .reveal .controls div.navigate-down.enabled:hover {
-  border-top-color: #6ca2e8; }
+  border-top-color: #f09191; }
 
 /*********************************************
  * PROGRESS BAR

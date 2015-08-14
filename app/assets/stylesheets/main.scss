@@ -110,8 +110,15 @@ a {
   color: #536dfe!important;
 }
 
+#search-form {
+  display: flex;
+  flex-direciton: row;
+}
+
 .search-icon {
-  max-width: 20px;
+  width: 30px;
+  height: 30px;
+  align-self: center;
 }
 
 .features {
