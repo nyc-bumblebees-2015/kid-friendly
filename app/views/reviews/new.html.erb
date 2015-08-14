@@ -1,9 +1,14 @@
 <% provide(:title, "New Review") %>
-<div class="page_heading">
-<h2>New Review for <%= @location.name %></h2>
-<%= @location.formatted_address %>
-</div>
+<div class="mdl-grid location-new">
+  <div class="mdl-cell mdl-cell--1-col"></div>
+  <div class="mdl-cell mdl-cell--10-col">
+    <div class="page_heading">
+    <h2>New Review for <%= @location.name %></h2>
+    <%= @location.formatted_address %>
+    </div>
 
-<div class="form new_review">
-  <%= render partial: "form", locals: {location: @location, review: @review} %>
-</div>
+    <div class="form new_review">
+      <%= render partial: "form", locals: {location: @location, review: @review} %>
+    </div>
+  </div>
+<div class="mdl-cell mdl-cell--1-col"></div>

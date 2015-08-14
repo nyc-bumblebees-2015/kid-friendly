@@ -5,8 +5,24 @@
   justify-content: center;
   text-align: center;
   padding: 20px;
-  margin-top:400px;
+  margin-top:350px;
   border-radius: 5px;
+}
+
+.home-details {
+  justify-content: space-around;
+}
+
+.queried-locations {
+  text-align: left;
+}
+
+.queried-location {
+  margin: 20px auto;
+}
+
+.queried-location-name {
+  color: $color-primary-dark;
 }
 
 div#api-search-locations-checkin{
@@ -37,7 +53,7 @@ div#api-search-locations-checkin{
   left: 50%;
 }
 
-.location-show {
+.location-show, .location-new {
   max-width: 1000px;
   h2 {
     font-size: 35px;
@@ -48,7 +64,6 @@ div#api-search-locations-checkin{
     line-height: auto;
   }
 }
-
 
 .demo-card-wide.mdl-card {
   width: 100%;
@@ -66,7 +81,9 @@ div#api-search-locations-checkin{
 .location_details, .location_ratings {
   margin-right: 15px;
 }
-
+.amenities.mdl-card {
+  background-color: $color-accent;
+}
 .amenities .mdl-card__actions {
   display: flex;
   box-sizing: border-box;
@@ -75,6 +92,16 @@ div#api-search-locations-checkin{
 
 .amenities .material-icons {
   color: rgba(255,255,255,0.89);
+}
+
+.deals.mdl-card {
+  background-color: $color-accent;
+  .mdl-card__supporting-text {
+    line-height: 2em;
+  }
+  a {
+    color: $color-divider-color;
+  }
 }
 
 .location_reviews {
@@ -115,4 +142,12 @@ div#api-search-locations-checkin{
   display: flex;
   flex-direction: column;
   margin-right: 30px;
+}
+
+.submission-info {
+  margin-left: 20px;
+}
+
+#timer {
+  margin: 20px auto;
 }

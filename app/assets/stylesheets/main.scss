@@ -1,5 +1,6 @@
 body {
   width: 100%;
+  font-size: 18px;
 }
 
 h1 {
@@ -15,6 +16,10 @@ a {
   text-decoration: none;
 }
 
+.mdl-textfield {
+  width: 100%
+}
+
 #search-location-index{
   width: 145%;
   margin-top: 10px;
@@ -22,8 +27,13 @@ a {
 }
 
 .home .mdl-layout__content {
-  background: url("index_picture.jpg") no-repeat center center fixed;
+  background: url("/index_picture.jpg") no-repeat center center fixed;
   background-size: cover;
+  background-color: $color-divider-color;
+}
+
+.home-details {
+  background-color: #FFF;
 }
 
 #slogan {
@@ -72,11 +82,11 @@ a {
 
 .quick-find-container-1 {
   margin: 12px;
-  font-size: 18px;
+  font-size: 1.2;
 }
 
 .quick-find-container-2 {
-  font-size: 14px;
+  font-size: 1em;
 }
 
 .mdl-button__ripple-container {
@@ -219,4 +229,33 @@ a {
 
 .mdl-logo {
   margin-bottom: -10px;
+}
+
+select#proximity {
+  border: none;
+  font-size: 16px;
+}
+
+.home-details {
+  .mdl-card__media {
+    text-align: center;
+    background-color: #FFF;
+  }
+  .mdl-card__media img{
+    max-width: 100px;
+  }
+  .mdl-card__title {
+    justify-content: center;
+    color: $color-accent;
+  }
+  .mdl-card__supporting-text {
+    line-height: 2em;
+    font-size: 16px;
+    text-align: justify;
+  }
+  .mdl-card__actions {
+    margin-top: 20px;
+    text-align: right;
+    color: $color-accent;
+  }
 }

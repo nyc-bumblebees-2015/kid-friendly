@@ -1,45 +1,81 @@
-<div class="picture-div">
+<div class="home-hero">
   <div class="demo-grid-1 mdl-grid">
-    <div class="mdl-cell mdl-cell--4-col"></div>
-    <div class="primary mdl-cell mdl-cell--4-col">
-        <h4 id='slogan'>"ensure a great time for all"</h4>
-            <form id="search-form">
-              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-                <input class="mdl-textfield__input" id="search" type="text">
-                <label class="mdl-textfield__label" for="sample3">Enter a location</label>
-              </div>
-              <input type="image" src="/ic_search_black_24dp_2x.png" value="Search" class="search-icon">
-            </form>
-            <div class="distance-menu">
-              <p>Please select a search radius</p>
-            <select id="proximity">
-              <option value=".5" class="mdl-menu__item">within .5</option>
-              <option value="5" class="mdl-menu__item">within 5 miles</option>
-              <option value="50" class="mdl-menu__item">within 50 miles</option>
-              <option value="anywhere" class="mdl-menu__item">Anywhere</option>
-            </select>
-            </div>
-
-        <div id="search-results-container">
-          <script id="search-results-template" type="text/x-handlebars-template">
-            <div id="api-search-locations-checkin">
-              {{#locations}}
-              <div id="search-location-index" class="quick-find-list">
-                <div class="quick-find-container-1">
-                 <a class="quick-list-name" href="/locations/{{id}}">{{name}}</a>
-                <br>
-                </div>
-                <div class="quick-find-container-2">
-                 <span class="quick-list-address">{{formatted_address}}</span>
-                </div>
-              </div>
-                {{/locations}}
-            </div>
-          </script>
+    <div class="mdl-cell mdl-cell--3-col"></div>
+    <div class="primary mdl-cell mdl-cell--6-col">
+      <form id="search-form">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+          <input class="mdl-textfield__input" id="search" type="text">
+          <label class="mdl-textfield__label" for="sample3">Enter a location</label>
         </div>
-        <div id="search-results-list"></div>
+        <input type="image" src="/ic_search_black_24dp_2x.png" value="Search" class="search-icon">
+      </form>
+      <div class="distance-menu">
+        <p>Please select a search radius</p>
+        <select id="proximity">
+          <option value=".5" class="mdl-menu__item">within .5</option>
+          <option value="5" class="mdl-menu__item">within 5 miles</option>
+          <option value="50" class="mdl-menu__item">within 50 miles</option>
+          <option value="anywhere" class="mdl-menu__item">Anywhere</option>
+        </select>
       </div>
+
+      <div id="search-results-container">
+        <script id="search-results-template" type="text/x-handlebars-template">
+          <div class="queried-locations">
+            {{#locations}}
+            <div id="search-location-index">
+              <div class="queried-location">
+                <div><a class="queried-location-name" href="/locations/{{id}}">{{name}}</a></div>
+                <div>{{formatted_address}}</div>
+              </div>
+            </div>
+              {{/locations}}
+          </div>
+        </script>
+      </div>
+      <div id="search-results-list"></div>
     </div>
-    <div class="mdl-cell mdl-cell--4-col"></div>
+    <div class="mdl-cell mdl-cell--3-col"></div>
+  </div>
+</div>
+<div class="home-details demo-grid-2 mdl-grid">
+
+  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card">
+      <div class="mdl-card__media">
+        <img src="lookup.png">
+      </div>
+      <div class="mdl-card__title">
+        <h4>Be Prepared</h4>
+      </div>
+      <div class="mdl-card__supporting-text">
+      So you're going out with your family that includes small kids. Does that restaurant have high chairs? Does that park have restrooms? Does that museum have a nursing station. With kidpanion your questions are answered. Find out if the location your planning to go to next has what you need in order for your family to have a good time.
+      </div>
+      <!-- <div class="mdl-card__actions">Look up a destination</div> -->
+  </div>
+
+  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card">
+      <div class="mdl-card__media">
+        <img src="diaper_icon.png">
+      </div>
+      <div class="mdl-card__title">
+        <h4>Brown Alert!</h4>
+      </div>
+      <div class="mdl-card__supporting-text">
+      Oh no! Little Jimmy had an accident while the family is on a site seeing trip in the city. Don't look for the nearest park bench to change him. kidpanion is there at a moment's notice, ready to tell you where the nearest changing station is with the quick-click Change Me button. And check out Nourish Me to locate the closest nursings stations to you.
+      </div>
+      <!-- <div class="mdl-card__actions">Search Nearby Amenities</div> -->
+  </div>
+
+  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card">
+      <div class="mdl-card__media">
+        <img src="review_icon.png">
+      </div>
+      <div class="mdl-card__title">
+        <h4>Pay It Forward</h4>
+      </div>
+      <div class="mdl-card__supporting-text">
+        Now that you've realized the benefits of kidpanion, it's time to do your part. Leave a rating and review for the place you enjoyed (or didn't enjoy) with your small children. Also if you're out and about and see an amenity others might benefit from, go ahead and check it in.
+      </div>
+      <!-- <div class="mdl-card__actions">Report an amenity</div> -->
   </div>
 </div>

@@ -8,7 +8,7 @@
 <% if @location.reviews? %>
       <div class="location_reviews">
         <h3><%= pluralize(@location.reviews.count, "review") %></h3>
-        <% @location.reviews.each do |review| %>
+        <% @location.recent_reviews.each do |review| %>
           <%= render partial: 'location_review', locals: {location: @location, review: review, likes: @likes} %>
         <% end %>
       </div>
@@ -22,10 +22,5 @@
       <%= render partial: 'deal', locals: {location: @location} %>
     <% end %>
     <div>
-      <div>
-        <% if current_user && current_user.is_admin? %>
-           <%= render partial: 'admin_panel', locals: {location: @location} %>
-        <% end %>
-      </div>
   </div>
 </div>

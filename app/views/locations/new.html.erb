@@ -1,21 +1,21 @@
-<div>
-  <% provide(:title, "Add a New Location") %>
-  <h2><%= yield(:title) %></h2>
+<% provide(:title, "Add a New Location") %>
+<div class="mdl-grid location-new">
+  <div class="mdl-cell mdl-cell--2-col"></div>
+  <div class="mdl-cell mdl-cell--6-col">
+    <h2><%= yield(:title) %></h2>
+    <form>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+        <input class="mdl-textfield__input" id="searchTextField" type="text" placeholder="">
+        <label class="mdl-textfield__label" for="sample3">Enter a Location</label>
+      </div>
+    </form>
 
-  <form>
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-      <input class="mdl-textfield__input" id="searchTextField" type="text" placeholder="">
-      <label class="mdl-textfield__label" for="sample3">Enter a Location</label>
+    <div id="search-data-display">
+      <h5>Location Form</h5>
+      <p><span id="search-data-name"></span></p>
+      <p><span id="search-data-address"></span></p>
     </div>
-  </form>
-
-
-  <div id="search-data-display">
-    <h5>Location Form</h5>
-    <p><span id="search-data-name"></span></p>
-    <p><span id="search-data-address"></span></p>
+    <%= render "form" %>
   </div>
-
-  <%= render "form" %>
+  <div class="mdl-cell mdl-cell--2-col"></div>
 </div>
-
