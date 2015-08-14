@@ -94,6 +94,16 @@ div#api-search-locations-checkin{
   color: rgba(255,255,255,0.89);
 }
 
+.deals.mdl-card {
+  background-color: $color-accent;
+  .mdl-card__supporting-text {
+    line-height: 2em;
+  }
+  a {
+    color: $color-divider-color;
+  }
+}
+
 .location_reviews {
   margin-top: 30px;
 }
