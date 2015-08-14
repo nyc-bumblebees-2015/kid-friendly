@@ -3,6 +3,10 @@
   ;
 }
 
+h2.user-heading {
+  text-align: left;
+}
+
 h3.review-count-header{
   font-size:32px;
 }
@@ -17,7 +21,7 @@ h3.review-count-header{
 
 a.review-title {
   text-decoration: none;
-  color: #4caf50;
+  color: $color-primary-text;
 }
 
 a.review-title:hover{
@@ -25,12 +29,12 @@ a.review-title:hover{
 }
 .time-ago{
   font-size: 11px;
-  color: #4caf50;
+  color: $color-primary-text;
 }
 
 .user-profile-review{
   font-size: 16px;
-  color: #4caf50;
+  color: $color-primary-text;
 }
 
 .star-rating {
@@ -39,9 +43,9 @@ a.review-title:hover{
 
 .helpful_points {
   font-size: 11px;
-  color: #4caf50;
+  color: $color-primary-text;
 }
 .helped{
   font-size: 11px;
-  color: #4caf50;
+  color: $color-primary-text;
 }
