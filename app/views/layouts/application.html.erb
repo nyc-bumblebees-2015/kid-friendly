@@ -47,6 +47,7 @@
             </div>
             <ul class="mdl-mini-footer__link-list">
               <li><a href="/presentation.html#/1">About</a></li>
+              <li><%= link_to "Admin Panel", admin_root_path if current_admin_user %></li>
               <li><%= link_to 'Search Locations', root_path %></li>
             </ul>
           </div>
